@@ -32,10 +32,6 @@ for (const n in image_paths) {
     )
     ncounter += 1
 }
-console.log(image_tags_as_string)
-image_tags_as_string = image_tags_as_string.toString()
-image_tags_as_string.replace(",", "\n")
-
 </script>
 
 
