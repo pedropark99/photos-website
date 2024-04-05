@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+:root {
+    background-color: #fff3d4;
+    font-family: 'Hanken Grotesk', sans-serif;
+    color: #222222;
+    font-size: 12pt;
+    --main-text-brown-color: #421b0c;
+}
+
+.window {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    column-gap: 30px;
+}
+
+.pageContent {
+    margin-right: 40px;
+}
