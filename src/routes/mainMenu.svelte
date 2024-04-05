@@ -16,6 +16,10 @@
 		margin-bottom: 50px;
 	}
 
+	.mainMenu {
+		margin-left: 20px;
+	}
+
 	.menuOption {
 		font-family: "Outfit", sans-serif;
 		font-size: 12pt;
