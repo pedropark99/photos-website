@@ -1,59 +1,61 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	import ImageList from "./imageList.svelte";
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<div class="window">
+<div class="mainMenu">
 
-<section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
+	<h1>Pedro Faria</h1>
 
-		to your new<br />SvelteKit app
-	</h1>
+	<h2>About me</h2>
+	<h2>Street Photography</h2>
+	<h2>Portraits</h2>
 
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
+</div>
 
-	<Counter />
-</section>
+<div class="container">
+	<div class="emptyHeader" />
+	<ImageList/>
+</div>
+
+</div>
+
+
+
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
+	@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400&family=Roboto&display=swap');
+
+	:root {
+		background-color: #fff3d4;
+		font-family: 'Hanken Grotesk', sans-serif;
+		color: #222222;
+		font-size: 12pt;
 	}
+	.emptyHeader {
+		display: grid;
+		grid-template-rows: 50px;
+	}
+
+	.window {
+		display: grid;
+		grid-template-columns: 15% 80%;
+		gap: 10px;
+	}
+
 
 	h1 {
-		width: 100%;
+		font-family: Cormorant, serif;
+		font-size: 33pt;
+		color: #3c190b;
+		margin-bottom: 50px;
 	}
 
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
+	h2 {
+		font-family: Cormorant, serif;
+		font-size: 18pt;
+		font-weight: 400;
+		color: #3c190b;
 	}
 </style>
