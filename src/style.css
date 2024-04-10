@@ -8,14 +8,32 @@
     color: #222222;
     font-size: 12pt;
     --main-text-brown-color: #421b0c;
+    --soft-brown-color: #c78369;
+    --moonstone-blue: #63b0cd;
+    --argentinian-blue: #77B6EA;
+    --orange-coral-color: #FF8A5B;
 }
 
 .window {
     display: grid;
     grid-template-columns: 20% 80%;
-    column-gap: 30px;
+    column-gap: 50px;
 }
 
 .pageContent {
-    margin-right: 40px;
+    margin-right: calc(20%);
 }
+
+h2 {
+    font-family: Outfit, serif;
+    font-size: 25pt;
+    font-weight: bold;
+    color: #3c190b;
+    margin-bottom: 10px;
+}
+
+
+p {
+    text-align: justify;
+}
+
