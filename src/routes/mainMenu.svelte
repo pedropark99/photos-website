@@ -2,23 +2,9 @@
 	import Fa from 'svelte-fa';
 	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
     import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-	import { redirect } from '@sveltejs/kit';
+	import {locale} from "./language"
 
 	import Switch from './Switch.svelte';
-	
-	let choosen_language;
-	function exchange_language() {
-		console.log("Exchanging languages!")
-		if (choosen_language === "Português") {
-			
-		} else {
-			
-		}
-
-	}
-
-	$: choosen_language, exchange_language()
-
 </script>
 
 <div class="mainMenu">
@@ -32,7 +18,7 @@
 	</div>
 
 	<br>
-	<Switch bind:value={choosen_language} label="" design="multi" options={['English', 'Português']}/>
+	<Switch bind:value={$locale} label="" design="multi" options={['English', 'Português']}/>
 
 
 	<br><br><br>
