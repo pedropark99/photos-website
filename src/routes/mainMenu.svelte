@@ -1,7 +1,24 @@
 <script>
-	import Fa from 'svelte-fa'
+	import Fa from 'svelte-fa';
 	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
     import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+	import { redirect } from '@sveltejs/kit';
+
+	import Switch from './Switch.svelte';
+	
+	let choosen_language;
+	function exchange_language() {
+		console.log("Exchanging languages!")
+		if (choosen_language === "Português") {
+			
+		} else {
+			
+		}
+
+	}
+
+	$: choosen_language, exchange_language()
+
 </script>
 
 <div class="mainMenu">
@@ -14,12 +31,21 @@
 		<a href="mailto:pedropark99@gmail.com"><Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="20pt"/></a>
 	</div>
 
+	<br>
+	<Switch bind:value={choosen_language} label="" design="multi" options={['English', 'Português']}/>
+
+
 	<br><br><br>
 
 	<div class="menuOption"><a href=".">HOME</a></div>
     <div class="menuOption"><a href="/about">ABOUT ME</a></div>
     <div class="menuOption"><a href="/street">STREET PHOTOGRAPHY</a></div>
     <div class="menuOption"><a href="/portrait">PORTRAITS</a></div>
+
+
+	<br><br><br><br><br><br><br><br><br>
+
+	<div>&copy Copyright Pedro Faria.</div>
 </div>
 
 
