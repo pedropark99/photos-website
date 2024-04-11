@@ -59,12 +59,12 @@ p {
 }
 
 
-a {
+.mainMenu a {
     color: var(--main-text-brown-color);
     text-decoration: none;
 }
 
-a:hover {
+.mainMenu a:hover {
     color: #222222;
 }
 
