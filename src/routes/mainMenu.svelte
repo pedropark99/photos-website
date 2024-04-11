@@ -36,7 +36,6 @@
 
 	<br><br>
 
-
 	{@html menu_options[local_locale]["options"]}
 
 	<br><br><br><br><br><br><br><br><br>
