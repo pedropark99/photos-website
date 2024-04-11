@@ -56,33 +56,5 @@
 		margin-left: 30px;
 	}
 
-	.menuOption {
-		font-family: "Outfit", sans-serif;
-		font-size: 11pt;
-		font-weight: bold;
-		color: var(--main-text-brown-color);
-        margin-bottom: 25px;
-	}
 
-	.menuOption:hover {
-		width: fit-content;
-		height: 25px;
-		padding-left: 5px;
-		padding-right: 5px;
-		border-radius: 5px;
-		background-color: var(--argentinian-blue);
-		display: flex;
-		justify-content:center;
-		align-items: center;
-	}
-
-
-	a {
-		color: var(--main-text-brown-color);
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: #222222;
-	}
 </style>

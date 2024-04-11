@@ -5,6 +5,19 @@
 	import {locale} from "../stores"
 
 	import Switch from './Switch.svelte';
+
+	let local_locale = "Português";
+	const menu_options = {
+		"Português": {
+			"options": "<div class=\"menuOption\"><a href=\".\">HOME</a></div> <div class=\"menuOption\"><a href=\"/about\">SOBRE MIM</a></div> <div class=\"menuOption\"><a href=\"/street\">FOTOGRAFIA DE RUA</a></div> <div class=\"menuOption\"><a href=\"/portrait\">RETRATOS</a></div>"
+		},
+		"English": {
+			"options": "<div class=\"menuOption\"><a href=\".\">HOME</a></div> <div class=\"menuOption\"><a href=\"/about\">ABOUT ME</a></div> <div class=\"menuOption\"><a href=\"/street\">STREET PHOTOGRAPHY</a></div> <div class=\"menuOption\"><a href=\"/portrait\">PORTRAITS</a></div>"
+		}
+	};
+
+	const locale_callback = locale.subscribe((value) => local_locale = value);
+
 </script>
 
 <div class="mainMenu">
@@ -21,13 +34,10 @@
 	<Switch bind:value={$locale} label="" design="multi" options={['English', 'Português']}/>
 
 
-	<br><br><br>
+	<br><br>
 
-	<div class="menuOption"><a href=".">HOME</a></div>
-    <div class="menuOption"><a href="/about">ABOUT ME</a></div>
-    <div class="menuOption"><a href="/street">STREET PHOTOGRAPHY</a></div>
-    <div class="menuOption"><a href="/portrait">PORTRAITS</a></div>
 
+	{@html menu_options[local_locale]["options"]}
 
 	<br><br><br><br><br><br><br><br><br>
 
@@ -59,33 +69,4 @@
 		margin-left: 30px;
 	}
 
-	.menuOption {
-		font-family: "Outfit", sans-serif;
-		font-size: 11pt;
-		font-weight: bold;
-		color: var(--main-text-brown-color);
-        margin-bottom: 25px;
-	}
-
-	.menuOption:hover {
-		width: fit-content;
-		height: 25px;
-		padding-left: 5px;
-		padding-right: 5px;
-		border-radius: 5px;
-		background-color: var(--argentinian-blue);
-		display: flex;
-		justify-content:center;
-		align-items: center;
-	}
-
-
-	a {
-		color: var(--main-text-brown-color);
-		text-decoration: none;
-	}
-
-	a:hover {
-		color: #222222;
-	}
 </style>
