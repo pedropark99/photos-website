@@ -2,7 +2,7 @@
 	import Fa from 'svelte-fa';
 	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
     import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
-	import {locale} from "./language"
+	import {locale} from "../stores"
 
 	import Switch from './Switch.svelte';
 </script>
