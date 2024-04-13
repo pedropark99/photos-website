@@ -30,7 +30,7 @@
 
 	<Masonry items={images} colWidth={"450px"}>
 		{#each images as image}
-				<div class="grid-item"><img src="{image}" alt="" width="100%"/></div>
+				<div class="grid-item"><img loading="lazy" src="{image}" alt="" width="100%"/></div>
 		{/each}
 	</Masonry>
 
