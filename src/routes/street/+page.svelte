@@ -3,20 +3,9 @@
 	import Masonry from "../../lib/Masonry.svelte";
 	
 	const images = [
-		'IMG_8304.jpg',
-		'IMG_8305.jpg',
-		'IMG_8307.jpg',
-		'IMG_8308.jpg',
-		'IMG_8310.jpg',
-		'IMG_8311.jpg',
-		'IMG_8312.jpg',
-		'IMG_8315.jpg',
-		'IMG_8316.jpg',
-		'IMG_8317.jpg',
-		'IMG_8318.jpg',
-		'IMG_8320.jpg',
-		'IMG_8363.jpg',
-		'IMG_8383.jpg'
+		'street/IMG_8363.jpg',
+		'street/IMG_8378.jpg',
+		'street/IMG_8383.jpg'
 	]
 
 </script>
