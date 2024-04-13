@@ -1,6 +1,6 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
-
+	import Masonry from "../../lib/Masonry.svelte";
 	
 	const images = [
 		'IMG_8304.jpg',
@@ -23,17 +23,17 @@
 
 
 
-
 <div class="window">
 	<MainMenu/>
 	<div class="pageContent">
 
 
-	<div class="imageListContainer">
+	<Masonry items={images} colWidth={"450px"}>
 		{#each images as image}
-				<div class="col"><img src="{image}" alt="" width="60%" /></div>
+				<div class="grid-item"><img src="{image}" alt="" width="100%"/></div>
 		{/each}
-	</div>
+	</Masonry>
+
 
 
 	</div>
@@ -42,20 +42,11 @@
 
 <style>
 	.pageContent {
-		margin-right: calc(10%);
+		margin-right: calc(5%);
 	}
 
-	.imageListContainer {
-		display: flex;
-		flex-wrap: wrap;
-		margin-top: 100px;
-	}
-	.col {
-		height: auto;
-		width: calc(100% / 4);
-		display: flex;
-		flex-direction: column;
-		padding: 5px;
+	.grid-item {
+		width: 450px;
 	}
 
 	svg {
