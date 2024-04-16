@@ -1,13 +1,14 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
-	
-	const images = [
-		'street/IMG_8363.jpg',
-		'street/IMG_8378.jpg',
-		'street/IMG_8383.jpg'
-	]
+	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
 
+	var images = [];
+	var image_path_fixed;
+	for (const image_path in images_paths) {
+		image_path_fixed = String(image_path).replace('../../../static/', '')
+		images.push(image_path_fixed)
+	}
 </script>
 
 
