@@ -80,6 +80,7 @@
     .cardsContainer img {
         width: auto;
         height: 500px;
+        border-radius: 10px;
     }
 
 	.arrowSwitchCard {
@@ -111,6 +112,10 @@
         margin: 5px;
     }
 
+    .buttonSwitchCard:hover {
+        cursor: pointer;
+    }
+
     .buttonSwitchCard:active {
         background-color: var(--argentinian-blue);
         border: #222222;
@@ -122,6 +127,7 @@
     }
 
     .arrowSwitchCard:hover {
+        cursor: pointer;
         background-color: var(--main-text-brown-color);
         border-radius: 5px;
 	}
