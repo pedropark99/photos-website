@@ -28,15 +28,13 @@
 		wrap: {
 			id: 'slidy_cards',
 			width: '800px',
-			height: '520px',
+			height: '590px',
 			padding: '20px 0 20px',
 			align: 'middle',
 			alignmargin: 0,
 		},
 		slide: {
 			gap: 20,
-			width: '650px',
-			height: '500px',
 			backimg: false,
 			imgsrckey: 'src',
 			objectfit: 'contain',
@@ -103,8 +101,21 @@
 	}
 
 	.slide img {
+		width: auto;
+		height: auto;
 		border-radius: 15px;
 		box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.5);
+	}
+
+	.slide {
+		display: flex;
+    	padding: 10px;
+		border-radius: 15px;
+    	overflow: hidden;
+		justify-content: center;
+		text-align: center;
+		width: 650px;
+		height: 500px;
 	}
 
 	:global(#slidy_cards .slidy-dots li.active button) {
