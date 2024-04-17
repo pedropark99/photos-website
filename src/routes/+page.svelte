@@ -1,5 +1,5 @@
 <script>
-	import MainMenu from "./mainMenu.svelte"
+	import MainMenu from "./mainMenu.svelte";
 	import { onMount } from 'svelte';
 	import Cards from './cards.svelte';
 	import { locale } from "../stores";
@@ -24,8 +24,9 @@
 </script>
 
 
-<div class="window">
+<div class="app">
 	<MainMenu/>
+
 	<div class="pageContent">
 		{@html page_content_options[local_locale]["homepage.welcome"]}
 		{@html page_content_options[local_locale]["homepage.body.p1"]}

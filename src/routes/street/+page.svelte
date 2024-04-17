@@ -13,7 +13,7 @@
 
 
 
-<div class="window">
+<div class="app">
 	<MainMenu/>
 	<div class="pageContent">
 

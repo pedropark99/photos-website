@@ -16,7 +16,8 @@
     --orange-coral-color: #FF8A5B;
 }
 
-.window {
+
+.app {
     display: grid;
     grid-template-columns: 18% 82%;
     column-gap: 50px;

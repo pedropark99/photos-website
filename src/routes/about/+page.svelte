@@ -18,7 +18,7 @@
 </script>
 
 
-<div class="window">
+<div class="app">
 	<MainMenu/>
     <div class="pageContent">
         {@html page_content_options[local_locale]["homepage.title"]}
