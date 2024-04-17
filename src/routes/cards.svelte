@@ -7,9 +7,16 @@
         'portraits/IMG_8330.jpg'
     ]
     
-    var current_image_index = 0
-    let current_image = images[0]
+    function build_image_tag(image_path) {
+        return "<img class=\"mainImageDisplay\" src=\"" + image_path + "\" alt=\"\" width=\"60%\" />";
+    }
+    
+    var current_image_index = 0;
+    let current_image = images[0];
+    let current_image_element = build_image_tag(current_image);
+
     $: current_image;
+    $: current_image_element;
 
     function set_current_image_focus() {
         var buttons = document.getElementsByClassName("buttonSwitchCard");
@@ -21,12 +28,14 @@
         if (current_image_index === (images.length - 1)) {
             current_image_index = 0;
             current_image = images[current_image_index];
+            current_image_element = build_image_tag(current_image);
             set_current_image_focus();
             return
         }
         
         current_image_index++;
         current_image = images[current_image_index];
+        current_image_element = build_image_tag(current_image);
         set_current_image_focus();
     }
 
@@ -34,12 +43,14 @@
         if (current_image_index === 0) {
             current_image_index = (images.length - 1)
             current_image = images[current_image_index];
+            current_image_element = build_image_tag(current_image);
             set_current_image_focus();
             return
         }
         
         current_image_index--;
         current_image = images[current_image_index];
+        current_image_element = build_image_tag(current_image);
         set_current_image_focus();
     }
 
@@ -47,14 +58,15 @@
         const index_as_int = parseInt(button_elem.target.id);
         current_image_index = index_as_int;
         current_image = images[current_image_index];
+        current_image_element = build_image_tag(current_image);
         set_current_image_focus();
     }
 </script>
 
 
 <div class="imageCardsContainer">
-    <div class="cardsContainer">
-        <img class="mainImageDisplay" in:fade={{ delay: 250, duration: 300 }} out:fade={{ delay: 250, duration: 300 }} src="{current_image}" alt="" width="60%" />
+    <div class="cardsContainer" transition:fade>
+        {@html current_image_element}
     </div>
 
     <div class="buttonsContainer">
