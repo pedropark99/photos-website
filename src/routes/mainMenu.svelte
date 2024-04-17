@@ -40,7 +40,7 @@
 
 	<br><br><br><br><br><br><br><br><br>
 
-	<div>&copy Copyright Pedro Faria.</div>
+	<div>&copy Copyright 2024 Pedro Faria.</div>
 </div>
 
 

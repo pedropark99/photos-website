@@ -18,7 +18,7 @@
 	<div class="pageContent">
 
 
-	<Masonry items={images} colWidth={"450px"}>
+	<Masonry items={images} colWidth={"350px"}>
 		{#each images as image}
 				<div class="grid-item"><img loading="lazy" src="{image}" alt="" width="100%"/></div>
 		{/each}
@@ -36,7 +36,7 @@
 	}
 
 	.grid-item {
-		width: 450px;
+		width: 350px;
 	}
 
 	svg {
