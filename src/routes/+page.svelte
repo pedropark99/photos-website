@@ -1,6 +1,7 @@
 <script>
 	import MainMenu from "./mainMenu.svelte"
 	import { Slidy } from 'svelte-slidy';
+	import { onMount } from 'svelte';
 	import cards from './cards.js';
 	import { locale } from "../stores"
 
@@ -20,6 +21,7 @@
 	
 	let local_locale = "Português";
 	const translate_call = locale.subscribe((value) => local_locale = value);
+
 
 	const slidy_cards = {
 		slides: cards,
@@ -55,6 +57,15 @@
 			duration: 350,
 		}
 	}
+
+	onMount( () => {
+		var arrow_right = (
+			document.getElementById("slidy_cards")
+				.getElementsByClassName("slidy-dots pure dots-arrow-left")
+		);
+		console.log(arrow_right);
+	});
+
 </script>
 
 
@@ -102,9 +113,11 @@
 	}
 	:global(#slidy_cards .slidy-dots li.dots-arrow-right button) {
 		color: #77B6EA !important;
+		font-size: 20pt;
 	}
 	:global(#slidy_cards .slidy-dots li.dots-arrow-left button) {
 		color: #77B6EA !important;
+		font-size: 20pt;
 	}
 
 
