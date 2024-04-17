@@ -1,9 +1,8 @@
 <script>
 	import MainMenu from "./mainMenu.svelte"
-	import { Slidy } from 'svelte-slidy';
 	import { onMount } from 'svelte';
-	import cards from './cards.js';
-	import { locale } from "../stores"
+	import Cards from './cards.svelte';
+	import { locale } from "../stores";
 
 	const page_content_options = {
 		English: {
@@ -22,48 +21,6 @@
 	let local_locale = "Português";
 	const translate_call = locale.subscribe((value) => local_locale = value);
 
-
-	const slidy_cards = {
-		slides: cards,
-		wrap: {
-			id: 'slidy_cards',
-			width: '800px',
-			height: '590px',
-			padding: '20px 0 20px',
-			align: 'middle',
-			alignmargin: 0,
-		},
-		slide: {
-			gap: 20,
-			backimg: false,
-			imgsrckey: 'src',
-			objectfit: 'contain',
-		},
-		controls: {
-			dots: true,
-			dotsnum: true,
-			dotsarrow: true,
-			dotspure: true,
-			arrows: false,
-			keys: true,
-			drag: true,
-			wheel: true,
-		},
-		options: {
-			axis: 'x',
-			loop: true,
-			duration: 350,
-		}
-	}
-
-	onMount( () => {
-		var arrow_right = (
-			document.getElementById("slidy_cards")
-				.getElementsByClassName("slidy-dots pure dots-arrow-left")
-		);
-		console.log(arrow_right);
-	});
-
 </script>
 
 
@@ -73,12 +30,7 @@
 		{@html page_content_options[local_locale]["homepage.welcome"]}
 		{@html page_content_options[local_locale]["homepage.body.p1"]}
 
-		<Slidy {...slidy_cards} let:item >
-			<div class="slide">
-				<img alt="" src="{item.src}"/>
-			</div>
-		</Slidy>
-
+		<Cards/>
 		{@html page_content_options[local_locale]["homepage.body.p2"]}
 	</div>
 </div>
