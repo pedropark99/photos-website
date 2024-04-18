@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import {fade, slide} from 'svelte/transition';
+    import { fade } from 'svelte/transition';
     import Modal from './Modal.svelte';
     let showModal = false;
     const images = [
