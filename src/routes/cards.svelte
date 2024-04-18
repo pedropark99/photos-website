@@ -60,7 +60,19 @@
 </script>
 
 
-<div class="imageCardsContainer">
+<div class="imageCardsContainer">    
+
+    <div class="buttonsContainer">
+        
+        <button class="arrowSwitchCard" on:click={previous_image}>←</button>
+        {#each images as image, index }
+        <button id="{index}" class="buttonSwitchCard" on:click={(event) => switch_image_focus(event)}></button>
+        {/each}
+        <button class="arrowSwitchCard" on:click={next_image}>→</button>
+        
+    </div>
+
+
     {#key current_image}
     <div class="cardsContainer" in:fade={{delay:50, duration:700}}>
         <img class="mainImageDisplay" src="{current_image}" alt="" width="60%" on:click={() => (showModal = true)}/>
@@ -71,28 +83,19 @@
     </Modal>
     
     {/key}
-    
-    <div class="buttonsContainer">
-        
-        <button class="arrowSwitchCard" on:click={previous_image}>←</button>
-        {#each images as image, index }
-        <button id="{index}" class="buttonSwitchCard" on:click={(event) => switch_image_focus(event)}></button>
-        {/each}
-        <button class="arrowSwitchCard" on:click={next_image}>→</button>
-        
-    </div>
+
 </div>
 
 
 <style>
     .imageCardsContainer {
         display: grid;
-        grid-template-rows: 85% 15%;
+        grid-template-rows: 15% 85%;
         grid-template-columns: 1fr;
-        padding-top: 20px;
         gap: 10px;
         place-items: center;
         text-align: center;
+        margin-bottom: 50px;
     }
 
     .imageInModal {
@@ -118,6 +121,15 @@
         border: none;
         margin-left: 20px;
         margin-right: 20px;
+    }
+
+    .arrowSwitchCard:hover {
+        -ms-transform: translateY(-10%);
+        transform: translateY(-10%);
+        cursor: pointer;
+        height: 40px;
+        background-color: var(--main-text-brown-color);
+        border-radius: 5px;
     }
     
     .buttonsContainer {
@@ -153,12 +165,6 @@
     .buttonSwitchCard:focus {
         background-color: var(--argentinian-blue);
         border: #222222;
-    }
-    
-    .arrowSwitchCard:hover {
-        cursor: pointer;
-        background-color: var(--main-text-brown-color);
-        border-radius: 5px;
     }
     
 
