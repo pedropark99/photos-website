@@ -73,8 +73,8 @@
 {/if}
 
 <style>
-			:root {
-		--accent-color: CornflowerBlue;
+	:root {
+		--accent-color: #77B6EA;
 		--gray: #ccc;
 	}
     /* Inner Design Option */

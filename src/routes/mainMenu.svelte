@@ -72,7 +72,7 @@
 		font-size: 38pt;
 		font-style: italic;
 		color: var(--main-text-brown-color);
-		margin-bottom: 0pt;
+		margin-bottom: 0px;
 	}
 
 	hr {
