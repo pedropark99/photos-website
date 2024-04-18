@@ -9,7 +9,7 @@
 	let local_locale = "Português";
 	const menu_options = {
 		"Português": {
-			"description": "Fotógrafo 📷 baseado em Belo Horizonte - Brasil. Fotografia de rua e de retratos.",
+			"description": "Fotógrafo 📷 baseado em Belo Horizonte - Brasil. Fotografia de rua e retratos.",
 			"home.label": "HOME",
 			"about.label": "SOBRE MIM",
 			"street.label": "FOTOGRAFIA DE RUA",
