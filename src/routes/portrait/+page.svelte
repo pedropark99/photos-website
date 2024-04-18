@@ -3,6 +3,7 @@
 	import Masonry from "../../lib/Masonry.svelte";
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
+	let refreshLayout;
 	var images = [];
 	var image_path_fixed;
 	for (const image_path in images_paths) {
@@ -18,9 +19,9 @@
 	<div class="pageContent">
 
 
-	<Masonry items={images} colWidth={"450px"}>
+	<Masonry items={images} colWidth={"450px"} bind:refreshLayout={refreshLayout}>
 		{#each images as image}
-				<div class="grid-item"><img loading="lazy" src="{image}" alt="" width="100%"/></div>
+				<div class="grid-item"><img loading="lazy" on:load={refreshLayout} src="{image}" alt="" width="100%"/></div>
 		{/each}
 	</Masonry>
 
