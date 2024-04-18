@@ -56,7 +56,7 @@
 
 <div class="imageCardsContainer">
     {#key current_image}
-        <div class="cardsContainer" in:fade={{delay:10, duration:400}}>
+        <div class="cardsContainer" in:fade={{delay:50, duration:700}}>
             <img class="mainImageDisplay" src="{current_image}" alt="" width="60%" />
         </div>
     {/key}
