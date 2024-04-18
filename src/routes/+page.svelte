@@ -40,7 +40,7 @@
 
 	<div class="pageContent">
 		
-		<br><br>
+		<br>
 		{#if ready}
 		<div transition:fade={{ delay: 250, duration: 300 }}>
 			<h1 transition:fade={{delay: 10, durantion: 200}}>{page_text[local_locale]["top.message"]}</h1>
