@@ -47,4 +47,5 @@
 	img {
 		border-radius: 15px;
 	}
+
 </style>
