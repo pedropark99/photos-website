@@ -67,7 +67,7 @@
     </div>
 
     <Modal bind:showModal>
-        <img src="{current_image}" alt="" width="100%" />
+        <img class="imageInModal" src="{current_image}" alt="" width="100%" />
     </Modal>
     
     {/key}
@@ -93,6 +93,10 @@
         gap: 10px;
         place-items: center;
         text-align: center;
+    }
+
+    .imageInModal {
+        max-height: 1200px;
     }
     
     .cardsContainer img {
