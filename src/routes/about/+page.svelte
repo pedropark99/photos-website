@@ -1,5 +1,6 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
+	import { onMount } from 'svelte';
     import { locale } from "../../stores";
 
     const page_content_options = {
@@ -15,6 +16,10 @@
 
     let local_locale = "Português";
 	const translate_call = locale.subscribe((value) => local_locale = value);
+
+    onMount(() => {
+		document.getElementById("about-button").style.textDecoration = "underline 1pt solid #222222";
+	})
 </script>
 
 

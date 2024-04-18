@@ -1,6 +1,7 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
+	import { onMount } from 'svelte';
 	import Modal from './../Modal.svelte';
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
@@ -19,6 +20,10 @@
 		selected_image = image_path;
 		showModal = true;
 	}
+
+	onMount(() => {
+		document.getElementById("portrait-button").style.textDecoration = "underline 1pt solid #222222";
+	})
 </script>
 
 
