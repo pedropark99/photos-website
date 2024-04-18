@@ -30,7 +30,16 @@
 
 	<Masonry items={images} colWidth={"450px"} bind:refreshLayout={refreshLayout}>
 		{#each images as image}
-				<div class="grid-item"><img loading="lazy" on:load={refreshLayout} src="{image}" alt="" width="100%"/></div>
+			<div class="grid-item">
+				<img
+					loading="lazy"
+					on:load={refreshLayout}
+					on:click={(node) => {zoom_over_image(node.target)}}
+					src="{image}"
+					alt=""
+					width="100%"
+				/>
+			</div>		
 		{/each}
 	</Masonry>
 
