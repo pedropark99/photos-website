@@ -1,6 +1,7 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
+	import Modal from './../Modal.svelte';
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
 	let refreshLayout;
@@ -9,6 +10,14 @@
 	for (const image_path in images_paths) {
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
+	}
+
+	let showModal = false;
+	let selected_image = images[0];
+	function zoom_over_image(image_node) {
+		const image_path = image_node.src;
+		selected_image = image_path;
+		showModal = true;
 	}
 </script>
 
@@ -25,7 +34,9 @@
 		{/each}
 	</Masonry>
 
-
+	<Modal bind:showModal>
+        <img class="imageInModal" src="{selected_image}" alt="" width="100%" />
+    </Modal>
 
 	</div>
 </div>
@@ -47,4 +58,10 @@
 	img {
 		border-radius: 15px;
 	}
+
+	.grid-item img:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
 </style>
