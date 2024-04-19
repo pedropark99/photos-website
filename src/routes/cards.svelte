@@ -6,7 +6,10 @@
     const images = [
         'street/IMG_8513.jpg',
         'street/IMG_8383.jpg',
-        'portraits/IMG_8330.jpg'
+        'portraits/IMG_8330.jpg',
+        'portraits/IMG_8420.jpg',
+        'street/IMG_7605.jpg',
+        'street/IMG_7831.jpg'
     ]
     
     var current_image_index = 0;
