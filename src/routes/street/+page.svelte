@@ -67,6 +67,10 @@
 		font-size: 25pt;
 	}
 
+	.modalCloseButton:hover {
+		cursor: pointer;
+	}
+
 	.imageInModal {
 		max-height: 130vh;
 	}
