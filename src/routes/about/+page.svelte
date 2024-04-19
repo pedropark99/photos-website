@@ -97,4 +97,21 @@
 		margin: 30px;
 	}
 
+
+	@media (max-width: 767px) {
+		button a {
+			font-family: Outfit, serif;
+			font-size: 15pt;
+		}
+
+		.merchButtons button {
+			border-radius: 7px;
+			padding: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
+
 </style>
