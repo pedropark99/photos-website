@@ -91,6 +91,30 @@
 
 
 <style>
+    @media (max-width: 767px) {
+        .imageCardsContainer {
+            display: flex;
+            padding-top: 40px;
+        }
+
+        .cardsContainer {
+            width: 100vw;
+            height: auto;
+        }
+
+        .cardsContainer img {
+            max-width: 100vw;
+            width: auto;
+            height: auto;
+        }
+
+        .mainImageDisplay {
+            width: 95% !important;
+            height: auto !important;
+        }
+    }
+
+
     .imageCardsContainer {
         display: grid;
         grid-template-rows: 10% 90%;
