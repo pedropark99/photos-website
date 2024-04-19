@@ -1,4 +1,7 @@
 <script>
+	import Fa from 'svelte-fa';
+	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+    import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 	import MainMenu from "./mainMenu.svelte";
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
@@ -65,7 +68,22 @@
 		<p>{@html page_text[local_locale]["body.p2"]}</p>
 
 
-		<br><br><br><br><br><br><br><br><br><br><br><br>
+		<div class="emptyVerticalSpace"></div>
+
+		<div class="socialMediaInMobile">
+			<div>&copy Copyright 2024 Pedro Faria.</div>
+			<br>
+			<div class="socialMediaContact">
+				<a href="https://www.instagram.com/mineiro.pelasruas/"><Fa icon={faInstagram} color="var(--main-text-brown-color)" size="25pt"/></a>
+				<span style="display:inline-block; width: 10px;"></span>
+				<a href="https://wa.me/5531985124294"><Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="25pt"/></a>
+				<span style="display:inline-block; width: 10px;"></span>
+				<a href="mailto:pedropark99@gmail.com"><Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="25pt"/></a>
+			</div>
+		</div>
+
+		<br><br>
+
 		
 	</div>
 </div>
@@ -75,6 +93,10 @@
 
 
 <style>
+	.emptyVerticalSpace {
+		height: 300px;
+	}
+
 	button a {
 		font-family: Outfit, serif;
 		font-size: 20pt;
@@ -161,6 +183,40 @@
 
 	.mainMenu {
 		margin-left: 30px;
+	}
+
+
+
+
+	.socialMediaInMobile {
+		display: none;
+	}
+	@media (max-width: 767px) {
+		.socialMediaContact {
+			display: flex;
+			margin: 0;
+			padding: 0;
+		}
+		.emptyVerticalSpace {
+			height: 100px;
+		}
+		.socialMediaInMobile {
+			display: block;
+		}
+
+		button a {
+			font-family: Outfit, serif;
+			font-size: 15pt;
+		}
+
+		.merchButtons button {
+			border-radius: 7px;
+			padding: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
 	}
 
 </style>
