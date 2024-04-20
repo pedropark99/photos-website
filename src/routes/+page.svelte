@@ -1,29 +1,112 @@
 <script>
-	import MainMenu from "./mainMenu.svelte"
-	import { locale } from "../stores"
+	import Fa from 'svelte-fa';
+	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+    import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+	import MainMenu from "./mainMenu.svelte";
+	import { fade } from 'svelte/transition';
+	import { onMount } from 'svelte';
+	import Cards from './cards.svelte';
+	import { locale, isDropdownOpen } from "../stores";
 
-	const page_content_options = {
+	const page_text = {
 		English: {
-		"homepage.welcome": "<h2>Welcome!✋<h2/>",
-		"homepage.body": "<p>    I'm Pedro! An amateur photographer based in Belo Horizonte, Brazil.    In this website, you can find out more about me, and also, check out my    portfolio of photos. I personally love street and portrait photography,    and these are the styles of photography I do the most.</p><p>   If you are interested in booking a photo shoot with me 😉,   send me a message through <a href=\"https://www.instagram.com/mineiro.pelasruas/\">Instagram</a>,    or <a href=\"https://wa.me/5531985124294\">WhatsApp</a>, or via <a href=\"mailto:pedropark99@gmail.com\">Email</a>.</p><p>    Currently, I am working on a personal project called <strong>mineiro.pelasruas</strong>, which    is a <a href=\"https://www.instagram.com/mineiro.pelasruas/\">Instagram account</a>    where I share photos that document life in my region.    If you like this project, please follow and share it with your friends 🥳🎉.</p><p>    My photos are made with the following gear:</p><ul>    <li>Camera Canon T5i.</li>    <li>Lens Canon 50mm 1.8 STM.</li>    <li>Photos edited mostly in RawTherapee, and sometimes in DarkTable.</li></ul>"
+			"top.message": "Documenting life through memories 📸",
+			"welcome": "Welcome!✋",
+			"body.p1": "I'm Pedro! An amateur photographer 📸 based in Belo Horizonte, Brazil. I enjoy <strong>creating memories</strong> that brings joy and nostalgia to other people through photography. ",
+			"merch": "If you are interested in booking a photo shoot with me 😉, send me a message through Instagram, or WhatsApp, or via Email:",
+			"body.p2": "Currently, I am working on a personal project called <strong>mineiro.pelasruas</strong>, which    is a <a href=\"https://www.instagram.com/mineiro.pelasruas/\">Instagram account</a>    where I share photos that document life in my region.    If you like this project, please follow and share it with your friends 🥳🎉."
 		},
 		Português: {
-		"homepage.welcome": "<h2>Bem vindo!✋<h2/>",
-		"homepage.body": "<p> Meu nome é Pedro! Sou um fotógrafo amador de Belo Horizonte, Brasil. Neste website, você pode descobrir mais sobre mim, e também, conhecer o meu portfólio de fotografias. Eu pessoalmente amo a fotografia de rua e a fotografia de retratos. Portanto, esses são os estilos de fotografia que eu pratico mais. </p><p>     Se você estiver interessado em marcar um <i>photo shoot</i> comigo 😉,      me mande uma mensagem pelo <a href=\"https://www.instagram.com/mineiro.pelasruas/\">Instagram</a>,       ou <a href=\"https://wa.me/5531985124294\">WhatsApp</a>, or por <a href=\"mailto:pedropark99@gmail.com\">Email</a>.  </p>    <p>      Atualmente, venho trabalhando em um projeto pessoal chamado <strong>mineiro.pelasruas</strong>,      que é uma <a href=\"https://www.instagram.com/mineiro.pelasruas/\">conta no Instagram</a>      onde compartilho fotos que documentam a vida na minha região.      Se você gosta deste projeto, por favor, siga e compartilhe ele com os seus amigos 🥳🎉.  </p>    <p>      Minhas fotos são produzidas com os seguintes equipamentos:  </p>    <ul>      <li>Camera Canon T5i.</li>      <li>Lente Canon 50mm 1.8 STM.</li>      <li>Fotos são editadas em sua maioria no RawTherapee, e às vezes, no DarkTable.</li>  </ul>"
+			"top.message": "Documentando a vida através de memórias 📸",
+			"welcome": "Bem vindo!✋",
+			"body.p1": "Me chamo Pedro! Sou um fotógrafo 📸 de Belo Horizonte, Brasil. Eu gosto de <strong>criar lembranças</strong> que tragam alegria e nostalgia para outras pessoas através da fotografia. ",
+			"merch": "Se você estiver interessado em marcar um <i>photo shoot</i> comigo 😉, me mande uma mensagem pelo Instagram, ou WhatsApp, or por Email:",
+			"body.p2": "Atualmente, venho trabalhando em um projeto pessoal chamado <strong>mineiro.pelasruas</strong>,      que é uma <a href=\"https://www.instagram.com/mineiro.pelasruas/\">conta no Instagram</a>      onde compartilho fotos que documentam a vida na minha região.      Se você gosta deste projeto, por favor, siga e compartilhe ele com os seus amigos 🥳🎉."
 		},
 	};
 
 	
 	let local_locale = "Português";
 	const translate_call = locale.subscribe((value) => local_locale = value);
+
+	let ready = false;
+	onMount(() => {
+		ready = true;
+		document.getElementById("home-button").style.textDecoration = "underline 1pt solid #222222";
+	})
+
+	function closeMenuWithClickOutside(event) {
+		const container_class = "mobileMenuDropdownContainer";
+		const content_class = "dropdownContent";
+		const button_class = "mobileButtonDropdown";
+		
+		const element_clicked = event.target.className;
+		console.log(element_clicked)
+		const inside_container = (
+			element_clicked.includes(container_class) ||
+			element_clicked.includes(button_class) ||
+			element_clicked.includes(content_class)
+		)
+		if (inside_container) {
+				// Do nothing
+				return
+		}
+
+		$isDropdownOpen = false;
+	}
+
 </script>
 
 
-<div class="window">
+
+
+
+
+
+<div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
+
 	<div class="pageContent">
-		{@html page_content_options[local_locale]["homepage.welcome"]}
-		{@html page_content_options[local_locale]["homepage.body"]}
+		
+		<br>
+		{#if ready}
+		<div transition:fade={{ delay: 250, duration: 300 }}>
+			<h1 transition:fade={{delay: 10, durantion: 200}}>{page_text[local_locale]["top.message"]}</h1>
+		</div>
+		{/if}
+
+
+		<Cards/>
+		
+
+		<h2>{page_text[local_locale]["welcome"]}</h2>
+		<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
+
+		<p>{@html page_text[local_locale]["merch"]}</p>
+		<div class="merchButtons">
+			<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
+			<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
+			<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
+		</div>
+
+
+		<div class="emptyVerticalSpace"></div>
+
+		<div class="socialMediaInMobile">
+			<div>&copy Copyright 2024 Pedro Faria.</div>
+			<br>
+			<div class="socialMediaContact">
+				<a href="https://www.instagram.com/mineiro.pelasruas/"><Fa icon={faInstagram} color="var(--main-text-brown-color)" size="25pt"/></a>
+				<span style="display:inline-block; width: 10px;"></span>
+				<a href="https://wa.me/5531985124294"><Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="25pt"/></a>
+				<span style="display:inline-block; width: 10px;"></span>
+				<a href="mailto:pedropark99@gmail.com"><Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="25pt"/></a>
+			</div>
+		</div>
+
+		<br><br>
+
+		
 	</div>
 </div>
 
@@ -32,12 +115,80 @@
 
 
 <style>
-	h1 {
-		font-family: Cormorant, serif;
-		font-size: 38pt;
-		font-style: italic;
+	.emptyVerticalSpace {
+		height: 300px;
+	}
+
+	button a {
+		font-family: Outfit, serif;
+		font-size: 20pt;
+		color: var(--argetinian-blue);
+		text-decoration: none;
+	}
+
+	.merchButtons button {
+		border-radius: 7px;
+		padding: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		border: var(--main-text-brown-color);
+		background: var(--main-text-brown-color);
+		color: var(--argentinian-blue);
+	}
+
+	.merchButtons button:hover {
+		background: var(--argentinian-blue);
 		color: var(--main-text-brown-color);
-		margin-bottom: 50px;
+	}
+
+	.merchButtons {
+		text-align: center;
+		align-items: center;
+	}
+
+	h1 {
+		font-family: Outfit, serif;
+		font-size: 38pt;
+		color: var(--main-text-brown-color);
+		margin-bottom: 0px;
+		text-align: center;
+	}
+
+	figure {
+		text-align: center;
+	}
+
+	.slide img {
+		width: auto;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.5);
+	}
+
+	.slide {
+		display: flex;
+    	padding: 10px;
+		border-radius: 15px;
+    	overflow: hidden;
+		justify-content: center;
+		text-align: center;
+		width: 650px;
+		height: 500px;
+	}
+
+	:global(#slidy_cards .slidy-dots li.active button) {
+		color: #77B6EA !important;
+		background: #77B6EA !important;
+	}
+	:global(#slidy_cards .slidy-dots li.dots-arrow-right button) {
+		color: #77B6EA !important;
+		font-size: 20pt;
+	}
+	:global(#slidy_cards .slidy-dots li.dots-arrow-left button) {
+		color: #77B6EA !important;
+		font-size: 20pt;
 	}
 
 
@@ -56,5 +207,38 @@
 		margin-left: 30px;
 	}
 
+
+
+
+	.socialMediaInMobile {
+		display: none;
+	}
+	@media (max-width: 767px) {
+		.socialMediaContact {
+			display: flex;
+			margin: 0;
+			padding: 0;
+		}
+		.emptyVerticalSpace {
+			height: 200px;
+		}
+		.socialMediaInMobile {
+			display: block;
+		}
+
+		button a {
+			font-family: Outfit, serif;
+			font-size: 15pt;
+		}
+
+		.merchButtons button {
+			border-radius: 7px;
+			padding: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-left: 10px;
+			margin-right: 10px;
+		}
+	}
 
 </style>

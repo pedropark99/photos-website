@@ -8,25 +8,22 @@
     export let label;
     export let design = 'inner label'
     export let options = [];
-		export let fontSize = 16;
-	  export let value = 'on';
+	export let fontSize = 16;
+	export let value = 'on';
 
     let checked = true;
 
 
-		const uniqueID = Math.floor(Math.random() * 100)
+	const uniqueID = Math.floor(Math.random() * 100)
 
     function handleClick(event){
         const target = event.target
-
         const state = target.getAttribute('aria-checked')
-
         checked = state === 'true' ? false : true
-
         value = checked === true ? 'on' : 'off'
     }
 	
-	  const slugify = (str = "") =>
+	const slugify = (str = "") =>
     str.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
 
 </script>
@@ -65,7 +62,7 @@
             <input type="radio" id={`${option}-${uniqueID}`} value={option} bind:group={value}>
             <label for={`${option}-${uniqueID}`}>
                 {option}
-            </label> 
+            </label>
         {/each}
     </div>
 </div>
@@ -73,8 +70,8 @@
 {/if}
 
 <style>
-			:root {
-		--accent-color: CornflowerBlue;
+	:root {
+		--accent-color: #77B6EA;
 		--gray: #ccc;
 	}
     /* Inner Design Option */
