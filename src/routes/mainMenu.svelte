@@ -120,6 +120,13 @@
 	<div>&copy Copyright 2024 Pedro Faria.</div>
 </div>
 
+
+
+
+
+
+
+
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
 		<h1>Pedro Faria</h1>

@@ -36,12 +36,23 @@
 	})
 
 	function closeMenuWithClickOutside(event) {
-		const menu = document.getElementsByClassName("mobileMenuDropdownContainer");
-		const menu_button = document.getElementsByClassName("mobileButtonDropdown");
-		if (menu.contains(event.target) && event !== menu_button) {
-			console.log("Clickando")
+		const container_class = "mobileMenuDropdownContainer";
+		const content_class = "dropdownContent";
+		const button_class = "mobileButtonDropdown";
+		
+		const element_clicked = event.target.className;
+		console.log(element_clicked)
+		const inside_container = (
+			element_clicked.includes(container_class) ||
+			element_clicked.includes(button_class) ||
+			element_clicked.includes(content_class)
+		)
+		if (inside_container) {
+				// Do nothing
+				return
 		}
-		//$isDropdownOpen = false;
+
+		$isDropdownOpen = false;
 	}
 
 </script>
