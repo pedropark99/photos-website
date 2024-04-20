@@ -6,20 +6,20 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import Cards from './cards.svelte';
-	import { locale } from "../stores";
+	import { locale, isDropdownOpen } from "../stores";
 
 	const page_text = {
 		English: {
 			"top.message": "Documenting life through memories 📸",
 			"welcome": "Welcome!✋",
-			"body.p1": "I'm Pedro! An amateur photographer 📸 based in Belo Horizonte, Brazil. I enjoy <strong>creating memories</strong> that brings joy and nostalgia to other people. I also work with brands, to <strong>create professional-looking images</strong> for social media or for marketing campaigns.",
+			"body.p1": "I'm Pedro! An amateur photographer 📸 based in Belo Horizonte, Brazil. I enjoy <strong>creating memories</strong> that brings joy and nostalgia to other people through photography. ",
 			"merch": "If you are interested in booking a photo shoot with me 😉, send me a message through Instagram, or WhatsApp, or via Email:",
 			"body.p2": "Currently, I am working on a personal project called <strong>mineiro.pelasruas</strong>, which    is a <a href=\"https://www.instagram.com/mineiro.pelasruas/\">Instagram account</a>    where I share photos that document life in my region.    If you like this project, please follow and share it with your friends 🥳🎉."
 		},
 		Português: {
 			"top.message": "Documentando a vida através de memórias 📸",
 			"welcome": "Bem vindo!✋",
-			"body.p1": "Me chamo Pedro! Sou um fotógrafo 📸 de Belo Horizonte, Brasil. Eu gosto de <strong>criar lembranças</strong> que tragam alegria e nostalgia para outras pessoas. Eu também trabalho em conjunto com marcas <strong>criando imagens profissionais</strong> para redes sociais ou para campanhas de marketing.",
+			"body.p1": "Me chamo Pedro! Sou um fotógrafo 📸 de Belo Horizonte, Brasil. Eu gosto de <strong>criar lembranças</strong> que tragam alegria e nostalgia para outras pessoas através da fotografia. ",
 			"merch": "Se você estiver interessado em marcar um <i>photo shoot</i> comigo 😉, me mande uma mensagem pelo Instagram, ou WhatsApp, or por Email:",
 			"body.p2": "Atualmente, venho trabalhando em um projeto pessoal chamado <strong>mineiro.pelasruas</strong>,      que é uma <a href=\"https://www.instagram.com/mineiro.pelasruas/\">conta no Instagram</a>      onde compartilho fotos que documentam a vida na minha região.      Se você gosta deste projeto, por favor, siga e compartilhe ele com os seus amigos 🥳🎉."
 		},
@@ -35,11 +35,24 @@
 		document.getElementById("home-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
+	function closeMenuWithClickOutside(event) {
+		const menu = document.getElementsByClassName("mobileMenuDropdownContainer");
+		const menu_button = document.getElementsByClassName("mobileButtonDropdown");
+		if (menu.contains(event.target) && event !== menu_button) {
+			console.log("Clickando")
+		}
+		//$isDropdownOpen = false;
+	}
+
 </script>
 
 
 
-<div class="app">
+
+
+
+
+<div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
 
 	<div class="pageContent">
@@ -56,7 +69,7 @@
 		
 
 		<h2>{page_text[local_locale]["welcome"]}</h2>
-		<p>{@html page_text[local_locale]["body.p1"]}</p>
+		<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
 
 		<p>{@html page_text[local_locale]["merch"]}</p>
 		<div class="merchButtons">
@@ -64,8 +77,6 @@
 			<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
 			<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 		</div>
-
-		<p>{@html page_text[local_locale]["body.p2"]}</p>
 
 
 		<div class="emptyVerticalSpace"></div>
@@ -198,7 +209,7 @@
 			padding: 0;
 		}
 		.emptyVerticalSpace {
-			height: 100px;
+			height: 200px;
 		}
 		.socialMediaInMobile {
 			display: block;

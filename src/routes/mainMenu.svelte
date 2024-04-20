@@ -5,11 +5,19 @@
 		faWhatsapp,
 	} from "@fortawesome/free-brands-svg-icons";
 	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-	import { locale } from "../stores";
+	import { locale, isDropdownOpen } from "../stores";
 
 	import Switch from "./Switch.svelte";
 
 	let local_locale = "Português";
+	const locale_callback = locale.subscribe((value) => {
+		local_locale = value;
+	});
+	// let local_dropdown = false;
+	// const dropdown_callback = isDropdownOpen.subscribe((value) => {
+	// 	console.log("INFO: Callback foi acionada")
+	// 	local_dropdown = value
+	// });
 	const menu_options = {
 		Português: {
 			"description": "Fotógrafo 📷 baseado em Belo Horizonte - Brasil. Fotografia de rua e retratos.",
@@ -27,12 +35,10 @@
 		},
 	};
 
-	const locale_callback = locale.subscribe((value) => (local_locale = value));
 
-	let isDropdownOpen = false; // default state (dropdown close)
 
 	const handleDropdownClick = () => {
-		isDropdownOpen = !isDropdownOpen; // togle state on click
+		isDropdownOpen.update((value) => !value) // togle state on click
 	};
 	const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 		// use "focusout" event to ensure that we can close the dropdown when clicking outside or when we leave the dropdown with the "Tab" button
@@ -41,9 +47,17 @@
 			currentTarget.contains(relatedTarget)
 		)
 			return; // check if the new focus target doesn't present in the dropdown tree (exclude ul\li padding area because relatedTarget, in this case, will be null)
-		isDropdownOpen = false;
+			$isDropdownOpen = false;
 	};
+
 </script>
+
+
+
+
+
+
+
 
 <div class="mainMenu">
 	<h1>Pedro Faria</h1>
@@ -117,7 +131,7 @@
 				>Menu</button>
 			
 
-			{#if isDropdownOpen}
+			{#if $isDropdownOpen}
 				<div class="dropdownContent">
 					<a href=".">{menu_options[local_locale]["home.label"]}</a>
 					<a href="/about">{menu_options[local_locale]["about.label"]}</a>
@@ -130,6 +144,8 @@
 
 	<p>{@html menu_options[local_locale]["description"]}</p>
 </div>
+
+
 
 <style>
 	p {
