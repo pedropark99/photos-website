@@ -229,7 +229,7 @@
 
 		.mobileMenuOptionsContainer {
 			display: grid;
-			grid-template-columns: 60% 40% ;
+			grid-template-columns: 50% 50% ;
 			grid-template-rows: 100px;
 			align-items: center;
 			text-align: left;
@@ -257,8 +257,8 @@
 		}
 
 		.mobileButtonDropdown {
-			width: 100px;
-			padding: 20px;
+			width: 70px;
+			padding: 0px;
 			padding-top: 10px;
 			padding-bottom: 10px;
 			font-size: 15pt;
