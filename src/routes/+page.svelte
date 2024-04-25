@@ -6,7 +6,7 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import Cards from './cards.svelte';
-	import { locale, isDropdownOpen } from "../stores";
+	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
 
 	const page_text = {
 		English: {
@@ -35,17 +35,27 @@
 		document.getElementById("home-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
+	function is_string(obj) {
+		if (typeof obj === 'string' || obj instanceof String)
+			return true;
+		return false;
+	}
+
 	function closeMenuWithClickOutside(event) {
 		const container_class = "mobileMenuDropdownContainer";
 		const content_class = "dropdownContent";
 		const button_class = "mobileButtonDropdown";
+		const language_class = "mobileLanguageButtonDropdown";
 		
 		const element_clicked = event.target.className;
-		console.log(element_clicked)
+		if (!is_string(element_clicked)) {
+			return
+		}
 		const inside_container = (
 			element_clicked.includes(container_class) ||
 			element_clicked.includes(button_class) ||
-			element_clicked.includes(content_class)
+			element_clicked.includes(content_class) ||
+			element_clicked.includes(language_class)
 		)
 		if (inside_container) {
 				// Do nothing
@@ -53,6 +63,7 @@
 		}
 
 		$isDropdownOpen = false;
+		$isLanguageDropdownOpen = false;
 	}
 
 </script>

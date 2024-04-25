@@ -5,7 +5,8 @@
 		faWhatsapp,
 	} from "@fortawesome/free-brands-svg-icons";
 	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-	import { locale, isDropdownOpen } from "../stores";
+	import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
 
 	import Switch from "./Switch.svelte";
 
@@ -38,8 +39,27 @@
 
 
 	const handleDropdownClick = () => {
-		isDropdownOpen.update((value) => !value) // togle state on click
+		if ($isLanguageDropdownOpen) {
+			$isLanguageDropdownOpen = false;
+		}
+		isDropdownOpen.update((value) => !value)
 	};
+	const handleLanguageDropdownClick = () => {
+		if ($isDropdownOpen) {
+			$isDropdownOpen = false;
+		}
+		isLanguageDropdownOpen.update((value) => !value);
+	};
+	const changeLanguage = (event) => {
+		const language_chosen = event.target.innerText
+		if (language_chosen === "PORTUGUÊS") {
+			$locale = "Português"
+		}
+		if (language_chosen === "ENGLISH") {
+			$locale = "English"
+		}
+	}
+
 	const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 		// use "focusout" event to ensure that we can close the dropdown when clicking outside or when we leave the dropdown with the "Tab" button
 		if (
@@ -132,10 +152,19 @@
 		<h1>Pedro Faria</h1>
 
 		<div class="mobileMenuDropdownContainer">
-				<button
+			<button
+				class="mobileLanguageButtonDropdown"
+				on:click={handleLanguageDropdownClick}
+			><Fa
+					icon={faGlobe}
+					color="var(--main-text-brown-color)"
+					size="18pt"
+			/></button>
+
+			<button
 					class="mobileButtonDropdown"
 					on:click={handleDropdownClick}
-				>Menu</button>
+			>Menu</button>
 			
 
 			{#if $isDropdownOpen}
@@ -144,6 +173,13 @@
 					<a href="/about">{menu_options[local_locale]["about.label"]}</a>
 					<a href="/street">{menu_options[local_locale]["street.label"]}</a>
 					<a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a>
+				</div>
+			{/if}
+
+			{#if $isLanguageDropdownOpen}
+				<div class="dropdownContent">
+					<button on:click={changeLanguage}>PORTUGUÊS</button>
+					<button on:click={changeLanguage}>ENGLISH</button>
 				</div>
 			{/if}
 		</div>
@@ -229,7 +265,7 @@
 
 		.mobileMenuOptionsContainer {
 			display: grid;
-			grid-template-columns: 50% 50% ;
+			grid-template-columns: 60% 40% ;
 			grid-template-rows: 100px;
 			align-items: center;
 			text-align: left;
@@ -247,13 +283,18 @@
 
 		.mobileMenuDropdownContainer {
 			display: grid;
-			grid-template-columns: 100%;
+			grid-template-columns: 30% 70%;
 			grid-template-rows: 100%;
 			vertical-align: center;
 			place-items: center;
 			text-align: center;
 			height: 100px;
 			width: auto;
+		}
+
+		.mobileLanguageButtonDropdown {
+			background: none;
+			border: none;
 		}
 
 		.mobileButtonDropdown {
@@ -268,7 +309,6 @@
 			border: none;
 			border-radius: 5px;
 		}
-
 
 		.dropdownContent {
 			width: 180px;
@@ -288,6 +328,17 @@
 
 
 		.dropdownContent a {
+			font-size: 10pt;
+			margin: 15px;
+			background: var(--argentinian-blue);
+			color: var(--main-text-brown-color);
+			text-decoration: none;
+			display: block;
+		}
+
+		.dropdownContent button {
+			background: none;
+			border: none;
 			font-size: 10pt;
 			margin: 15px;
 			background: var(--argentinian-blue);
