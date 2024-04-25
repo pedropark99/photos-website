@@ -9,6 +9,7 @@
         'portraits/IMG_8330.jpg',
         'portraits/IMG_8420.jpg',
         'street/IMG_7605.jpg',
+        'street/IMG_8589.jpg',
         'street/IMG_7831.jpg'
     ]
     
