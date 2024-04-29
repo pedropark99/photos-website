@@ -78,44 +78,32 @@
 	<MainMenu/>
 
 	<div class="pageContent">
-		<br>
-		{#if ready}
-		<div transition:fade={{ delay: 250, duration: 300 }}>
-			<h1 transition:fade={{delay: 10, durantion: 200}}>{page_text[local_locale]["top.message"]}</h1>
-		</div>
-		{/if}
+		<div class="leftEmptySpace"></div>
 
 
-		<Cards/>
-
-		<h2>{page_text[local_locale]["welcome"]}</h2>
-		<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
-
-		<p>{@html page_text[local_locale]["merch"]}</p>
-		<div class="merchButtons">
-			<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
-			<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
-			<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
-		</div>
+		<div class="actualPageContent">
+			{#if ready}
+			<div transition:fade={{ delay: 250, duration: 300 }}>
+				<h1 transition:fade={{delay: 10, durantion: 200}}>{page_text[local_locale]["top.message"]}</h1>
+			</div>
+			{/if}
 
 
-		<div class="emptyVerticalSpace"></div>
+			<Cards/>
 
-		<div class="socialMediaInMobile">
-			<div>&copy Copyright 2024 Pedro Faria.</div>
-			<br>
-			<div class="socialMediaContact">
-				<a href="https://www.instagram.com/mineiro.pelasruas/"><Fa icon={faInstagram} color="var(--main-text-brown-color)" size="25pt"/></a>
-				<span style="display:inline-block; width: 10px;"></span>
-				<a href="https://wa.me/5531985124294"><Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="25pt"/></a>
-				<span style="display:inline-block; width: 10px;"></span>
-				<a href="mailto:pedropark99@gmail.com"><Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="25pt"/></a>
+			<h2>{page_text[local_locale]["welcome"]}</h2>
+			<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
+
+			<p>{@html page_text[local_locale]["merch"]}</p>
+			<div class="merchButtons">
+				<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
+				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
+				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
 		</div>
 
-		<br><br>
 
-		
+		<div class="rightEmptySpace"></div>
 	</div>
 
 
@@ -133,6 +121,11 @@
 		color: var(--main-text-brown-color);
 		margin-bottom: 0px;
 		text-align: center;
+	}
+
+	.pageContent {
+		display: grid;
+		grid-template-columns: 15vw 70vw 15vw;
 	}
 
 </style>
