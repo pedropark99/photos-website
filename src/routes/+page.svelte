@@ -40,32 +40,7 @@
 	<MainMenu/>
 
 	<div class="pageContent">
-		
-		<br>
-		{#if ready}
-		<div transition:fade={{ delay: 250, duration: 300 }}>
-			<h1 transition:fade={{delay: 10, durantion: 200}}>{page_text[local_locale]["top.message"]}</h1>
-		</div>
-		{/if}
 
-
-		<Cards/>
-		
-
-		<h2>{page_text[local_locale]["welcome"]}</h2>
-		<p>{@html page_text[local_locale]["body.p1"]}</p>
-
-		<p>{@html page_text[local_locale]["merch"]}</p>
-		<div class="merchButtons">
-			<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
-			<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
-			<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
-		</div>
-
-		<p>{@html page_text[local_locale]["body.p2"]}</p>
-
-
-		<br><br><br><br><br><br><br><br><br><br><br><br>
 		
 	</div>
 </div>
@@ -75,92 +50,6 @@
 
 
 <style>
-	button a {
-		font-family: Outfit, serif;
-		font-size: 20pt;
-		color: var(--argetinian-blue);
-		text-decoration: none;
-	}
 
-	.merchButtons button {
-		border-radius: 7px;
-		padding: 10px;
-		padding-left: 20px;
-		padding-right: 20px;
-		margin-left: 20px;
-		margin-right: 20px;
-		border: var(--main-text-brown-color);
-		background: var(--main-text-brown-color);
-		color: var(--argentinian-blue);
-	}
-
-	.merchButtons button:hover {
-		background: var(--argentinian-blue);
-		color: var(--main-text-brown-color);
-	}
-
-	.merchButtons {
-		text-align: center;
-		align-items: center;
-	}
-
-	h1 {
-		font-family: Outfit, serif;
-		font-size: 38pt;
-		color: var(--main-text-brown-color);
-		margin-bottom: 0px;
-		text-align: center;
-	}
-
-	figure {
-		text-align: center;
-	}
-
-	.slide img {
-		width: auto;
-		height: auto;
-		border-radius: 15px;
-		box-shadow: 2px 2px 5px rgba(1, 1, 1, 0.5);
-	}
-
-	.slide {
-		display: flex;
-    	padding: 10px;
-		border-radius: 15px;
-    	overflow: hidden;
-		justify-content: center;
-		text-align: center;
-		width: 650px;
-		height: 500px;
-	}
-
-	:global(#slidy_cards .slidy-dots li.active button) {
-		color: #77B6EA !important;
-		background: #77B6EA !important;
-	}
-	:global(#slidy_cards .slidy-dots li.dots-arrow-right button) {
-		color: #77B6EA !important;
-		font-size: 20pt;
-	}
-	:global(#slidy_cards .slidy-dots li.dots-arrow-left button) {
-		color: #77B6EA !important;
-		font-size: 20pt;
-	}
-
-
-	hr {
-		margin-top: -30pt;
-		border-top: 2px solid #222222;
-	}
-
-	.socialMediaContact {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 4fr;
-		margin-right: 20px;
-	}
-
-	.mainMenu {
-		margin-left: 30px;
-	}
 
 </style>
