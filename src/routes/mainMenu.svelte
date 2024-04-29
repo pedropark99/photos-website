@@ -83,6 +83,25 @@
 
 
 	<div class="menuOptionsList">
+		<div class="languageDropdownContainer">
+			<button
+				class="mobileLanguageButtonDropdown"
+				on:click={handleLanguageDropdownClick}
+			><Fa
+					icon={faGlobe}
+					color="var(--main-text-brown-color)"
+					size="18pt"
+			/></button>
+
+			{#if $isLanguageDropdownOpen}
+				<div class="dropdownContent">
+					<button on:click={changeLanguage}>PORTUGUÊS</button>
+					<button on:click={changeLanguage}>ENGLISH</button>
+				</div>
+			{/if}
+		</div>
+
+
 		<div class="menuOption" id="home-button" ><a href=".">{menu_options[local_locale]["home.label"]}</a></div>
 		<div class="menuOption" id="about-button" ><a href="/about">{menu_options[local_locale]["about.label"]}</a></div>
 		<div class="menuOption" id="street-button" ><a href="/street">{menu_options[local_locale]["street.label"]}</a></div>
@@ -157,6 +176,17 @@
 		column-gap: 20px;
 	}
 
+	.dropdownContent {
+		display: block;
+		position: relative;
+		width: 180px;
+		background: var(--argentinian-blue);
+		float: right;
+		right: 0;
+		padding: 20px;
+		border-radius: 5px;
+	}
+
 	.nameHeader {
 		display: flex;
 		align-items: center;
@@ -199,6 +229,45 @@
 		color: var(--main-text-brown-color);
 		margin: 0px;
 		padding: 0px;
+	}
+
+	.mobileLanguageButtonDropdown {
+		background: none;
+		border: none;
+	}
+
+	.mobileLanguageButtonDropdown:hover {
+		cursor: pointer;
+	}
+
+	.dropdownContent {
+		display: block;
+		position: absolute;
+		z-index: 99999;
+		width: 180px;
+		background: var(--argentinian-blue);
+		padding: 20px;
+		border-radius: 5px;
+	}
+
+	.dropdownContent a {
+		font-size: 10pt;
+		margin: 15px;
+		background: var(--argentinian-blue);
+		color: var(--main-text-brown-color);
+		text-decoration: none;
+		display: block;
+	}
+
+	.dropdownContent button {
+		background: none;
+		border: none;
+		font-size: 10pt;
+		margin: 15px;
+		background: var(--argentinian-blue);
+		color: var(--main-text-brown-color);
+		text-decoration: none;
+		display: block;
 	}
 
 
@@ -247,11 +316,6 @@
 			width: auto;
 		}
 
-		.mobileLanguageButtonDropdown {
-			background: none;
-			border: none;
-		}
-
 		.mobileButtonDropdown {
 			width: 70px;
 			padding: 0px;
@@ -265,42 +329,6 @@
 			border-radius: 5px;
 		}
 
-		.dropdownContent {
-			width: 180px;
-			background: var(--argentinian-blue);
-			float: right;
-			right: 0;
-			display: block;
-			position: relative;
-			padding: 20px;
-			border-radius: 5px;
-		}
-
-
-
-
-
-
-
-		.dropdownContent a {
-			font-size: 10pt;
-			margin: 15px;
-			background: var(--argentinian-blue);
-			color: var(--main-text-brown-color);
-			text-decoration: none;
-			display: block;
-		}
-
-		.dropdownContent button {
-			background: none;
-			border: none;
-			font-size: 10pt;
-			margin: 15px;
-			background: var(--argentinian-blue);
-			color: var(--main-text-brown-color);
-			text-decoration: none;
-			display: block;
-		}
 
 		h1 {
 			font-family: Cormorant, serif;
