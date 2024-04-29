@@ -9,6 +9,7 @@
         'portraits/IMG_8330.jpg',
         'portraits/IMG_8420.jpg',
         'street/IMG_7605.jpg',
+        'street/IMG_8589.jpg',
         'street/IMG_7831.jpg'
     ]
     
@@ -91,6 +92,30 @@
 
 
 <style>
+    @media (max-width: 767px) {
+        .imageCardsContainer {
+            display: flex;
+            padding-top: 40px;
+        }
+
+        .cardsContainer {
+            width: 100vw;
+            height: auto;
+        }
+
+        .cardsContainer img {
+            max-width: 100vw;
+            width: auto;
+            height: auto;
+        }
+
+        .mainImageDisplay {
+            width: 95% !important;
+            height: auto !important;
+        }
+    }
+
+
     .imageCardsContainer {
         display: grid;
         grid-template-rows: 10% 90%;
