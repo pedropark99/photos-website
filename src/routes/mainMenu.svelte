@@ -74,7 +74,7 @@
 
 
 
-
+<div class="mainMenu">
     <div class="nameHeader">
 		<h1>Pedro Faria</h1>
 	</div>
