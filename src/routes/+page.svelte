@@ -100,6 +100,14 @@
 				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
+
+			<br><br>
+
+			<div>&copy Copyright Pedro Faria.</div>
+
+			<br><br><br><br><br><br><br>
+
+
 		</div>
 
 
@@ -123,9 +131,42 @@
 		text-align: center;
 	}
 
-	.pageContent {
-		display: grid;
-		grid-template-columns: 15vw 70vw 15vw;
+	h2 {
+		font-family: Outfit, serif;
+		font-size: 25pt;
+		font-weight: bold;
+		color: #3c190b;
+		margin-bottom: 10px;
+	}
+
+
+	button a {
+		font-family: Outfit, serif;
+		font-size: 20pt;
+		color: var(--argetinian-blue);
+		text-decoration: none;
+	}
+
+	.merchButtons button {
+		border-radius: 7px;
+		padding: 10px;
+		padding-left: 20px;
+		padding-right: 20px;
+		margin-left: 20px;
+		margin-right: 20px;
+		border: var(--main-text-brown-color);
+		background: var(--main-text-brown-color);
+		color: var(--argentinian-blue);
+	}
+
+	.merchButtons button:hover {
+		background: var(--argentinian-blue);
+		color: var(--main-text-brown-color);
+	}
+
+	.merchButtons {
+		text-align: center;
+		align-items: center;
 	}
 
 </style>

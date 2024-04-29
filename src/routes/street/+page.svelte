@@ -63,35 +63,47 @@
 <div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
 	<div class="pageContent">
+		<div class="leftEmptySpace"></div>
 
-	<Masonry items={images} colWidth={"350px"} bind:refreshLayout={refreshLayout}>
-		{#each images as image}
-				<div class="grid-item">
-					<img
-						loading="lazy"
-						on:click={ (event) => { zoom_over_image(event) } }
-						on:load={refreshLayout}
-						src="{image}"
-						alt=""
-						width="350px"
-					/>
-				</div>
-		{/each}
-	</Masonry>
+		<div class="actualPageContent">
+			<Masonry items={images} colWidth={"350px"} bind:refreshLayout={refreshLayout}>
+				{#each images as image}
+						<div class="grid-item">
+							<img
+								loading="lazy"
+								on:click={ (event) => { zoom_over_image(event) } }
+								on:load={refreshLayout}
+								src="{image}"
+								alt=""
+								width="350px"
+							/>
+						</div>
+				{/each}
+			</Masonry>
 
-	
-	<dialog bind:this={dialog} on:close on:click|self={() => dialog.close()}>
-		<button autofocus class="modalCloseButton" on:click={() => dialog.close()}>&times;</button>
-        <hr />
-        <img class="imageInModal" src="{selected_image}" alt="" width="100%" />
-    </dialog>
+		
+			<dialog bind:this={dialog} on:close on:click|self={() => dialog.close()}>
+				<button autofocus class="modalCloseButton" on:click={() => dialog.close()}>&times;</button>
+				<hr />
+				<img class="imageInModal" src="{selected_image}" alt="" width="100%" />
+			</dialog>
 
 
+			<div>&copy Copyright Pedro Faria.</div>
+
+		</div>
+
+		<div class="rightEmptySpace"></div>
 	</div>
 </div>
 
 
 <style>
+
+	.pageContent {
+		display: grid;
+		grid-template-columns: 5vw 90vw 5vw;
+	}
 
 	.modalCloseButton {
 		font-size: 25pt;

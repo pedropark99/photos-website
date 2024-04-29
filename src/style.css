@@ -23,12 +23,11 @@
     grid-template-rows: 80px 1fr;
 }
 
-h2 {
-    font-family: Outfit, serif;
-    font-size: 25pt;
-    font-weight: bold;
-    color: #3c190b;
-    margin-bottom: 10px;
+
+
+.pageContent {
+    display: grid;
+    grid-template-columns: 15vw 70vw 15vw;
 }
 
 

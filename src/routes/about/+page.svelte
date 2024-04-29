@@ -63,28 +63,51 @@
 <div class="app"  on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
     <div class="pageContent">
-        <h2>{@html page_text[local_locale]["title"]}</h2>
-        <p>{@html page_text[local_locale]["body.p1"]}</p>
+		<div class="leftEmptySpace"></div>
 
-		<img src="HTZ_0219-2.jpg" alt="My photo" width="35%" />
+		<div class="actualPageContent">
 
-        <p>{@html page_text[local_locale]["body.p2"]}</p>
+			<div class="myPersonalPhoto">
+				<img src="HTZ_0219-2.jpg" alt="My photo" width="50%" />
+			</div>
+
+			<h2>{@html page_text[local_locale]["title"]}</h2>
+			<p>{@html page_text[local_locale]["body.p1"]}</p>
+			<p>{@html page_text[local_locale]["body.p2"]}</p>
 
 
-		<div class="merchButtons">
-			<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
-			<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
-			<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
+			<div class="merchButtons">
+				<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
+				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
+				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
+			</div>
+
+			<p>{@html page_text[local_locale]["body.gear"]}</p>
+			<ul>{@html page_text[local_locale]["body.gearlist"]}</ul>
 		</div>
 
-		<p>{@html page_text[local_locale]["body.gear"]}</p>
-		<ul>{@html page_text[local_locale]["body.gearlist"]}</ul>
+		<div class="rightEmptySpace"></div>
 
 	</div>
 </div>
 
 
 <style>
+
+	h2 {
+		font-family: Outfit, serif;
+		font-size: 25pt;
+		font-weight: bold;
+		color: #3c190b;
+		margin-bottom: 10px;
+	}
+
+	.myPersonalPhoto {
+		display: block;
+		text-align: center;
+		justify-content: center;
+		align-items: center;
+	}
 
 	button a {
 		font-family: Outfit, serif;
@@ -120,11 +143,6 @@
 	}
 
 	img {
-		justify-content: center;
-		text-align: center;
-		align-items: center;
-		vertical-align: top;
-		float: left;
 		margin: 30px;
 	}
 
