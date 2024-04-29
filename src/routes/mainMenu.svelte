@@ -176,6 +176,10 @@
 		column-gap: 20px;
 	}
 
+	.languageDropdownContainer {
+		position: relative;
+	}
+
 	.dropdownContent {
 		display: block;
 		position: relative;
