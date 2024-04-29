@@ -4,11 +4,12 @@
 
 
 :root {
-    background-color: #fff3d4;
+    background-color: white;
     font-family: 'Hanken Grotesk', sans-serif;
     color: #222222;
     font-size: 13pt;
-    --background-color: #fff3d4;
+    --background-color: white;
+    --weak-yellow: #fff3d4;
     --main-text-brown-color: #421b0c;
     --soft-brown-color: #c78369;
     --moonstone-blue: #63b0cd;
@@ -19,7 +20,7 @@
 
 .app {
     display: grid;
-    grid-template-rows: 200px 1fr;
+    grid-template-rows: 80px 1fr;
 }
 
 h2 {

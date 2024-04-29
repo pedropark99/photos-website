@@ -78,7 +78,7 @@
 
     {#key current_image}
     <div class="cardsContainer" in:fade={{delay:50, duration:700}}>
-        <img class="mainImageDisplay" src="{current_image}" alt="" width="60%" on:click={() => (showModal = true)}/>
+        <img class="mainImageDisplay" src="{current_image}" alt="" width="70%" on:click={() => (showModal = true)}/>
     </div>
 
     <Modal bind:showModal>
@@ -107,7 +107,7 @@
     
     .cardsContainer img {
         width: auto;
-        height: 500px;
+        height: 600px;
         border-radius: 10px;
         transition: 0.25s;
     }
