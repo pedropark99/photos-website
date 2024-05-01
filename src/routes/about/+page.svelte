@@ -14,7 +14,7 @@
 		Português: {
 			"title": "Sobre mim",
 			"body.p1": "Meu nome é Pedro! Sou um fotógrafo amador de Belo Horizonte, Brasil. Na verdade, eu trabalho <i>full-time</i> como Data Platform Engineer. Portanto, eu trabalho bastante com tecnologia, dados, IA e programação. Mas eu também amo a fotografia, e quando tenho um tempo livre, eu pego minha câmera, e fotografo nas ruas, documentando a vida a medida que ela acontece.",
-			"body.p2": "Eu pessoalmente amo a fotografia de rua e a fotografia de retratos. Esses são os estilos de fotografia que mais me interessam. Se você deseja aprimorar a sua imagem nas redes sociais, ou, se você deseja ter um perfil mais profissional na internet, considere marcar um <i>photo shoot</i> comigo 😉:",
+			"body.p2": "Eu pessoalmente amo a fotografia de rua e a fotografia de retratos. Esses são os estilos de fotografia que mais me interessam. Se você deseja aprimorar a sua imagem nas redes sociais, ou, se você deseja ter um perfil mais profissional na internet, considere marcar um ensaio fotográfico comigo 😉:",
 			"body.gear": "Minhas fotos são produzidas com os seguintes equipamentos:",
 			"body.gearlist": "<li>Camera Canon T5i.</li> <li>Lente Canon 50mm 1.8 STM.</li> <li>Fotos são editadas em sua maioria no RawTherapee, e às vezes, no DarkTable.</li>"
 		},

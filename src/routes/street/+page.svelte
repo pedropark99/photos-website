@@ -4,7 +4,7 @@
 	import { onMount } from 'svelte';
 	import { isLanguageDropdownOpen, isDropdownOpen } from './../../stores.js'
 	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
-
+	var screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 	let refreshLayout;
 	var images = [];
 	var image_path_fixed;
@@ -21,9 +21,18 @@
 		selected_image = image_path;
 		dialog.showModal();
 	}
+	function resize_images_in_mobile() {
+		if (screen_width <= 767) {
+			const images = document.getElementsByClassName("imageInMansoryGrid")
+			for (let image of images) {
+				image.setAttribute("width", "95%")
+			}
+		}
+	}
 
 	onMount(() => {
 		document.getElementById("street-button").style.textDecoration = "underline 1pt solid #222222";
+		resize_images_in_mobile();
 	})
 
 	function is_string(obj) {
@@ -56,6 +65,8 @@
 		$isDropdownOpen = false;
 		$isLanguageDropdownOpen = false;
 	}
+
+
 </script>
 
 
@@ -70,6 +81,7 @@
 				{#each images as image}
 						<div class="grid-item">
 							<img
+								class="imageInMansoryGrid"
 								loading="lazy"
 								on:click={ (event) => { zoom_over_image(event) } }
 								on:load={refreshLayout}
@@ -141,6 +153,16 @@
 	.grid-item:hover {
 		opacity: 0.8;
 		cursor: pointer;
+	}
+
+	@media (max-width: 767px) {
+		.grid-item {
+			width: 95% !important;
+		}
+
+		img {
+			border-radius: 10px;
+		}
 	}
 
 </style>
