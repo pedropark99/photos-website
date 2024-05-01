@@ -156,8 +156,8 @@
 
 			{#if $isLanguageDropdownOpen}
 				<div class="dropdownContent">
-					<button on:click={changeLanguage}>PORTUGUÊS</button>
-					<button on:click={changeLanguage}>ENGLISH</button>
+					<button class="languageOptionButton" on:click={changeLanguage}>PORTUGUÊS</button>
+					<button class="languageOptionButton" on:click={changeLanguage}>ENGLISH</button>
 				</div>
 			{/if}
 		</div>
@@ -169,7 +169,6 @@
 
 
 <style>
-
 	.mainMenu {
 		display: grid;
 		grid-template-columns: 5fr 120px 10fr 2fr;
@@ -178,17 +177,6 @@
 
 	.languageDropdownContainer {
 		position: relative;
-	}
-
-	.dropdownContent {
-		display: block;
-		position: relative;
-		width: 180px;
-		background: var(--argentinian-blue);
-		float: right;
-		right: 0;
-		padding: 20px;
-		border-radius: 5px;
 	}
 
 	.nameHeader {
@@ -255,7 +243,6 @@
 	}
 
 	.dropdownContent a {
-		font-size: 10pt;
 		margin: 15px;
 		background: var(--argentinian-blue);
 		color: var(--main-text-brown-color);
@@ -264,14 +251,23 @@
 	}
 
 	.dropdownContent button {
+		font-size: 13pt;
+		font-family: 'Hanken Grotesk', sans-serif;
 		background: none;
 		border: none;
-		font-size: 10pt;
 		margin: 15px;
 		background: var(--argentinian-blue);
 		color: var(--main-text-brown-color);
 		text-decoration: none;
 		display: block;
+	}
+
+	.dropdownContent button:hover {
+		cursor: pointer;
+		background: var(--main-text-brown-color);
+		color: var(--argentinian-blue);
+		padding: 5px;
+		border-radius: 5px;
 	}
 
 
