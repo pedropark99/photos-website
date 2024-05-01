@@ -169,4 +169,10 @@
 		align-items: center;
 	}
 
+	@media (max-width: 767px) {
+		h1 {
+			font-size: 34pt;
+		}
+	}
+
 </style>

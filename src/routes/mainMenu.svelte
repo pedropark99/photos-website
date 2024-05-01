@@ -163,7 +163,6 @@
 		</div>
 	</div>
 
-	<p>{@html menu_options[local_locale]["description"]}</p>
 </div>
 
 
@@ -283,7 +282,7 @@
 
 		.mainMenuMobile {
 			display: grid;
-			grid-template-rows: 80px 100px;
+			grid-template-rows: 80px;
 			align-items: center;
 		}
 

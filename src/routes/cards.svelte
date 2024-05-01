@@ -70,7 +70,7 @@
         
         <button class="arrowSwitchCard" on:click={previous_image}>←</button>
         {#each images as image, index }
-        <button id="{index}" class="buttonSwitchCard" on:click={(event) => switch_image_focus(event)}></button>
+            <button id="{index}" class="buttonSwitchCard" on:click={(event) => switch_image_focus(event)}></button>
         {/each}
         <button class="arrowSwitchCard" on:click={next_image}>→</button>
         
@@ -94,24 +94,37 @@
 <style>
     @media (max-width: 767px) {
         .imageCardsContainer {
-            display: flex;
-            padding-top: 40px;
+            display: grid;
+            grid-template-rows: 10% 90%;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            place-items: center;
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 20px;
         }
 
         .cardsContainer {
-            width: 100vw;
             height: auto;
         }
 
         .cardsContainer img {
-            max-width: 100vw;
             width: auto;
             height: auto;
         }
 
         .mainImageDisplay {
-            width: 95% !important;
+            width: 90% !important;
             height: auto !important;
+        }
+
+        .arrowSwitchCard {
+            color: var(--argentinian-blue);
+            font-size: 20pt !important;
+            background: none;
+            border: none;
+            margin-left: 20px;
+            margin-right: 20px;
         }
     }
 

@@ -30,6 +30,13 @@
     grid-template-columns: 18vw 64vw 18vw;
 }
 
+@media (max-width: 767px) {
+    .pageContent {
+        display: grid;
+        grid-template-columns: 2vw 94vw 2vw;
+    }
+}
+
 
 p {
     text-align: justify;
