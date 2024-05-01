@@ -298,14 +298,32 @@
 
 
 
+		.dropdownContent button {
+			font-size: 10pt;
+			margin: 10px;
+		}
+		.dropdownContent a {
+			font-size: 10pt;
+			margin: 10px;
+		}
+
+		.dropdownContent {
+			display: block;
+			position: absolute;
+			top: 80px;
+			right: 15px;
+			z-index: 99999;
+		}
 
 
 
 
-
-
+		.mobileLanguageButtonDropdown {
+			position: relative;
+		}
 		.mobileMenuDropdownContainer {
 			display: grid;
+			position: relative;
 			grid-template-columns: 30% 70%;
 			grid-template-rows: 100%;
 			vertical-align: center;
@@ -317,6 +335,7 @@
 
 		.mobileButtonDropdown {
 			width: 70px;
+			position: relative;
 			padding: 0px;
 			padding-top: 10px;
 			padding-bottom: 10px;

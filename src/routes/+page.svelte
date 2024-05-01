@@ -186,9 +186,6 @@
 			padding: 10px;
 			margin-left: 5px;
 			margin-right: 5px;
-			border: var(--main-text-brown-color);
-			background: var(--main-text-brown-color);
-			color: var(--argentinian-blue);
 		}
 	}
 
