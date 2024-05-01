@@ -68,7 +68,7 @@
 		<div class="actualPageContent">
 
 			<div class="myPersonalPhoto">
-				<img src="HTZ_0219-2.jpg" alt="My photo" width="50%" />
+				<img src="HTZ_0219-2.jpg" alt="My photo" width="90%" />
 			</div>
 
 			<h2>{@html page_text[local_locale]["title"]}</h2>
@@ -84,6 +84,10 @@
 
 			<p>{@html page_text[local_locale]["body.gear"]}</p>
 			<ul>{@html page_text[local_locale]["body.gearlist"]}</ul>
+
+			<div>&copy Copyright Pedro Faria.</div>
+
+			<br><br><br><br><br><br><br>
 		</div>
 
 		<div class="rightEmptySpace"></div>
@@ -148,18 +152,21 @@
 
 
 	@media (max-width: 767px) {
+		img {
+			margin: 0px;
+			margin-top: 10px;
+		}
+		
 		button a {
 			font-family: Outfit, serif;
-			font-size: 15pt;
+			font-size: 13pt;
 		}
 
 		.merchButtons button {
-			border-radius: 7px;
+			border-radius: 5px;
 			padding: 10px;
-			padding-left: 10px;
-			padding-right: 10px;
-			margin-left: 10px;
-			margin-right: 10px;
+			margin-left: 5px;
+			margin-right: 5px;
 		}
 	}
 
