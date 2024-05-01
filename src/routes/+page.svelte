@@ -173,6 +173,23 @@
 		h1 {
 			font-size: 34pt;
 		}
+
+		button a {
+			font-family: Outfit, serif;
+			font-size: 13pt;
+			color: var(--argetinian-blue);
+			text-decoration: none;
+		}
+
+		.merchButtons button {
+			border-radius: 5px;
+			padding: 10px;
+			margin-left: 5px;
+			margin-right: 5px;
+			border: var(--main-text-brown-color);
+			background: var(--main-text-brown-color);
+			color: var(--argentinian-blue);
+		}
 	}
 
 </style>
