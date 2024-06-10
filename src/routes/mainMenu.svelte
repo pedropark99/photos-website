@@ -74,8 +74,6 @@
 		<img class="logoImage" src="logov2.png" />
 	</div>
 
-	<div class="emptySpace"></div>
-
 
 	<div class="menuOptionsList">
 		<div class="languageDropdownContainer">
@@ -165,7 +163,7 @@
 <style>
 	.mainMenu {
 		display: grid;
-		grid-template-columns: 5fr 120px 10fr 2fr;
+		grid-template-columns: 3fr 10fr 3fr;
 		column-gap: 20px;
 	}
 
@@ -187,12 +185,14 @@
 		display: flex;
 		gap: 10px;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.menuOptionsList {
 		display: flex;
 		gap: 30px;
 		align-items: center;
+		justify-content: center;
 	}
 
 	.mainMenu a {
@@ -240,7 +240,7 @@
 		border-radius: 2px;
 		border-style: solid;
 		border-width: 0.01cm;
-		border-color: #222222;
+		border-color: #adacac;
 	}
 
 	.dropdownContent a {
