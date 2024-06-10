@@ -1,10 +1,10 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
+	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
 	import { isLanguageDropdownOpen, isDropdownOpen } from './../../stores.js'
 	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
-	var screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 	let refreshLayout;
 	var images = [];
 	var image_path_fixed;
@@ -22,6 +22,9 @@
 		dialog.showModal();
 	}
 	function resize_images_in_mobile() {
+		if (browser) {
+			var screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+		}
 		if (screen_width <= 767) {
 			const images = document.getElementsByClassName("imageInMansoryGrid")
 			for (let image of images) {
