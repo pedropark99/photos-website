@@ -51,14 +51,9 @@
 		isLanguageDropdownOpen.update((value) => !value);
 	};
 	const changeLanguage = (event) => {
-		const language_chosen = event.target.innerText
-		if (language_chosen === "PORTUGUÊS") {
-			$locale = "Português"
-		}
-		if (language_chosen === "ENGLISH") {
-			$locale = "English"
-		}
-	}
+		const language_chosen = event.target.innerText;
+		$locale = language_chosen;
+	};
 
 	const handleDropdownFocusLoss = ({ relatedTarget, currentTarget }) => {
 		// use "focusout" event to ensure that we can close the dropdown when clicking outside or when we leave the dropdown with the "Tab" button
@@ -95,8 +90,8 @@
 
 			{#if $isLanguageDropdownOpen}
 				<div class="dropdownContent">
-					<button on:click={changeLanguage}>PORTUGUÊS</button>
-					<button on:click={changeLanguage}>ENGLISH</button>
+					<button on:click={changeLanguage}>Português</button>
+					<button on:click={changeLanguage}>English</button>
 				</div>
 			{/if}
 		</div>
@@ -156,8 +151,8 @@
 
 			{#if $isLanguageDropdownOpen}
 				<div class="dropdownContent">
-					<button class="languageOptionButton" on:click={changeLanguage}>PORTUGUÊS</button>
-					<button class="languageOptionButton" on:click={changeLanguage}>ENGLISH</button>
+					<button class="languageOptionButton" on:click={changeLanguage}>Português</button>
+					<button class="languageOptionButton" on:click={changeLanguage}>English</button>
 				</div>
 			{/if}
 		</div>
@@ -232,31 +227,29 @@
 	}
 
 	.dropdownContent {
-		display: block;
+		display: grid;
+		grid-template-rows: 30px 30px;
 		position: absolute;
 		z-index: 99999;
-		width: 180px;
-		background: var(--argentinian-blue);
-		padding: 20px;
-		border-radius: 5px;
+		width: 120px;
+		background: white;
+		border-radius: 2px;
+		border-style: solid;
+		border-width: 0.01cm;
+		border-color: #222222;
 	}
 
 	.dropdownContent a {
-		margin: 15px;
-		background: var(--argentinian-blue);
 		color: var(--main-text-brown-color);
 		text-decoration: none;
 		display: block;
 	}
 
 	.dropdownContent button {
-		font-size: 13pt;
+		font-size: 11pt;
 		font-family: 'Hanken Grotesk', sans-serif;
 		background: none;
 		border: none;
-		margin: 15px;
-		background: var(--argentinian-blue);
-		color: var(--main-text-brown-color);
 		text-decoration: none;
 		display: block;
 	}
@@ -265,14 +258,15 @@
 		cursor: pointer;
 		background: var(--main-text-brown-color);
 		color: var(--argentinian-blue);
-		padding: 5px;
-		border-radius: 5px;
 	}
 
 
 	.mainMenuMobile {
 		display: none;
 	}
+
+
+
 	/* --------------------- Styles for mobile ---------------------- */
 	@media (max-width: 767px) {
 		.mainMenu {
@@ -300,11 +294,11 @@
 
 		.dropdownContent button {
 			font-size: 10pt;
-			margin: 10px;
+			margin: 20px;
 		}
 		.dropdownContent a {
 			font-size: 10pt;
-			margin: 10px;
+			margin: 20px;
 		}
 
 		.dropdownContent {
