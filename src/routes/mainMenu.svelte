@@ -71,7 +71,7 @@
 
 <div class="mainMenu">
     <div class="nameHeader">
-		<h1>Pedro Faria</h1>
+		<img class="logoImage" src="logov2.png" />
 	</div>
 
 	<div class="emptySpace"></div>
@@ -122,7 +122,7 @@
 
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
-		<h1>Pedro Faria</h1>
+		<img class="logoImage" src="logov2.svg" />
 
 		<div class="mobileMenuDropdownContainer">
 			<button
@@ -169,6 +169,11 @@
 		column-gap: 20px;
 	}
 
+	.logoImage {
+		height: 100px;
+		object-fit: contain;
+	}
+
 	.languageDropdownContainer {
 		position: relative;
 	}
@@ -177,7 +182,6 @@
 		display: flex;
 		align-items: center;
 	}
-
 
 	.socialMediaContact {
 		display: flex;
@@ -269,9 +273,15 @@
 
 	/* --------------------- Styles for mobile ---------------------- */
 	@media (max-width: 767px) {
+
 		.mainMenu {
 			display: none;
 			margin-left: 0px;
+		}
+
+		.logoImage {
+			height: 100px;
+			object-fit: contain;
 		}
 
 		.mainMenuMobile {

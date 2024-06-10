@@ -171,7 +171,7 @@
 
 	@media (max-width: 767px) {
 		h1 {
-			font-size: 34pt;
+			font-size: 28pt;
 		}
 
 		button a {
