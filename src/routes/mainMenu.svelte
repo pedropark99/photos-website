@@ -5,7 +5,7 @@
 		faWhatsapp,
 	} from "@fortawesome/free-brands-svg-icons";
 	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
-	import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+	import { faGlobe, faBars } from "@fortawesome/free-solid-svg-icons";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
 
 	import Switch from "./Switch.svelte";
@@ -126,16 +126,23 @@
 			<button
 				class="mobileLanguageButtonDropdown"
 				on:click={handleLanguageDropdownClick}
-			><Fa
+			>
+				<Fa
 					icon={faGlobe}
 					color="var(--main-text-brown-color)"
 					size="18pt"
-			/></button>
+				/>
+			</button>
 
 			<button
-					class="mobileButtonDropdown"
-					on:click={handleDropdownClick}
-			>Menu</button>
+				class="mobileButtonDropdown"
+				on:click={handleDropdownClick}
+			>
+				<Fa
+					icon={faBars}
+					color="white"
+				/>
+			</button>
 			
 
 			{#if $isDropdownOpen}
@@ -303,12 +310,13 @@
 
 
 		.dropdownContent button {
-			font-size: 10pt;
 			margin: 20px;
+			font-size: 10pt;
 		}
+
 		.dropdownContent a {
-			font-size: 10pt;
 			margin: 20px;
+			font-size: 10pt;
 		}
 
 		.dropdownContent {
@@ -325,6 +333,7 @@
 		.mobileLanguageButtonDropdown {
 			position: relative;
 		}
+
 		.mobileMenuDropdownContainer {
 			display: grid;
 			position: relative;
@@ -333,8 +342,7 @@
 			vertical-align: center;
 			place-items: center;
 			text-align: center;
-			height: 100px;
-			width: auto;
+			width: 140px;
 		}
 
 		.mobileButtonDropdown {
