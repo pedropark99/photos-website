@@ -120,46 +120,50 @@
 
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
-		<img class="logoImage" src="logov2.svg" />
+		<div class="logoContainer">
+			<img class="logoImage" src="logov2.svg" />
+		</div>
 
-		<div class="mobileMenuDropdownContainer">
-			<button
-				class="mobileLanguageButtonDropdown"
-				on:click={handleLanguageDropdownClick}
-			>
-				<Fa
-					icon={faGlobe}
-					color="var(--main-text-brown-color)"
-					size="18pt"
-				/>
-			</button>
+		<div class="mobileMenusContainer" >
+			<div class="mobileMenuDropdownContainer">
+				<button
+					class="mobileLanguageButtonDropdown"
+					on:click={handleLanguageDropdownClick}
+				>
+					<Fa
+						icon={faGlobe}
+						color="var(--main-text-brown-color)"
+						size="18pt"
+					/>
+				</button>
 
-			<button
-				class="mobileButtonDropdown"
-				on:click={handleDropdownClick}
-			>
-				<Fa
-					icon={faBars}
-					color="white"
-				/>
-			</button>
-			
+				<button
+					class="mobileButtonDropdown"
+					on:click={handleDropdownClick}
+				>
+					<Fa
+						icon={faBars}
+						color="white"
+					/>
+				</button>
+				
 
-			{#if $isDropdownOpen}
-				<div class="dropdownContent">
-					<a href=".">{menu_options[local_locale]["home.label"]}</a>
-					<a href="/about">{menu_options[local_locale]["about.label"]}</a>
-					<a href="/street">{menu_options[local_locale]["street.label"]}</a>
-					<a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a>
-				</div>
-			{/if}
+				{#if $isDropdownOpen}
+					<div class="dropdownContent">
+						<a href=".">{menu_options[local_locale]["home.label"]}</a>
+						<a href="/about">{menu_options[local_locale]["about.label"]}</a>
+						<a href="/street">{menu_options[local_locale]["street.label"]}</a>
+						<a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a>
+					</div>
+				{/if}
 
-			{#if $isLanguageDropdownOpen}
-				<div class="dropdownContent">
-					<button class="languageOptionButton" on:click={changeLanguage}>Português</button>
-					<button class="languageOptionButton" on:click={changeLanguage}>English</button>
-				</div>
-			{/if}
+				{#if $isLanguageDropdownOpen}
+					<div class="dropdownContent">
+						<button class="languageOptionButton" on:click={changeLanguage}>Português</button>
+						<button class="languageOptionButton" on:click={changeLanguage}>English</button>
+					</div>
+				{/if}
+			</div>
 		</div>
 	</div>
 
@@ -286,24 +290,35 @@
 			margin-left: 0px;
 		}
 
-		.logoImage {
-			height: 100px;
-			object-fit: contain;
-		}
-
 		.mainMenuMobile {
 			display: grid;
-			grid-template-rows: 80px;
-			align-items: center;
+			grid-template-rows: 100px;
 		}
 
 		.mobileMenuOptionsContainer {
 			display: grid;
-			grid-template-columns: 60% 40% ;
-			grid-template-rows: 100px;
+			grid-template-columns: 40% 60%;
+		}
+
+		.mobileMenusContainer {
+			display: flex;
+			align-items: right;
+			text-align: right;
+			justify-content: right;
+		}
+
+		
+
+		.logoContainer {
+			display: flex;
 			align-items: center;
 			text-align: left;
-			justify-content: center;
+		}
+
+		.logoImage {
+			object-fit: contain;
+			width: 100px;
+			height: 100px;
 		}
 
 
@@ -322,7 +337,7 @@
 		.dropdownContent {
 			display: block;
 			position: absolute;
-			top: 80px;
+			top: 70px;
 			right: 15px;
 			z-index: 99999;
 		}
@@ -332,17 +347,21 @@
 
 		.mobileLanguageButtonDropdown {
 			position: relative;
+			margin-left: 30px;
+			margin-right: 30px;
+			padding-left: 0px;
+			padding-right: 0px;
 		}
 
 		.mobileMenuDropdownContainer {
 			display: grid;
 			position: relative;
+			margin: 20px;
 			grid-template-columns: 30% 70%;
 			grid-template-rows: 100%;
 			vertical-align: center;
 			place-items: center;
 			text-align: center;
-			width: 140px;
 		}
 
 		.mobileButtonDropdown {

@@ -25,24 +25,28 @@
 }
 
 
+p {
+    text-align: justify;
+    word-wrap: break-word;
+}
+
 
 .pageContent {
     display: grid;
     grid-template-columns: 18vw 64vw 18vw;
 }
 
+
 @media (max-width: 767px) {
+    .app {
+        display: grid;
+        grid-template-rows: 140px 1fr;
+    }
+
     .pageContent {
         display: grid;
         grid-template-columns: 2vw 94vw 2vw;
     }
 }
-
-
-p {
-    text-align: justify;
-    word-wrap: break-word;
-}
-
 
 
