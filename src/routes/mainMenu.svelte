@@ -70,7 +70,7 @@
 
 
 <div class="mainMenu">
-    <div class="nameHeader">
+    <div class="logoContainer">
 		<img class="logoImage" src="logov2.png" />
 	</div>
 
@@ -187,7 +187,7 @@
 		position: relative;
 	}
 
-	.nameHeader {
+	.logoContainer {
 		display: flex;
 		align-items: center;
 	}
