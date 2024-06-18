@@ -7,8 +7,7 @@
 	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 	import { faGlobe, faBars } from "@fortawesome/free-solid-svg-icons";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
-
-	import Switch from "./Switch.svelte";
+	import Logo from "./../../static/logov2.png?enhanced"
 
 	let local_locale = "Português";
 	const locale_callback = locale.subscribe((value) => {
@@ -26,6 +25,7 @@
 			"about.label": "SOBRE MIM",
 			"street.label": "FOTOGRAFIA DE RUA",
 			"portrait.label": "RETRATOS",
+			"events.label": "EVENTOS",
 		},
 		English: {
 			"description": "Photographer 📷 based at Belo Horizonte - Brazil. Street and Portrait Photography.",
@@ -33,6 +33,7 @@
 			"about.label": "ABOUT ME",
 			"street.label": "STREET PHOTOGRAPHY",
 			"portrait.label": "PORTRAITS",
+			"events.label": "EVENTS",
 		},
 	};
 
@@ -71,7 +72,7 @@
 
 <div class="mainMenu">
     <div class="logoContainer">
-		<img class="logoImage" src="logov2.png" />
+		<enhanced:img class="logoImage" src={Logo} />
 	</div>
 
 
@@ -99,6 +100,7 @@
 		<div class="menuOption" id="about-button" ><a href="/about">{menu_options[local_locale]["about.label"]}</a></div>
 		<div class="menuOption" id="street-button" ><a href="/street">{menu_options[local_locale]["street.label"]}</a></div>
 		<div class="menuOption" id="portrait-button" ><a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a></div>
+		<div class="menuOption" id="events-button" ><a href="/events">{menu_options[local_locale]["events.label"]}</a></div>
 	</div>
 
 
@@ -154,6 +156,7 @@
 						<a href="/about">{menu_options[local_locale]["about.label"]}</a>
 						<a href="/street">{menu_options[local_locale]["street.label"]}</a>
 						<a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a>
+						<a href="/events">{menu_options[local_locale]["events.label"]}</a>
 					</div>
 				{/if}
 
@@ -180,7 +183,8 @@
 
 	.logoImage {
 		height: 100px;
-		object-fit: contain;
+		width: 100px;
+		object-fit: cover;
 	}
 
 	.languageDropdownContainer {

@@ -33,7 +33,7 @@ p {
 
 .pageContent {
     display: grid;
-    grid-template-columns: 18vw 64vw 18vw;
+    grid-template-columns: 18% 64% 18%;
 }
 
 
