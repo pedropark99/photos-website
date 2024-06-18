@@ -2,7 +2,7 @@
     import MainMenu from "../mainMenu.svelte";
     import EventThumb from "./eventThumb.svelte";
     import * as eventsJson from './events.json'
-	import { isLanguageDropdownOpen, isDropdownOpen  } from './../../stores.js'
+	import { isLanguageDropdownOpen, isDropdownOpen } from './../../stores.js'
 
     let events_to_display = eventsJson.events_list;
 

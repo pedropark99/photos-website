@@ -123,7 +123,7 @@
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
 		<div class="logoContainer">
-			<img class="logoImage" src="logov2.svg" />
+			<enhanced:img class="logoImage" src={Logo} />
 		</div>
 
 		<div class="mobileMenusContainer" >

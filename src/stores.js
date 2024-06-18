@@ -4,6 +4,7 @@ export const locales = ["English", "Português"];
 export let locale = writable("Português");
 export let isDropdownOpen = writable(false);
 export let isLanguageDropdownOpen = writable(false);
+export let eventViewId = writable(0);
 
 
 locale.update((l) => l);
@@ -22,3 +23,7 @@ isLanguageDropdownOpen.update((value) => {
 	console.log(value)
 });
 
+eventViewId.update((d) => d);
+eventViewId.subscribe((value) => {
+	console.log(value);
+});

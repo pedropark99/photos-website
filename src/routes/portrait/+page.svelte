@@ -2,7 +2,6 @@
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
 	import { onMount } from 'svelte';
-	import Modal from './../Modal.svelte';
 	import { isLanguageDropdownOpen, isDropdownOpen  } from './../../stores.js'
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 

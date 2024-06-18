@@ -1,5 +1,5 @@
 <script>
-    import { redirect } from '@sveltejs/kit';
+    import {eventViewId} from './../../stores.js'
 
     export let thumb_image;
     export let event_name;
@@ -7,7 +7,8 @@
     export let event_id;
 
     function viewEvent(id) {
-        redirect(300, "/view")
+        $eventViewId = id;
+        location.assign(`/events/view`);
     }
 </script>
 
