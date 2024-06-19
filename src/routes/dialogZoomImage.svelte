@@ -32,17 +32,20 @@
 <dialog class="modalImageZoom" bind:this={dialog}>
     <div class="swapModalButtonContainer" >
         <button class="swapModalButton" on:click={previous_image}>
-            <Fa icon={faChevronLeft} color="#222222" size="40pt"/>
+            <Fa icon={faChevronLeft} color="#222222" size="30pt"/>
         </button>
     </div>
 
-    <div class="imageInModal" on:click={close_modal}>
+    <div class="imageInModalContainer" on:click={close_modal}>
+        <div><button class="closeModalButton">
+            <Fa icon={faXmark} size= "30pt" color="#8f8f8f"/>
+        </button></div>
         <img src="{image_to_display}" alt="" />
     </div>
 
     <div class="swapModalButtonContainer" >
         <button class="swapModalButton" on:click={next_image}>
-            <Fa icon={faChevronRight} color="#222222" size="40pt"/>
+            <Fa icon={faChevronRight} color="#222222" size="30pt"/>
         </button>
     </div>
 </dialog>
@@ -72,8 +75,9 @@
         background: none;
     }
 
-    .imageInModal {
+    .imageInModalContainer {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
     }
@@ -96,11 +100,15 @@
     }
 
     .closeModalButton {
+        padding-bottom: 10px;
         border: none;
         background: none;
     }
 
     button {
         cursor: pointer;
+    }
+
+    @media (max-width: 767px) {
     }
 </style>
