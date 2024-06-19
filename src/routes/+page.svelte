@@ -1,7 +1,4 @@
 <script>
-	import Fa from 'svelte-fa';
-	import { faInstagram, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-    import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 	import MainMenu from "./mainMenu.svelte";
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';

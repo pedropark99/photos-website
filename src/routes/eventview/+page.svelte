@@ -1,9 +1,17 @@
 <script>
     import MainMenu from "../mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
+	import ZoomImage from "./../dialogZoomImage.svelte"
     import * as eventsJson from '../events/events.json'
 	import * as imagePaths from '../events/image_paths.json'
-	import { isLanguageDropdownOpen, isDropdownOpen, eventViewId  } from '../../stores.js'
+	import { imageCatalog } from "$lib/image_catalog";
+	import {
+		isLanguageDropdownOpen,
+		isDropdownOpen,
+		eventViewId,
+		imageToZoom,
+		displayImageZoom
+	} from '../../stores.js'
 
 	let refreshLayout;
 	let event;
@@ -17,14 +25,6 @@
 		if (possible_images[i].id == $eventViewId) {
 			images = possible_images[i].image_paths
 		}
-	}
-
-	let dialog;
-	let selected_image = images[0];
-	function zoom_over_image(image_node) {
-		const image_path = image_node.target.src;
-		selected_image = image_path;
-		dialog.showModal();
 	}
 
 	function is_string(obj) {
@@ -58,6 +58,13 @@
 		$isLanguageDropdownOpen = false;
 	}
 
+	function zoom_over_image(image_node) {
+		const image_path = image_node.target.src;
+		const catalog = new imageCatalog(image_path, images);
+		$imageToZoom = catalog;
+		$displayImageZoom = true;
+	}
+
 </script>
 
 
@@ -84,13 +91,13 @@
 					</div>		
 				{/each}
 			</Masonry>
+
+			<div>&copy Copyright Pedro Faria.</div>
         </div>
 
-		<dialog bind:this={dialog} on:close on:click|self={() => dialog.close()}>
-			<button autofocus class="modalCloseButton" on:click={() => dialog.close()}>&times;</button>
-			<hr />
-			<img class="imageInModal" src="{selected_image}" alt="" width="100%" />
-		</dialog>
+		{#if $displayImageZoom}
+			<ZoomImage />
+		{/if}
 
         <div class="leftEmptySpace"></div>
 	</div>
@@ -104,14 +111,6 @@
 	.pageContent {
 		display: grid;
 		grid-template-columns: 5vw 90vw 5vw;
-	}
-
-	.modalCloseButton {
-		font-size: 25pt;
-	}
-
-	.imageInModal {
-		max-height: 130vh;
 	}
 
 	.pageContent {
