@@ -8,7 +8,7 @@
 
     function viewEvent(id) {
         $eventViewId = id;
-        location.assign(`/events/view`);
+        location.assign(`/eventview`);
     }
 </script>
 

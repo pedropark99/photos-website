@@ -1,5 +1,3 @@
-import os
-import sys
 import json
 from pathlib import Path
 
@@ -15,7 +13,7 @@ for i in range(len(events_list['events_list'])):
     event = events_list['events_list'][i]
     pf = event['path_to_folder']
     path = Path(pf)
-    image_paths = list(path.glob("**/*.jpg"))
+    image_paths = list(path.glob("**/*.webp"))
     image_paths = ['./../../' + str(p) for p in image_paths]
     images['image_list'].append({
         'id': i,

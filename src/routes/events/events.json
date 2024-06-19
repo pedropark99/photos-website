@@ -3,7 +3,7 @@
         {
             "id": 0,
             "event_name": "República Galinheiro - Aniversário de 14 anos",
-            "thumb_image": "static/events/galinheiro-rep-14anos/IMG_0704.jpg",
+            "thumb_image": "static/events/galinheiro-rep-14anos/IMG_0704.webp",
             "path_to_folder": "static/events/galinheiro-rep-14anos/",
             "event_date": "2024-06-01",
             "event_location": "Mariana - MG"
