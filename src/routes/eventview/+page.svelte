@@ -92,7 +92,7 @@
 		<div class="leftEmptySpace"></div>
 
         <div class="actualPageContent">
-			<div class="eventName"><h1>{@html event.event_name[$locale]}</h1></div>
+			<div class="eventName">{@html event.event_name[$locale]}</div>
 			<div class="eventLocationDate">{@html event.event_location} - {@html formatted_event_date}</div>
 			<div class="eventDescription"><p>{@html event.event_description[$locale]}</p></div>
 
@@ -140,9 +140,7 @@
         text-align: left;
         font-family: Outfit, sans-serif;
         font-weight: bold;
-	}
-
-	h1 {
+		font-size: 20pt;
 		margin-bottom: 5px;
 	}
 
@@ -181,10 +179,6 @@
 	@media (max-width: 767px) {
 		.pageContent {
 			margin-top: 10px;
-		}
-
-		h1 {
-			font-size: 14pt;
 		}
 	}
 </style>
