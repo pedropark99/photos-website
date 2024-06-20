@@ -1,6 +1,7 @@
 <script>
-    import MainMenu from "../mainMenu.svelte";
+    import MainMenu from "../../lib/mainMenu.svelte";
 	import { onMount } from 'svelte';
+	import is_string from "$lib/utils";
     import { locale, isLanguageDropdownOpen, isDropdownOpen } from "../../stores";
 
     const page_text = {
@@ -22,12 +23,6 @@
     onMount(() => {
 		document.getElementById("about-button").style.textDecoration = "underline 1pt solid #222222";
 	})
-
-	function is_string(obj) {
-		if (typeof obj === 'string' || obj instanceof String)
-			return true;
-		return false;
-	}
 
 	function closeMenuWithClickOutside(event) {
 		const container_class = "mobileMenuDropdownContainer";

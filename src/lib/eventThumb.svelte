@@ -1,5 +1,5 @@
 <script>
-    import {eventViewId} from './../../stores.js'
+    import {eventViewId} from '../stores.js'
 
     export let thumb_image;
     export let event_name;
@@ -61,6 +61,22 @@
     .EventThumbButton:hover {
         cursor: pointer;
         opacity: 75%;
+    }
+
+
+    @media (max-width: 767px) {
+        .EventThumbItem {
+            width: 330px;
+            height: auto;
+            place-self: center;
+        }
+
+        img {
+            object-fit: cover;
+            width: 320px;
+            height: 320px;
+            border-radius: 10px;
+        }
     }
 
 </style>

@@ -7,7 +7,7 @@
 	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 	import { faGlobe, faBars } from "@fortawesome/free-solid-svg-icons";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
-	import Logo from "./../../static/logov2.png?enhanced"
+	import Logo from "./../../static/logov2.png?enhanced";
 
 	let local_locale = "Português";
 	const locale_callback = locale.subscribe((value) => {

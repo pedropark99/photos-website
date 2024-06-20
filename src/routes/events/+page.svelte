@@ -1,16 +1,15 @@
 <script>
-    import MainMenu from "../mainMenu.svelte";
-    import EventThumb from "./eventThumb.svelte";
-    import * as eventsJson from './events.json'
-	import { isLanguageDropdownOpen, isDropdownOpen } from './../../stores.js'
+    import MainMenu from "../../lib/mainMenu.svelte";
+    import EventThumb from "../../lib/eventThumb.svelte";
+	import is_string from "$lib/utils";
+	import { onMount } from "svelte";
+    import * as eventsJson from './events.json';
+	import { isLanguageDropdownOpen, isDropdownOpen, locale } from './../../stores.js'
 
     let events_to_display = eventsJson.events_list;
-
-	function is_string(obj) {
-		if (typeof obj === 'string' || obj instanceof String)
-			return true;
-		return false;
-	}
+	onMount(() => {
+		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
+	})
 
 	function closeMenuWithClickOutside(event) {
 		const container_class = "mobileMenuDropdownContainer";
@@ -54,7 +53,7 @@
                     <EventThumb
                         event_id={event.id}
                         thumb_image={event.thumb_image}
-                        event_name={event.event_name}
+                        event_name={event.event_name[$locale]}
                         event_location={event.event_location}
                     />
                 {/each}
@@ -83,4 +82,22 @@
         grid-template-rows: max-content;
         row-gap: 40px;
     }
+
+	@media (max-width: 767px) {
+		.pageContent {
+			display: grid;
+			grid-template-columns: 3% 94% 3%;
+		}
+
+		.actualPageContent {
+			margin-top: 40px;
+		}
+
+		.eventsThumbGrid {
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-template-rows: max-content;
+			row-gap: 40px;
+		}
+	}
 </style>
