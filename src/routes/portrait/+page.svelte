@@ -1,9 +1,16 @@
 <script>
-    import MainMenu from "../mainMenu.svelte";
+    import MainMenu from "../../lib/mainMenu.svelte";
+	import is_string from "$lib/utils";
 	import Masonry from "../../lib/Masonry.svelte";
+    import DialogZoomImage from "$lib/dialogZoomImage.svelte";
+	import { imageCatalog } from "$lib/image_catalog";
 	import { onMount } from 'svelte';
-	import Modal from './../Modal.svelte';
-	import { isLanguageDropdownOpen, isDropdownOpen  } from './../../stores.js'
+	import {
+		isLanguageDropdownOpen,
+		isDropdownOpen,
+		currentPageImageCatalog,
+		displayImageZoom
+	} from './../../stores.js'
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
 	let refreshLayout;
@@ -13,23 +20,17 @@
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
-
-	let dialog;
-	let selected_image = images[0];
-	function zoom_over_image(image_node) {
-		const image_path = image_node.target.src;
-		selected_image = image_path;
-		dialog.showModal();
-	}
+	console.log(images)
+	$currentPageImageCatalog = new imageCatalog(images[0], images);
 
 	onMount(() => {
 		document.getElementById("portrait-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
-	function is_string(obj) {
-		if (typeof obj === 'string' || obj instanceof String)
-			return true;
-		return false;
+	function zoom_over_image(image_node) {
+		const image_path = image_node.target.src;
+		$currentPageImageCatalog.set_current_image(image_path);
+		$displayImageZoom = true;
 	}
 
 	function closeMenuWithClickOutside(event) {
@@ -84,12 +85,9 @@
 
 
 
-
-			<dialog bind:this={dialog} on:close on:click|self={() => dialog.close()}>
-				<button autofocus class="modalCloseButton" on:click={() => dialog.close()}>&times;</button>
-				<hr />
-				<img class="imageInModal" src="{selected_image}" alt="" width="100%" />
-			</dialog>
+			{#if $displayImageZoom}
+				<DialogZoomImage />
+			{/if}
 
 			<div>&copy Copyright Pedro Faria.</div>
 		</div>
@@ -123,7 +121,7 @@
 		100% { opacity: 1; }
 	}
 	.grid-item {
-		animation: fadeIn 3s;
+		animation: fadeIn 2s;
 		width: 350px;
 	}
 

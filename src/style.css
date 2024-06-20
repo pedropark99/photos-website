@@ -33,14 +33,14 @@ p {
 
 .pageContent {
     display: grid;
-    grid-template-columns: 18vw 64vw 18vw;
+    grid-template-columns: 18% 64% 18%;
 }
 
 
 @media (max-width: 767px) {
     .app {
         display: grid;
-        grid-template-rows: 140px 1fr;
+        grid-template-rows: 120px 1fr;
     }
 
     .pageContent {
