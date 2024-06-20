@@ -90,7 +90,7 @@
     </div>
 
     <div class="currentImageInCard">
-        <img transition:fade class="imageInCard" src="{image_to_display}">
+        <img transition:fade loading="lazy" class="imageInCard" src="{image_to_display}">
     </div>
 </div>
 
