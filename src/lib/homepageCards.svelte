@@ -89,9 +89,12 @@
         </button>
     </div>
 
-    <div class="currentImageInCard">
-        <img transition:fade loading="lazy" class="imageInCard" src="{image_to_display}">
+    {#key image_to_display}
+    <div class="currentImageInCard" in:fade={{delay:50, duration:700}}>
+        <img class="imageInCard" src="{image_to_display}">
     </div>
+    {/key}
+
 </div>
 
 
