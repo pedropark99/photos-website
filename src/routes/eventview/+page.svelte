@@ -112,7 +112,7 @@
 				{/each}
 			</Masonry>
 
-			<div>&copy Copyright Pedro Faria.</div>
+			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
         </div>
 
 		{#if $displayImageZoom}
@@ -142,6 +142,11 @@
         font-weight: bold;
 		font-size: 20pt;
 		margin-bottom: 5px;
+	}
+
+	.copyrightMessage {
+		margin-top: 60px;
+		margin-bottom: 30px;
 	}
 
 	.eventLocationDate {

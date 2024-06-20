@@ -58,6 +58,8 @@
                     />
                 {/each}
             </div>
+
+			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
 		</div>
 
 		<div class="leftEmptySpace"></div>
@@ -82,6 +84,12 @@
         grid-template-rows: max-content;
         row-gap: 40px;
     }
+
+	.copyrightMessage {
+		margin-top: 60px;
+		margin-bottom: 30px;
+	}
+
 
 	@media (max-width: 767px) {
 		.pageContent {

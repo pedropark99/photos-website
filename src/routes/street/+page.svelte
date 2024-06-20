@@ -107,7 +107,7 @@
 			{/if}
 
 
-			<div>&copy Copyright Pedro Faria.</div>
+			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
 
 		</div>
 
@@ -121,6 +121,7 @@
 	.pageContent {
 		display: grid;
 		grid-template-columns: 5vw 90vw 5vw;
+		margin-right: calc(5%);
 	}
 
 	.modalCloseButton {
@@ -135,8 +136,9 @@
 		max-height: 130vh;
 	}
 
-	.pageContent {
-		margin-right: calc(5%);
+	.copyrightMessage {
+		margin-top: 60px;
+		margin-bottom: 30px;
 	}
 
 	@keyframes fadeIn {

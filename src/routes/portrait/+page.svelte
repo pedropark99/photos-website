@@ -89,7 +89,7 @@
 				<DialogZoomImage />
 			{/if}
 
-			<div>&copy Copyright Pedro Faria.</div>
+			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
 		</div>
 
 		<div class="leftEmptySpace"></div>
@@ -110,6 +110,11 @@
 
 	.imageInModal {
 		max-height: 130vh;
+	}
+
+	.copyrightMessage {
+		margin-top: 60px;
+		margin-bottom: 30px;
 	}
 
 	.pageContent {
