@@ -12,6 +12,7 @@
 		displayImageZoom
 	} from './../../stores.js'
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
 	let refreshLayout;
@@ -96,6 +97,9 @@
 
 		<div class="leftEmptySpace"></div>
 	</div>
+
+
+	<Footer />
 </div>
 
 

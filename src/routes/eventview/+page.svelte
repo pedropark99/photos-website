@@ -17,6 +17,7 @@
 		locale
 	} from '../../stores.js';
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
 	onMount(() => {
 		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
@@ -123,6 +124,9 @@
 
         <div class="leftEmptySpace"></div>
 	</div>
+
+
+	<Footer />
 </div>
 
 

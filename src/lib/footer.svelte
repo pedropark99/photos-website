@@ -67,6 +67,21 @@
 
 
 <style>
+    @media (max-width: 767px) {
+        .logoImage {
+            height: 50px;
+            width: 50px;
+            max-width: 50px;
+            max-height: 50px;
+            object-fit: cover;
+        }
+        
+        .footerContainer {
+            margin-left: 5px !important;
+            margin-right: 5px !important;
+        }
+    }
+
     .logoImageContainer {
         display: flex;
         align-items: center;
@@ -104,6 +119,7 @@
         align-items: flex-start;
         align-content: flex-start;
         flex-wrap: wrap;
+        word-wrap: normal;
         justify-content: center;
     }
 

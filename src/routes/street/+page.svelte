@@ -13,6 +13,7 @@
 		currentPageImageCatalog
 	} from './../../stores.js';
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
 
 	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
@@ -114,6 +115,9 @@
 
 		<div class="rightEmptySpace"></div>
 	</div>
+
+
+	<Footer />
 </div>
 
 

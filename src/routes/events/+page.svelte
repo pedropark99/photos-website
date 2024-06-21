@@ -6,6 +6,7 @@
     import * as eventsJson from './events.json';
 	import { isLanguageDropdownOpen, isDropdownOpen, locale } from './../../stores.js'
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
     let events_to_display = eventsJson.events_list;
 	onMount(() => {
@@ -66,6 +67,10 @@
 
 		<div class="leftEmptySpace"></div>
 	</div>
+
+
+
+	<Footer />
 </div>
 
 

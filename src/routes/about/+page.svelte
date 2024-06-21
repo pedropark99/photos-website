@@ -4,6 +4,7 @@
 	import is_string from "$lib/utils";
     import { locale, isLanguageDropdownOpen, isDropdownOpen } from "../../stores";
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
     const page_text = {
 		English: {
@@ -82,6 +83,9 @@
 		<div class="rightEmptySpace"></div>
 
 	</div>
+
+
+	<Footer />
 </div>
 
 
