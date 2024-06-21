@@ -69,14 +69,15 @@
 <style>
     @media (max-width: 767px) {
         .logoImage {
-            height: 50px;
-            width: 50px;
-            max-width: 50px;
-            max-height: 50px;
+            height: 70px;
+            width: 70px;
+            max-width: 70px;
+            max-height: 70px;
             object-fit: cover;
         }
         
         .footerContainer {
+            grid-template-columns: 1fr 30px 3fr 3fr !important;
             margin-left: 5px !important;
             margin-right: 5px !important;
         }
@@ -145,6 +146,7 @@
         border-radius: 2px;
         border-left: 2px solid var(--main-text-brown-color);
         height: 200px;
+        width: 5px;
     }
 
     .appFooter {
