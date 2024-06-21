@@ -16,6 +16,7 @@
 		displayImageZoom,
 		locale
 	} from '../../stores.js';
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
 
 	onMount(() => {
 		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
@@ -112,7 +113,8 @@
 				{/each}
 			</Masonry>
 
-			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
+			<CopyrightMessage />
+
         </div>
 
 		{#if $displayImageZoom}
@@ -142,11 +144,6 @@
         font-weight: bold;
 		font-size: 20pt;
 		margin-bottom: 5px;
-	}
-
-	.copyrightMessage {
-		margin-top: 60px;
-		margin-bottom: 30px;
 	}
 
 	.eventLocationDate {

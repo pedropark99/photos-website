@@ -4,6 +4,8 @@
 	import is_string from "$lib/utils";
 	import HomepageCards from "$lib/homepageCards.svelte";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
 	const page_text = {
 		English: {
@@ -84,11 +86,7 @@
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
 
-			<br><br>
-
-			<div>&copy Copyright Pedro Faria.</div>
-
-			<br><br><br><br><br><br><br>
+			<CopyrightMessage />
 
 
 		</div>
@@ -98,6 +96,7 @@
 	</div>
 
 
+	<Footer />
 
 </div>
 

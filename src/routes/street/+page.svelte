@@ -12,6 +12,7 @@
 		displayImageZoom,
 		currentPageImageCatalog
 	} from './../../stores.js';
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
 
 
 	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
@@ -107,7 +108,7 @@
 			{/if}
 
 
-			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
+			<CopyrightMessage />
 
 		</div>
 
@@ -134,11 +135,6 @@
 
 	.imageInModal {
 		max-height: 130vh;
-	}
-
-	.copyrightMessage {
-		margin-top: 60px;
-		margin-bottom: 30px;
 	}
 
 	@keyframes fadeIn {

@@ -5,6 +5,7 @@
 	import { onMount } from "svelte";
     import * as eventsJson from './events.json';
 	import { isLanguageDropdownOpen, isDropdownOpen, locale } from './../../stores.js'
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
 
     let events_to_display = eventsJson.events_list;
 	onMount(() => {
@@ -59,7 +60,8 @@
                 {/each}
             </div>
 
-			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
+			<CopyrightMessage />
+
 		</div>
 
 		<div class="leftEmptySpace"></div>
@@ -84,11 +86,6 @@
         grid-template-rows: max-content;
         row-gap: 40px;
     }
-
-	.copyrightMessage {
-		margin-top: 60px;
-		margin-bottom: 30px;
-	}
 
 
 	@media (max-width: 767px) {

@@ -11,6 +11,7 @@
 		currentPageImageCatalog,
 		displayImageZoom
 	} from './../../stores.js'
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
 	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
 
 	let refreshLayout;
@@ -89,7 +90,8 @@
 				<DialogZoomImage />
 			{/if}
 
-			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
+			<CopyrightMessage />
+
 		</div>
 
 		<div class="leftEmptySpace"></div>
@@ -103,18 +105,12 @@
 		grid-template-columns: 5vw 90vw 5vw;
 	}
 
-
 	.modalCloseButton {
 		font-size: 25pt;
 	}
 
 	.imageInModal {
 		max-height: 130vh;
-	}
-
-	.copyrightMessage {
-		margin-top: 60px;
-		margin-bottom: 30px;
 	}
 
 	.pageContent {

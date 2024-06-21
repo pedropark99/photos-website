@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import is_string from "$lib/utils";
     import { locale, isLanguageDropdownOpen, isDropdownOpen } from "../../stores";
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
 
     const page_text = {
 		English: {
@@ -73,9 +74,9 @@
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
 
-			<div class="copyrightMessage">&copy Copyright Pedro Faria.</div>
+			
+			<CopyrightMessage />
 
-			<br><br><br><br><br><br><br>
 		</div>
 
 		<div class="rightEmptySpace"></div>
@@ -92,11 +93,6 @@
 		font-weight: bold;
 		color: #3c190b;
 		margin-bottom: 10px;
-	}
-
-	.copyrightMessage {
-		margin-top: 60px;
-		margin-bottom: 30px;
 	}
 
 	.myPersonalPhoto {
