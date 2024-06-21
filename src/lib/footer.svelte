@@ -54,18 +54,17 @@
             <div class="socialMediaContact">
                 <div class="footerOptionSocial">
                     <a href="https://www.instagram.com/mineiro.pelasruas/">
-                        <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="15pt"/> Instagram
+                        <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="15pt"/> &nbsp Instagram
                     </a>
                 </div>
                 <div class="footerOptionSocial">
                     <a href="https://wa.me/5531985124294">
-                        <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="15pt"/> WhatsApp
+                        <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="15pt"/> &nbsp WhatsApp
                     </a>
                 </div>
                 <div class="footerOptionSocial">
                     <a href="mailto:pedropark99@gmail.com">
-                        <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="15pt"/>
-                        Email
+                        <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="15pt"/> &nbsp Email
                     </a>
                 </div>
             </div>
@@ -104,15 +103,11 @@
 
     .socialMediaContact {
         display: flex;
+        gap: 10px;
         flex-direction: column;
-		gap: 10px;
         align-items: left;
         justify-content: center;
         font-size: 11pt;
-    }
-
-    .socialMediaContact a {
-        margin-right: 5px;
     }
 
     h1 {
