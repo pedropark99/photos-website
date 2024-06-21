@@ -52,9 +52,22 @@
             <h1>{menu_options[$locale]["contact.label"]}</h1>
 
             <div class="socialMediaContact">
-                <div class="footerOptionSocial"><a href="https://www.instagram.com/mineiro.pelasruas/"> <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="15pt"/></a> Instagram </div>
-                <div class="footerOptionSocial"><a href="https://wa.me/5531985124294"> <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="15pt"/></a> WhatsApp</div>
-                <div class="footerOptionSocial"><a href="mailto:pedropark99@gmail.com"> <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="15pt"/></a> Email</div>
+                <div class="footerOptionSocial">
+                    <a href="https://www.instagram.com/mineiro.pelasruas/">
+                        <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="15pt"/> Instagram
+                    </a>
+                </div>
+                <div class="footerOptionSocial">
+                    <a href="https://wa.me/5531985124294">
+                        <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="15pt"/> WhatsApp
+                    </a>
+                </div>
+                <div class="footerOptionSocial">
+                    <a href="mailto:pedropark99@gmail.com">
+                        <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="15pt"/>
+                        Email
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -132,6 +145,12 @@
 
     .footerOptionsContainer a:hover {
         color: white;
+    }
+
+    .footerOptionSocial {
+        display: flex;
+        flex-direction: row;
+        align-items: left;
     }
 
     .footerOptionSocial:hover {
