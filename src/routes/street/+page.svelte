@@ -1,9 +1,21 @@
 <script>
-    import MainMenu from "../mainMenu.svelte";
+    import MainMenu from "../../lib/mainMenu.svelte";
 	import Masonry from "../../lib/Masonry.svelte";
+	import is_string from "$lib/utils";
+	import { imageCatalog } from "$lib/image_catalog";
 	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-	import { isLanguageDropdownOpen, isDropdownOpen } from './../../stores.js'
+    import DialogZoomImage from "$lib/dialogZoomImage.svelte";
+	import {
+		isLanguageDropdownOpen,
+		isDropdownOpen,
+		displayImageZoom,
+		currentPageImageCatalog
+	} from './../../stores.js';
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
+
+
 	const images_paths = import.meta.glob("./../../../static/street/*.jpg");
 	let refreshLayout;
 	var images = [];
@@ -12,15 +24,15 @@
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
+	$currentPageImageCatalog = new imageCatalog(images[0], images);
 
 
-	let dialog;
-	let selected_image = images[0];
 	function zoom_over_image(image_node) {
 		const image_path = image_node.target.src;
-		selected_image = image_path;
-		dialog.showModal();
+		$currentPageImageCatalog.set_current_image(image_path);
+		$displayImageZoom = true;
 	}
+
 	function resize_images_in_mobile() {
 		if (browser) {
 			var screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -37,12 +49,6 @@
 		document.getElementById("street-button").style.textDecoration = "underline 1pt solid #222222";
 		resize_images_in_mobile();
 	})
-
-	function is_string(obj) {
-		if (typeof obj === 'string' || obj instanceof String)
-			return true;
-		return false;
-	}
 
 	function closeMenuWithClickOutside(event) {
 		const container_class = "mobileMenuDropdownContainer";
@@ -97,19 +103,21 @@
 			</Masonry>
 
 		
-			<dialog bind:this={dialog} on:close on:click|self={() => dialog.close()}>
-				<button autofocus class="modalCloseButton" on:click={() => dialog.close()}>&times;</button>
-				<hr />
-				<img class="imageInModal" src="{selected_image}" alt="" width="100%" />
-			</dialog>
+
+			{#if $displayImageZoom}
+				<DialogZoomImage />
+			{/if}
 
 
-			<div>&copy Copyright Pedro Faria.</div>
+			<CopyrightMessage />
 
 		</div>
 
 		<div class="rightEmptySpace"></div>
 	</div>
+
+
+	<Footer />
 </div>
 
 
@@ -118,6 +126,7 @@
 	.pageContent {
 		display: grid;
 		grid-template-columns: 5vw 90vw 5vw;
+		margin-right: calc(5%);
 	}
 
 	.modalCloseButton {
@@ -130,10 +139,6 @@
 
 	.imageInModal {
 		max-height: 130vh;
-	}
-
-	.pageContent {
-		margin-right: calc(5%);
 	}
 
 	@keyframes fadeIn {

@@ -1,18 +1,21 @@
 <script>
-    import MainMenu from "../mainMenu.svelte";
+    import MainMenu from "../../lib/mainMenu.svelte";
 	import { onMount } from 'svelte';
+	import is_string from "$lib/utils";
     import { locale, isLanguageDropdownOpen, isDropdownOpen } from "../../stores";
+    import CopyrightMessage from "$lib/copyrightMessage.svelte";
+    import Footer from "$lib/footer.svelte";
 
     const page_text = {
 		English: {
 			"title": "About me",
 			"body.p1": " I'm Pedro, a photographer based in Belo Horizonte, Brazil. I work a lot with technology, data, AI and programming. But I also love photography, and when I have time, I take my camera and shoot on the streets, documenting life as it happens.",
-			"body.p2": "I personally love street and portrait photography. These are the styles of photography that I'm most interested in. If you want to improve your image on social medias, or, if you want to make a more professional profile on the internet, consider booking a photo shoot with me 😉:"
+			"body.p2": "If you want to improve your image (or the image of your brand) on the social media, or, if you want to have professional photos for your event, consider booking a photo service with me 😉:"
 		},
 		Português: {
 			"title": "Sobre mim",
 			"body.p1": "Meu nome é Pedro! Sou um fotógrafo de Belo Horizonte, Brasil. Eu trabalho bastante com tecnologia, dados, IA e programação. Mas eu também amo a fotografia, e quando tenho um tempo livre, eu pego minha câmera e fotografo nas ruas, documentando a vida a medida que ela acontece.",
-			"body.p2": "Eu pessoalmente amo a fotografia de rua e a fotografia de retratos, mas também já fiz fotografia de eventos. Se você deseja aprimorar a sua imagem nas redes sociais, ou, se você deseja ter um perfil mais profissional na internet, considere marcar um ensaio fotográfico comigo 😉:"
+			"body.p2": "Se você deseja aprimorar a sua imagem (ou a imagem da sua marca) nas redes sociais, ou, ter fotos profissionais para seu evento, considere marcar um serviço fotográfico comigo 😉:"
 		},
 	};
 
@@ -22,12 +25,6 @@
     onMount(() => {
 		document.getElementById("about-button").style.textDecoration = "underline 1pt solid #222222";
 	})
-
-	function is_string(obj) {
-		if (typeof obj === 'string' || obj instanceof String)
-			return true;
-		return false;
-	}
 
 	function closeMenuWithClickOutside(event) {
 		const container_class = "mobileMenuDropdownContainer";
@@ -78,14 +75,17 @@
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
 
-			<div>&copy Copyright Pedro Faria.</div>
+			
+			<CopyrightMessage />
 
-			<br><br><br><br><br><br><br>
 		</div>
 
 		<div class="rightEmptySpace"></div>
 
 	</div>
+
+
+	<Footer />
 </div>
 
 

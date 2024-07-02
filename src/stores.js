@@ -1,29 +1,22 @@
 import { writable } from "svelte/store";
+import { imageCatalog } from "$lib/image_catalog";
 
 export const locales = ["English", "Português"];
 export let locale = writable("Português");
 export let isDropdownOpen = writable(false);
 export let isLanguageDropdownOpen = writable(false);
 export let eventViewId = writable(0);
+export let displayImageZoom = writable(false);
+export let imageSelected = writable("");
+export let currentPageImageCatalog = writable(new imageCatalog("", []));
+
 
 
 locale.update((l) => l);
-locale.subscribe((value) => {
-	console.log(value);
-});
-
-
 isDropdownOpen.update((d) => d);
-isDropdownOpen.subscribe((value) => {
-	console.log(value);
-});
-
 isLanguageDropdownOpen.update((d) => d);
-isLanguageDropdownOpen.update((value) => {
-	console.log(value)
-});
-
 eventViewId.update((d) => d);
-eventViewId.subscribe((value) => {
-	console.log(value);
-});
+currentPageImageCatalog.update((d) => d);
+displayImageZoom.update((d) => d);
+imageSelected.update((d) => d);
+
