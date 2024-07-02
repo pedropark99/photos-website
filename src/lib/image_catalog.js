@@ -34,7 +34,6 @@ export function imageCatalog(current_image, image_paths) {
     this.set_current_image = (image) => {
         this.current_image = image;
         this.current_index = this.find_image_index(image)
-        console.log("Current index", this.current_index)
     };
     this.set_current_image_with_index = (index) => {
         this.current_index = index;
