@@ -13,11 +13,6 @@
 	const locale_callback = locale.subscribe((value) => {
 		local_locale = value;
 	});
-	// let local_dropdown = false;
-	// const dropdown_callback = isDropdownOpen.subscribe((value) => {
-	// 	console.log("INFO: Callback foi acionada")
-	// 	local_dropdown = value
-	// });
 	const menu_options = {
 		Português: {
 			"description": "Fotógrafo 📷 baseado em Belo Horizonte - Brasil. Fotografia de rua e retratos.",

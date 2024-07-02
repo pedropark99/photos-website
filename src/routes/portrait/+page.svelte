@@ -22,7 +22,7 @@
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
-	console.log(images)
+
 	$currentPageImageCatalog = new imageCatalog(images[0], images);
 
 	onMount(() => {

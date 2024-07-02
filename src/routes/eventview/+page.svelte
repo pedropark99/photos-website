@@ -23,7 +23,6 @@
 		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
-	console.log("Event Id:", $eventViewId);
 	let refreshLayout;
 	let event;
 	let images;
@@ -79,6 +78,7 @@
 
 	function zoom_over_image(image_node) {
 		const image_path = image_node.target.src;
+		console.log("Image src, ", image_path);
 		$currentPageImageCatalog.set_current_image(image_path);
 		$displayImageZoom = true;
 	}

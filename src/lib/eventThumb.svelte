@@ -7,7 +7,7 @@
     export let event_location;
     export let event_id;
 
-    $: console.log("Event id: ", $eventViewId)
+
     function viewEvent(id) {
         $eventViewId = id;
         goto(`/eventview`);
@@ -17,7 +17,7 @@
 
 <div class=EventThumbItem>
     <button class=EventThumbButton on:click={viewEvent(event_id)}>
-        <img src="{thumb_image}" />
+        <img class=EventThumbImage alt="" src="{thumb_image}" />
         <div class=EventThumbName>{event_name}</div>
         <div class=EventThumbLocation>{event_location}</div>
     </button>
@@ -29,7 +29,7 @@
     .EventThumbItem {
         width: 360px;
         height: auto;
-        place-self: center;
+        place-self: top;
     }
 
     img {
