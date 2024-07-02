@@ -134,7 +134,7 @@
 
     .swapImageCardButtonsContainer .swapImageCardButton:hover {
         cursor: pointer;
-        background-color: var(--moonstone-blue);
+        background-color: var(--argentinian-blue);
         border-radius: 5px;
     }
 

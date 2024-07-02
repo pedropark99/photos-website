@@ -1,14 +1,16 @@
 <script>
-    import {eventViewId} from '../stores.js'
+    import {eventViewId} from '../stores.js';
+    import {goto} from "$app/navigation";
 
     export let thumb_image;
     export let event_name;
     export let event_location;
     export let event_id;
 
+    $: console.log("Event id: ", $eventViewId)
     function viewEvent(id) {
         $eventViewId = id;
-        location.assign(`/eventview`);
+        goto(`/eventview`);
     }
 </script>
 

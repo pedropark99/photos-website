@@ -14,6 +14,21 @@
                 "English": "Cultivating a family through 14 years at the small town of Mariana - MG, the Galinheiro Republic is a private accommodation that receives students from UFOP (Federal University of Ouro Preto). I had the privilege to register moments at an event organized to celebrate the history of respect and union of this institution.",
                 "Português": "A 14 anos cultivando uma família na cidade de Mariana - MG, a República Galinheiro é uma república estudantil particular que acolhe estudantes da UFOP (Universidade Federal de Ouro Preto). Tive o privilégio de registrar momentos em um evento organizado para comemorar a história de respeito e união dessa instituição."
             }
+        },
+        {
+            "id": 1,
+            "event_name": {
+                "English": "Birthday Party Anna 2024 - BH",
+                "Português": "Aniversário Anna 2024 - BH"
+            },
+            "thumb_image": "events/aniversario-ana-2024/IMG_9820.webp",
+            "path_to_folder": "static/events/aniversario-ana-2024/",
+            "event_date": "2024-06-29",
+            "event_location": "Belo Horizonte - MG",
+            "event_description": {
+                "English": "I had the privilege to register moments at the 2024 birthday party for Anna, in a club in Belo Horizonte - MG.",
+                "Português": "Tive o privilégio de registrar momentos na festa de aniversário 2024 da Anna, em um bar em Belo Horizonte - MG."
+            }
         }
     ]
 }

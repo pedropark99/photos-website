@@ -23,6 +23,7 @@
 		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
+	console.log("Event Id:", $eventViewId);
 	let refreshLayout;
 	let event;
 	let images;
@@ -156,7 +157,7 @@
         font-size: 12pt;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: left;
-		background-color: var(--moonstone-blue);
+		background-color: var(--argentinian-blue);
 		background-size: contain;
 		padding-left: 10px;
 		padding-right: 10px;
