@@ -78,7 +78,6 @@
 
 	function zoom_over_image(image_node) {
 		const image_path = image_node.target.src;
-		console.log("Image src, ", image_path);
 		$currentPageImageCatalog.set_current_image(image_path);
 		$displayImageZoom = true;
 	}

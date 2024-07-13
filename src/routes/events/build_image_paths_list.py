@@ -14,7 +14,8 @@ for i in range(len(events_list['events_list'])):
     pf = event['path_to_folder']
     path = Path(pf)
     image_paths = list(path.glob("**/*.webp"))
-    image_paths = [str(p).replace("static/", "") for p in image_paths]
+    image_paths = [str(p).replace("\\", "/") for p in image_paths]
+    image_paths = [p.replace("static/", "") for p in image_paths]
     images['image_list'].append({
         'id': i,
         'image_paths': image_paths
