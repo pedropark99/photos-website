@@ -90,9 +90,9 @@
     </div>
 
     {#key image_to_display}
-    <div class="currentImageInCard" in:fade={{delay:50, duration:700}}>
-        <img class="imageInCard" src="{image_to_display}">
-    </div>
+        <div class="currentImageInCard" in:fade={{delay:50, duration:700}}>
+            <img class="imageInCard" src="{image_to_display}">
+        </div>
     {/key}
 
 </div>
@@ -101,6 +101,10 @@
 <style>
     .homepageImageCardsContainer {
         width: 100%;
+    }
+
+    .currentImageInCard {
+        height: 80vh;
     }
 
     .homepageImageCardsContainer img {
