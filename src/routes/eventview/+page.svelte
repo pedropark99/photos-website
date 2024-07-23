@@ -103,7 +103,6 @@
 				{#each images as image}
 					<div class="grid-item">
 						<img
-							loading="lazy"
 							on:click={zoom_over_image}
 							on:load={refreshLayout}
 							src="{image}"

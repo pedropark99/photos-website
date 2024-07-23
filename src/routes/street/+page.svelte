@@ -95,8 +95,6 @@
 				{#each images as image}
 						<div class="grid-item">
 							<img
-								class="imageInMansoryGrid"
-								loading="lazy"
 								on:click={ (event) => { zoom_over_image(event) } }
 								on:load={refreshLayout}
 								src="{image}"
