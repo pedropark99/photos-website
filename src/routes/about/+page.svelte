@@ -10,12 +10,12 @@
 		English: {
 			"title": "About me",
 			"body.p1": " I'm Pedro, a photographer based in Belo Horizonte, Brazil. I work a lot with technology, data, AI and programming. But I also love photography, and when I have time, I take my camera and shoot on the streets, documenting life as it happens.",
-			"body.p2": "If you want to improve your image (or the image of your brand) on the social media, or, if you want to have professional photos for your event, consider booking a photo service with me 😉:"
+			"body.p2": "If you are interested in booking an event coverage, or, a photo shoot with me 😉, send me a message through Instagram, or WhatsApp, or via Email:",
 		},
 		Português: {
 			"title": "Sobre mim",
 			"body.p1": "Meu nome é Pedro! Sou um fotógrafo de Belo Horizonte, Brasil. Eu trabalho bastante com tecnologia, dados, IA e programação. Mas eu também amo a fotografia, e quando tenho um tempo livre, eu pego minha câmera e fotografo nas ruas, documentando a vida a medida que ela acontece.",
-			"body.p2": "Se você deseja aprimorar a sua imagem (ou a imagem da sua marca) nas redes sociais, ou, ter fotos profissionais para seu evento, considere marcar um serviço fotográfico comigo 😉:"
+			"body.p2": "Se você estiver interessado em marcar uma cobertura de algum evento, ou um ensaio fotográfico comigo 😉, me mande uma mensagem pelo Instagram, ou WhatsApp, ou por Email.",
 		},
 	};
 
