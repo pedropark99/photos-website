@@ -111,8 +111,15 @@
         max-width: 100%;
     }
 
+    .currentImageInCard {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     img {
         border-radius: 10px;
+        max-height: 900px;
     }
 
     .swapImageCardButtonsContainer {
