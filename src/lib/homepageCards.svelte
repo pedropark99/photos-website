@@ -8,10 +8,13 @@
 
     const images = [
         'street/IMG_8513.jpg',
-        'street/IMG_8383.jpg',
+        'street/IMG_1668.webp',
+        'street/IMG_2239.webp',
+        'street/IMG_2069.webp',
+        'street/IMG_2090.webp',
         'portraits/IMG_8330.jpg',
+        'portraits/IMG_2337.webp',
         'portraits/IMG_8420.jpg',
-        'street/IMG_7605.jpg',
         'street/IMG_8589.jpg',
         'street/IMG_7831.jpg'
     ]
