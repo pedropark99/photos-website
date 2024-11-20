@@ -79,7 +79,7 @@
     {/if}
     <div class="swapImageCardButtonsContainer">
         <button class="swapImageCardButton" on:click={previous_image}>
-            <Fa icon={faChevronLeft} size="15pt" color="var(--main-text-brown-color)" />
+            <Fa icon={faChevronLeft} size="14pt" color="var(--main-text-brown-color)" />
         </button>
 
         {#each images as image, index }
@@ -88,7 +88,7 @@
         {/each}
 
         <button class="swapImageCardButton" on:click={next_image}>
-            <Fa icon={faChevronRight} size="15pt" color="var(--main-text-brown-color)" />
+            <Fa icon={faChevronRight} size="14pt" color="var(--main-text-brown-color)" />
         </button>
     </div>
 
@@ -106,15 +106,9 @@
         width: 100%;
     }
 
-    .currentImageInCard {
-        height: 80vh;
-    }
-
     .homepageImageCardsContainer img {
         object-fit: contain;
-        max-height: 70vh;
-        height: 100%;
-        width: 100%;
+        max-width: 100%;
     }
 
     img {
@@ -171,15 +165,23 @@
 	}
 
     @media (max-width: 767px) {
+        .swapImageCardButtonsContainer {
+            margin-bottom: 10px;
+        }
+
         .swapImageCardButtonsContainer .swapImageCardButton {
             padding: 10px;
-            margin-left: 20px;
-            margin-right: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
         .swapImageCardButtonsContainer .indexImageCardButton {
-            padding: 5px;
-            margin: 8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+            padding: 4px;
+            margin-left: 5px;
+            margin-right: 5px;
         }
     
         h1 {
