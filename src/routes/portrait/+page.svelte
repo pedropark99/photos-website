@@ -13,12 +13,17 @@
 	} from './../../stores.js'
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
     import Footer from "$lib/footer.svelte";
-	const images_paths = import.meta.glob("./../../../static/portraits/*.jpg");
+	const images_paths_jpg = import.meta.glob("./../../../static/portraits/*.jpg");
+	const images_paths_webp = import.meta.glob("./../../../static/portraits/*.webp");
 
 	let refreshLayout;
 	var images = [];
 	var image_path_fixed;
-	for (const image_path in images_paths) {
+	for (const image_path in images_paths_jpg) {
+		image_path_fixed = String(image_path).replace('../../../static/', '')
+		images.push(image_path_fixed)
+	}
+	for (const image_path in images_paths_webp) {
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
