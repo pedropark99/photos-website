@@ -71,21 +71,8 @@
 
 <style>
 
-	.modalCloseButton {
-		font-size: 25pt;
-	}
-
-	.modalCloseButton:hover {
-		cursor: pointer;
-	}
-
-	.imageInModal {
-		max-height: 130vh;
-	}
-
 	svg {
 		filter: invert(12%) sepia(10%) saturate(7149%) hue-rotate(345deg) brightness(96%) contrast(96%);
 	}
-
 
 </style>

@@ -7,32 +7,14 @@
     import {
 		isLanguageDropdownOpen,
 		isDropdownOpen,
-        currentPageImageCatalog,
-        locale
+        currentPageImageCatalog
 	} from './../../stores.js';
     import {Fa} from "svelte-fa";
-    import { faArrowLeft, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+    import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
     $: image_to_display = $currentPageImageCatalog.get_image();
-    const url_params = new URLSearchParams(window.location.search);
-    const origin = url_params.get("origin");
-    const originUrl = "/" + origin;
     const keyLeft = 37;
     const keyRight = 39;
-
-    const origin_names_titles = {
-        "street": {
-            "Português": "VOLTAR PARA FOTOGRAFIA DE RUA",
-            "English": "GO BACK TO STREET PHOTOGRAPHY"
-        },
-        "portrait": {
-            "Português": "VOLTAR PARA RETRATOS",
-            "English": "GO BACK TO PORTRAITS"
-        }
-    }
-    function get_origin_name() {
-        return origin_names_titles[origin][$locale];
-    }
 
     function swap_image(event) {
         if (event.keyCode === keyLeft) {
@@ -81,13 +63,6 @@
 
 <div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
-
-    <div class="goBackLink">
-        <a href="{originUrl}">
-        <Fa icon={faArrowLeft} color="var(--main-text-brown-color)" size="15pt"/>
-        {@html get_origin_name()}
-        </a>
-    </div>
 
     <div class="imageZoomDisplay">
         <div>
@@ -150,18 +125,6 @@
 
     img {
         border-radius: 15px;
-        max-height: 75vh;
-    }
-
-    .goBackLink {
-        margin-top: 30px;
-        margin-bottom: 30px;
-        color: var(--main-text-brown-color);
-        text-decoration-line: underline;
-    }
-    .goBackLink:hover {cursor: pointer;}
-    a {
-        color: inherit;
-        text-decoration: none;
+        max-height: 80vh;
     }
 </style>

@@ -1,7 +1,6 @@
 <script>
     import MainMenu from "../../lib/mainMenu.svelte";
-	import Masonry from "../../lib/Masonry.svelte";
-	import DialogZoomImage from "../../lib/dialogZoomImage.svelte";
+	import Masonry from "../../lib/masonry.svelte";
 	import { onMount } from "svelte";
     import * as eventsJson from '../events/events.json';
 	import * as imagePaths from '../events/image_paths.json';
@@ -90,41 +89,15 @@
 <div class="app"  on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
 
-	<div class="pageContent">
-		<div class="leftEmptySpace"></div>
+	<div class="eventViewContent">
+		<div class="eventName">{@html event.event_name[$locale]}</div>
+		<div class="eventLocationDate">{@html event.event_location} - {@html formatted_event_date}</div>
+		<div class="eventDescription"><p>{@html event.event_description[$locale]}</p></div>
+    </div>
 
-        <div class="actualPageContent">
-			<div class="eventName">{@html event.event_name[$locale]}</div>
-			<div class="eventLocationDate">{@html event.event_location} - {@html formatted_event_date}</div>
-			<div class="eventDescription"><p>{@html event.event_description[$locale]}</p></div>
+	<Masonry {images} />
 
-
-			<Masonry items={images} gridGap={"10px"} colWidth={"350px"} bind:refreshLayout={refreshLayout}>
-				{#each images as image}
-					<div class="grid-item">
-						<img
-							on:click={zoom_over_image}
-							on:load={refreshLayout}
-							src="{image}"
-							alt=""
-							width="350px"
-						/>
-					</div>		
-				{/each}
-			</Masonry>
-
-			<CopyrightMessage />
-
-        </div>
-
-		{#if $displayImageZoom}
-			<DialogZoomImage />
-		{/if}
-
-        <div class="leftEmptySpace"></div>
-	</div>
-
-
+	<CopyrightMessage />
 	<Footer />
 </div>
 
@@ -133,11 +106,10 @@
 
 
 <style>
-	.pageContent {
-		display: grid;
-		grid-template-columns: 5vw 90vw 5vw;
-		margin-right: calc(5%);
-		margin-top: 80px;
+
+	.eventViewContent {
+		width: 80vw;
+		margin: auto;
 	}
 
 	.eventName {
@@ -166,24 +138,6 @@
 		0% { opacity: 0; }
 		100% { opacity: 1; }
 	}
-	.grid-item {
-		animation: fadeIn 2s;
-		width: 350px;
-	}
-
-	img {
-		border-radius: 15px;
-    }
-
-	.grid-item img:hover {
-		opacity: 0.8;
-        cursor: pointer;
-    }
 
 
-	@media (max-width: 767px) {
-		.pageContent {
-			margin-top: 10px;
-		}
-	}
 </style>
