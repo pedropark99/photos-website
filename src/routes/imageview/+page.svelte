@@ -126,5 +126,6 @@
     img {
         border-radius: 15px;
         max-height: 80vh;
+        max-width: 75vw;
     }
 </style>
