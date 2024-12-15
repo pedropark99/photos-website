@@ -116,7 +116,7 @@
         display: grid;
         grid-template-columns: 1fr 8fr 1fr;
         grid-template-rows: 90%;
-        height: 100%;
+        height: 100vh;
         width: 100vw;
         margin: 10px;
         padding: 0;
@@ -173,7 +173,9 @@
 
     @media (max-width: 767px) {
         .modalImageZoom { display: none; }
-        .mobileModalImageZoom {
+        /* For now, the image zoom modal is disabled in mobile */
+        .mobileModalImageZoom {display: none; }
+        /* .mobileModalImageZoom {
             display: grid;
             grid-template-columns: auto;
             grid-template-rows: 70px 1fr;
@@ -184,7 +186,7 @@
             place-content: center;
             border: none !important;
             background-color: rgba(255, 255, 255, 0.9);
-        }
+        } */
 
         .closeModalButton {
             padding: 0;
