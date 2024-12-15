@@ -66,7 +66,7 @@
 
 <div class="mainMenu">
     <div class="logoContainer">
-		<img class="logoImage" src="./../../static/logov2.svg" />
+		<img class="logoImage" src="./../static/logov2.svg" />
 	</div>
 
 
@@ -117,7 +117,7 @@
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
 		<div class="logoContainer">
-			<img class="logoImage" src="./../../static/logov2.svg" />
+			<img class="logoImage" src="./../static/logov2.svg" />
 		</div>
 
 		<div class="mobileMenusContainer" >
