@@ -1,11 +1,10 @@
 <script>
+	import { goto } from "$app/navigation";
+	import { page } from '$app/stores';
 	import { imageCatalog } from "$lib/image_catalog";
-	import DialogZoomImage from "$lib/dialogZoomImage.svelte";
-    import {
-        displayImageZoom,
-        currentPageImageCatalog
-    } from './../stores.js';
+    import { currentPageImageCatalog } from './../stores.js';
     export let images = [];
+	const current_page = $page.url.pathname.split('/').filter(Boolean).pop() || '/';
     $currentPageImageCatalog = new imageCatalog(images[0], images);
 
     function get_screen_width() {
@@ -20,7 +19,7 @@
         }
         const image_path = image_node.target.src;
         $currentPageImageCatalog.set_current_image(image_path);
-        $displayImageZoom = true;
+		goto("/imageview?origin=" + current_page);
     }
 </script>
 
@@ -42,10 +41,6 @@
     {/each}
 </div>
 
-
-{#if $displayImageZoom}
-    <DialogZoomImage />
-{/if}
 
 
 
