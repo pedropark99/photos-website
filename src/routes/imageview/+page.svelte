@@ -11,8 +11,9 @@
         locale
 	} from './../../stores.js';
     import {Fa} from "svelte-fa";
-    import { faArrowLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+    import { faArrowLeft, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
+    $: image_to_display = $currentPageImageCatalog.get_image();
     const url_params = new URLSearchParams(window.location.search);
     const origin = url_params.get("origin");
     const originUrl = "/" + origin;
@@ -35,13 +36,21 @@
 
     function swap_image(event) {
         if (event.keyCode === keyLeft) {
-            console.log("Left")
-            $currentPageImageCatalog.previous_image();
+            previous_image();
         }
         if (event.keyCode === keyRight) {
-            console.log("Right")
-            $currentPageImageCatalog.next_image();
+            next_image();
         }
+    }
+
+    function next_image() {
+        $currentPageImageCatalog.next_image();
+        image_to_display = $currentPageImageCatalog.get_image();
+    }
+
+    function previous_image() {
+        $currentPageImageCatalog.previous_image();
+        image_to_display = $currentPageImageCatalog.get_image();
     }
 
     function closeMenuWithClickOutside(event) {
@@ -81,9 +90,21 @@
     </div>
 
     <div class="imageZoomDisplay">
-        <img
-            src="{$currentPageImageCatalog.current_image}"
-        />
+        <div>
+            <button class="swapImageButton" on:click={previous_image}>
+            <Fa icon={faChevronLeft}
+                color="var(--main-text-brown-color)"
+                size="35pt" />
+            </button>
+        </div>
+        <div><img src="{image_to_display}" /></div>
+        <div>
+            <button class="swapImageButton" on:click={next_image}>
+            <Fa icon={faChevronRight}
+                color="var(--main-text-brown-color)"
+                size="35pt" />
+            </button>
+        </div>
     </div>
 
 	<CopyrightMessage />
@@ -100,6 +121,7 @@
 <style>
     .imageZoomDisplay {
         display: grid;
+        grid-template-columns: 10vw 75vw 10vw;
         padding: 0;
         align-items: center;
         justify-content: center;
@@ -107,14 +129,33 @@
         margin: 0;
     }
 
+    .swapImageButton {
+        background-color: transparent;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+	    outline: inherit;
+    }
+
+    .swapImageButton:hover {
+        border-radius: 10px;
+        background-color: var(--moonstone-blue);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
     img {
         border-radius: 15px;
-        max-height: 80vh;
+        max-height: 75vh;
     }
 
     .goBackLink {
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
         color: var(--main-text-brown-color);
         text-decoration-line: underline;
     }
