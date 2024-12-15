@@ -66,7 +66,7 @@
 
 	img {
 		animation: fadeIn 2s;
-		max-width: calc(70vw / 4);
+		width: calc(70vw / 4);
 		border-radius: 15px;
 		display: block;
 	}
