@@ -1,24 +1,18 @@
 <script>
-    import MainMenu from "../../lib/mainMenu.svelte";
-	import Masonry from "../../lib/Masonry.svelte";
+	import MainMenu from "../../lib/mainMenu.svelte";
+	import Masonry from "../../lib/masonry.svelte";
 	import is_string from "$lib/utils";
-	import { imageCatalog } from "$lib/image_catalog";
-	import { browser } from '$app/environment';
 	import { onMount } from 'svelte';
-    import DialogZoomImage from "$lib/dialogZoomImage.svelte";
 	import {
 		isLanguageDropdownOpen,
-		isDropdownOpen,
-		displayImageZoom,
-		currentPageImageCatalog
+		isDropdownOpen
 	} from './../../stores.js';
-    import CopyrightMessage from "$lib/copyrightMessage.svelte";
-    import Footer from "$lib/footer.svelte";
+	import CopyrightMessage from "$lib/copyrightMessage.svelte";
+	import Footer from "$lib/footer.svelte";
 
 
 	const images_paths_jpg = import.meta.glob("./../../../static/street/*.jpg");
 	const images_paths_webp = import.meta.glob("./../../../static/street/*.webp");
-	let refreshLayout;
 	var images = [];
 	var image_path_fixed;
 	for (const image_path in images_paths_webp) {
@@ -29,30 +23,9 @@
 		image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
-	$currentPageImageCatalog = new imageCatalog(images[0], images);
-
-
-	function zoom_over_image(image_node) {
-		const image_path = image_node.target.src;
-		$currentPageImageCatalog.set_current_image(image_path);
-		$displayImageZoom = true;
-	}
-
-	function resize_images_in_mobile() {
-		if (browser) {
-			var screen_width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-		}
-		if (screen_width <= 767) {
-			const images = document.getElementsByClassName("imageInMansoryGrid")
-			for (let image of images) {
-				image.setAttribute("width", "95%")
-			}
-		}
-	}
 
 	onMount(() => {
 		document.getElementById("street-button").style.textDecoration = "underline 1pt solid #222222";
-		resize_images_in_mobile();
 	})
 
 	function closeMenuWithClickOutside(event) {
@@ -87,38 +60,10 @@
 
 <div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
-	<div class="pageContent">
-		<div class="leftEmptySpace"></div>
 
-		<div class="actualPageContent">
-			<Masonry items={images} colWidth={"350px"} bind:refreshLayout={refreshLayout}>
-				{#each images as image}
-						<div class="grid-item">
-							<img
-								on:click={ (event) => { zoom_over_image(event) } }
-								on:load={refreshLayout}
-								src="{image}"
-								alt=""
-								width="350px"
-							/>
-						</div>
-				{/each}
-			</Masonry>
+	<Masonry {images}/>
 
-		
-
-			{#if $displayImageZoom}
-				<DialogZoomImage />
-			{/if}
-
-
-			<CopyrightMessage />
-
-		</div>
-
-		<div class="rightEmptySpace"></div>
-	</div>
-
+	<CopyrightMessage />
 
 	<Footer />
 </div>
@@ -126,54 +71,8 @@
 
 <style>
 
-	.pageContent {
-		display: grid;
-		grid-template-columns: 5vw 90vw 5vw;
-		margin-right: calc(5%);
-	}
-
-	.modalCloseButton {
-		font-size: 25pt;
-	}
-
-	.modalCloseButton:hover {
-		cursor: pointer;
-	}
-
-	.imageInModal {
-		max-height: 130vh;
-	}
-
-	@keyframes fadeIn {
-		0% { opacity: 0; }
-		100% { opacity: 1; }
-	}
-	.grid-item {
-		animation: fadeIn 2s;
-		width: 350px;
-	}
-
 	svg {
 		filter: invert(12%) sepia(10%) saturate(7149%) hue-rotate(345deg) brightness(96%) contrast(96%);
-	}
-
-	img {
-		border-radius: 15px;
-    }
-
-	.grid-item:hover {
-		opacity: 0.8;
-		cursor: pointer;
-	}
-
-	@media (max-width: 767px) {
-		.grid-item {
-			width: 95% !important;
-		}
-
-		img {
-			border-radius: 10px;
-		}
 	}
 
 </style>
