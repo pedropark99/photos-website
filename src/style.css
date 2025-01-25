@@ -24,6 +24,7 @@
     grid-template-rows: 100px 1fr, 1000px;
     justify-items: center;
     align-items: center;
+    min-height: 100vh;
 }
 
 

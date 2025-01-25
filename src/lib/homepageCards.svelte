@@ -102,19 +102,19 @@
 
 
 <style>
-    .homepageImageCardsContainer {
-        width: 100%;
-    }
-
     .homepageImageCardsContainer img {
-        object-fit: contain;
         max-width: 100%;
+        display: flex;
+        align-items: center;
     }
 
     .currentImageInCard {
         display: flex;
-        align-items: center;
+        object-fit: contain;
+        align-items: top;
         justify-content: center;
+        width: 100%;
+        height: 65vh;
     }
 
     img {

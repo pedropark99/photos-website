@@ -31,7 +31,7 @@
 
 
 
-<div class="appFooter">
+<footer class="appFooter">
     <div class="upperEmptySpace"></div>
     
     <div class="footerContainer">
@@ -72,7 +72,7 @@
 
     </div>
 
-</div>
+</footer>
 
 
 
@@ -171,8 +171,6 @@
         display: grid;
         grid-template-rows: 40px 1fr;
         place-items: center;
-        /* color: var(--argentinian-blue);
-        background-color: var(--main-text-brown-color); */
         color: var(--main-text-brown-color);
         background-color: var(--argentinian-blue);
         width: 100%;
