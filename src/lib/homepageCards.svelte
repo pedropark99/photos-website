@@ -194,5 +194,23 @@
         h1 {
 			font-size: 25pt;
 		}
+
+        .currentImageInCard {
+            display: flex;
+            object-fit: contain;
+            align-items: top;
+            justify-content: center;
+            width: auto;
+            height: 60vh;
+            padding: 5px;
+        }
+
+        .currentImageInCard img {
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            max-width:100%;
+            max-height:100%;
+        }
     }
 </style>
