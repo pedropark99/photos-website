@@ -29,6 +29,21 @@
                 "English": "I had the privilege to register moments at the 2024 birthday party for Anna, in a club in Belo Horizonte - MG.",
                 "Português": "Tive o privilégio de registrar momentos na festa de aniversário 2024 da Anna, em um bar em Belo Horizonte - MG."
             }
+        },
+        {
+            "id": 2,
+            "event_name": {
+                "English": "Portrait Session Álvaro Rojo 2025 - BH",
+                "Português": "Ensaio Álvaro Rojo 2025 - BH"
+            },
+            "thumb_image": "events/ensaio-rojo-2025/IMG_9820.webp",
+            "path_to_folder": "static/events/ensaio-rojo-2025/",
+            "event_date": "2025-01-17",
+            "event_location": "Belo Horizonte - MG",
+            "event_description": {
+                "English": "I had the privilege to register moments at the 2024 birthday party for Anna, in a club in Belo Horizonte - MG.",
+                "Português": "Tive o privilégio de registrar momentos na festa de aniversário 2024 da Anna, em um bar em Belo Horizonte - MG."
+            }
         }
     ]
 }
