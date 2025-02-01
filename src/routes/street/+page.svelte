@@ -11,16 +11,10 @@
 	import Footer from "$lib/footer.svelte";
 
 
-	const images_paths_jpg = import.meta.glob("./../../../static/street/*.jpg");
 	const images_paths_webp = import.meta.glob("./../../../static/street/*.webp");
 	var images = [];
-	var image_path_fixed;
 	for (const image_path in images_paths_webp) {
-		image_path_fixed = String(image_path).replace('../../../static/', '')
-		images.push(image_path_fixed)
-	}
-	for (const image_path in images_paths_jpg) {
-		image_path_fixed = String(image_path).replace('../../../static/', '')
+		let image_path_fixed = String(image_path).replace('../../../static/', '')
 		images.push(image_path_fixed)
 	}
 

@@ -65,7 +65,7 @@
 
 		</div>
 
-		<div class="leftEmptySpace"></div>
+		<div class="rightEmptySpace"></div>
 	</div>
 
 
@@ -78,7 +78,7 @@
 <style>
     .pageContent {
         display: grid;
-        grid-template-columns: 10% 80% 10%;
+		width: 100%;
     }
 
     .actualPageContent {
@@ -86,9 +86,10 @@
     }
 
     .eventsThumbGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: max-content;
+        display: flex;
+		justify-content: center;
+		align-content: space-between;
+		flex-wrap: wrap;
         row-gap: 40px;
     }
 
