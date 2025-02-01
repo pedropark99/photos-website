@@ -20,7 +20,7 @@
 			"about.label": "SOBRE MIM",
 			"street.label": "FOTOGRAFIA DE RUA",
 			"portrait.label": "RETRATOS",
-			"events.label": "EVENTOS E ENSAIOS",
+			"events.label": "EVENTOS/ENSAIOS",
 		},
 		English: {
 			"description": "Photographer 📷 based at Belo Horizonte - Brazil. Street and Portrait Photography.",
@@ -28,7 +28,7 @@
 			"about.label": "ABOUT ME",
 			"street.label": "STREET PHOTOGRAPHY",
 			"portrait.label": "PORTRAITS",
-			"events.label": "EVENTS E SESSIONS",
+			"events.label": "EVENTS/SESSIONS",
 		},
 	};
 

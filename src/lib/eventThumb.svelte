@@ -27,21 +27,21 @@
 
 <style>
     .EventThumbItem {
-        width: 360px;
+        width: 250px;
         height: auto;
         place-self: top;
     }
 
     img {
         object-fit: cover;
-        width: 350px;
-        height: 350px;
-        border-radius: 10px;
+        width: 240px;
+        height: 240px;
+        border-radius: 8px;
     }
 
     .EventThumbButton .EventThumbLocation {
         color: #222222;
-        font-size: 11pt;
+        font-size: 9pt;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         text-align: left;
     }
@@ -51,7 +51,7 @@
         text-align: left;
         font-family: Outfit, sans-serif;
         font-weight: bold;
-        font-size: 16pt;
+        font-size: 13pt;
         margin-top: 10px;
     }
 
