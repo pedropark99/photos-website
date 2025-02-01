@@ -257,6 +257,7 @@
 		color: var(--main-text-brown-color);
 		text-decoration: none;
 		display: block;
+		word-break: normal;
 	}
 
 	.dropdownContent button {

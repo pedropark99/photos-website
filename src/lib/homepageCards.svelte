@@ -6,7 +6,7 @@
     import {Fa} from "svelte-fa";
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-    const images = [
+    const images_desktop = [
         'street/IMG_8513.webp',
         'street/IMG_1668.webp',
         'street/IMG_2239.webp',
@@ -18,6 +18,17 @@
         'street/IMG_8589.webp',
         'street/IMG_7831.webp'
     ]
+    const images_mobile = [
+        'portraits/IMG_8330.webp',
+        'street/IMG_0228.webp',
+        'portraits/IMG_8420.webp',
+        'street/IMG_2081.webp',
+        'street/IMG_1178.webp',
+        'portraits/IMG_8267.webp',
+        'portraits/IMG_8320.webp',
+        'street/IMG_8383.webp',
+    ]
+    var images = images_desktop;
     $currentPageImageCatalog = new imageCatalog(images[0], images);
 
     const page_text = {
@@ -69,6 +80,10 @@
         // This makes the h1 transition work
         ready = true;
         set_image_focus(true);
+        if (window.innerWidth < 767) {
+            images = images_mobile;
+            $currentPageImageCatalog = new imageCatalog(images[0], images);
+        }
     })
 </script>
 
