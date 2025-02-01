@@ -80,10 +80,13 @@
         // This makes the h1 transition work
         ready = true;
         set_image_focus(true);
+    
         if (window.innerWidth < 767) {
             images = images_mobile;
-            $currentPageImageCatalog = new imageCatalog(images[0], images);
+        } else {
+            images = images_desktop;
         }
+        $currentPageImageCatalog = new imageCatalog(images[0], images);
     })
 </script>
 
