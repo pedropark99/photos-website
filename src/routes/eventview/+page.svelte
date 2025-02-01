@@ -22,18 +22,18 @@
 		document.getElementById("events-button").style.textDecoration = "underline 1pt solid #222222";
 	})
 
-	let refreshLayout;
-	let event;
-	let images;
-    let events_to_display = eventsJson.events_list;
-	let possible_images = imagePaths.image_list;
-	for (let i = 0; i < events_to_display.length; i++) {
-		if (events_to_display[i].id == $eventViewId) {
-			event = events_to_display[i];
-		}
-		if (possible_images[i].id == $eventViewId) {
-			images = possible_images[i].image_paths
-		}
+	let event_folders = [
+		import.meta.glob("./../../../static/events/galinheiro-rep-14anos/*.webp"),
+		import.meta.glob("./../../../static/events/aniversario-ana-2024/*.webp"),
+		import.meta.glob("./../../../static/events/ensaio-rojo-2025/*.webp"),
+	]
+
+	let event = eventsJson.events_list[$eventViewId];
+	const images_paths_webp = event_folders[$eventViewId];
+	var images = [];
+	for (const image_path in images_paths_webp) {
+		let image_path_fixed = String(image_path).replace('../../../static/', '')
+		images.push(image_path_fixed)
 	}
 
 	$currentPageImageCatalog = new imageCatalog(images[0], images);

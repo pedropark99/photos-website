@@ -7,7 +7,7 @@
                 "Português": "República Galinheiro - Aniversário de 14 anos"
             },
             "thumb_image": "events/galinheiro-rep-14anos/IMG_0704.webp",
-            "path_to_folder": "static/events/galinheiro-rep-14anos/",
+            "event_folder": "galinheiro-rep-14anos/",
             "event_date": "2024-06-01",
             "event_location": "Mariana - MG",
             "event_description": {
@@ -22,7 +22,7 @@
                 "Português": "Aniversário Anna 2024 - BH"
             },
             "thumb_image": "events/aniversario-ana-2024/IMG_9820.webp",
-            "path_to_folder": "static/events/aniversario-ana-2024/",
+            "event_folder": "aniversario-ana-2024/",
             "event_date": "2024-06-29",
             "event_location": "Belo Horizonte - MG",
             "event_description": {
@@ -37,7 +37,7 @@
                 "Português": "Ensaio Álvaro Rojo 2025 - BH"
             },
             "thumb_image": "events/ensaio-rojo-2025/IMG_2772.webp",
-            "path_to_folder": "static/events/ensaio-rojo-2025/",
+            "event_folder": "ensaio-rojo-2025/",
             "event_date": "2025-01-17",
             "event_location": "Belo Horizonte - MG",
             "event_description": {
