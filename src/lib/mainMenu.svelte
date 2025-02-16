@@ -67,7 +67,7 @@
 
 <div class="mainMenu">
     <div class="logoContainer">
-		<enhanced:img class="logoImage" src={Logo} />
+		<enhanced:img class="logoImage" alt="" src={Logo} />
 	</div>
 
 
@@ -80,6 +80,7 @@
 					icon={faGlobe}
 					color="var(--main-text-brown-color)"
 					size="18pt"
+					alt=""
 			/></button>
 
 			{#if $isLanguageDropdownOpen}
@@ -131,6 +132,7 @@
 						icon={faGlobe}
 						color="var(--main-text-brown-color)"
 						size="18pt"
+						alt=""
 					/>
 				</button>
 
@@ -141,6 +143,7 @@
 					<Fa
 						icon={faBars}
 						color="white"
+						alt=""
 					/>
 				</button>
 				

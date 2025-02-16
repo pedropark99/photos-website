@@ -35,7 +35,7 @@
     <div class="upperEmptySpace"></div>
     
     <div class="footerContainer">
-        <div class="logoImageContainer"><img class="logoImage" src="logov2.svg" /></div>
+        <div class="logoImageContainer"><img class="logoImage" alt="" src="logov2.svg" /></div>
         <div class="vl"></div>
 
         <div class="footerOptionsContainer">

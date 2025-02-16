@@ -7,26 +7,25 @@
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
     const images_desktop = [
-        'street/IMG_8513.webp',
-        'street/IMG_1668.webp',
-        'street/IMG_2239.webp',
-        'street/IMG_2069.webp',
-        'street/IMG_2090.webp',
-        'portraits/IMG_8330.webp',
-        'portraits/IMG_2337.webp',
-        'portraits/IMG_8420.webp',
-        'street/IMG_8589.webp',
-        'street/IMG_7831.webp'
+        'street/img1.webp',
+        'street/img2.webp',
+        'street/img3.webp',
+        'street/img5.webp',
+        'street/img7.webp',
+        'street/img8.webp',
+        'portraits/img2.webp',
+        'portraits/img5.webp',
+        'portraits/img4.webp',
     ]
     const images_mobile = [
-        'portraits/IMG_8330.webp',
-        'street/IMG_0228.webp',
-        'portraits/IMG_8420.webp',
-        'street/IMG_2081.webp',
-        'street/IMG_1178.webp',
-        'portraits/IMG_8267.webp',
-        'portraits/IMG_8320.webp',
-        'street/IMG_8383.webp',
+        'portraits/img2.webp',
+        'street/img9.webp',
+        'portraits/img3.webp',
+        'street/img18.webp',
+        'street/img23.webp',
+        'portraits/img4.webp',
+        'portraits/img5.webp',
+        'street/img16.webp',
     ]
     var images = images_desktop;
     $currentPageImageCatalog = new imageCatalog(images[0], images);
@@ -112,7 +111,7 @@
 
     {#key image_to_display}
         <div class="currentImageInCard" in:fade={{delay:50, duration:700}}>
-            <img class="imageInCard" src="{image_to_display}">
+            <img class="imageInCard" alt="" src="{image_to_display}">
         </div>
     {/key}
 
