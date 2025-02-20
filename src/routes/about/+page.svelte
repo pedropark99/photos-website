@@ -61,7 +61,7 @@
 		<div class="actualPageContent">
 
 			<div class="myPersonalPhoto">
-				<img src="IMG_3378.jpg" alt="My photo" width="90%" />
+				<img src="IMG_3378.webp" alt="My photo" width="90%" />
 			</div>
 
 			<h2>{@html page_text[local_locale]["title"]}</h2>
