@@ -7,7 +7,8 @@
     import {
 		isLanguageDropdownOpen,
 		isDropdownOpen,
-        currentPageImageCatalog
+        currentPageImageCatalog,
+        locale
 	} from './../../stores.js';
     import {Fa} from "svelte-fa";
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +16,20 @@
     $: image_to_display = $currentPageImageCatalog.get_image();
     const keyLeft = 37;
     const keyRight = 39;
+    const page_text = {
+        English: {
+            "tip1": "You can use either the arrow keys on your keyboard or the buttons ",
+            "tip2": " and ",
+            "tip3": " on the sides to navigate through the images."
+        },
+        Português: {
+            "tip1": "Você pode usar tanto as setas de seu teclado, quanto os botões ",
+            "tip2": " e ",
+            "tip3": " nas laterais, para navegar pelas images."
+        }
+    }
+    let local_locale = "Português";
+	const translate_call = locale.subscribe((value) => local_locale = value);
 
     function swap_image(event) {
         if (event.keyCode === keyLeft) {
@@ -63,6 +78,14 @@
 
 <div class="app" on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
+
+    <p>
+        {@html page_text[local_locale]["tip1"]}
+        <Fa icon={faChevronLeft} size="12pt" />
+        {@html page_text[local_locale]["tip2"]}
+        <Fa icon={faChevronRight} size="12pt" />
+        {@html page_text[local_locale]["tip3"]}
+    </p>
 
     <div class="imageZoomDisplay">
         <div>
