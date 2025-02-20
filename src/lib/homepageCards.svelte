@@ -29,6 +29,7 @@
     ]
     const images_to_preload = [...new Set(images_desktop.concat(images_mobile))]
     var images = images_desktop;
+    let automatic_slideshow = true;
     $currentPageImageCatalog = new imageCatalog(images[0], images);
 
     const page_text = {
@@ -43,23 +44,17 @@
     $: image_to_display = $currentPageImageCatalog.get_image();
     function change_to_image_index(click_event) {
         const index_as_int = parseInt(click_event.target.id);
+        automatic_slideshow = false;
         set_image_focus(false);
         $currentPageImageCatalog.set_current_image_with_index(index_as_int);
         image_to_display = $currentPageImageCatalog.get_image();
         set_image_focus(true);
     }
 
-    function set_image_focus(invert) {
-        const buttons = document.getElementsByClassName("indexImageCardButton");
-        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
-            let button_to_change = buttons[$currentPageImageCatalog.current_index];
-            if (invert) {
-                button_to_change.style.background = "var(--main-text-brown-color)";
-                button_to_change.style.borderColor = "var(--argentinian-blue)";
-            } else {
-                button_to_change.style.background = "var(--argentinian-blue)";
-                button_to_change.style.borderColor = "var(--main-text-brown-color)";
-            }
+    function slideshow() {
+        if (automatic_slideshow) {
+            next_image();
+            setTimeout(slideshow, 6000);
         }
     }
 
@@ -92,6 +87,30 @@
         set_image_focus(true);
     }
 
+    function click_previous_image() {
+        automatic_slideshow = false;
+        previous_image();
+    }
+
+    function click_next_image() {
+        automatic_slideshow = false;
+        next_image();
+    }
+
+    function set_image_focus(invert) {
+        const buttons = document.getElementsByClassName("indexImageCardButton");
+        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
+            let button_to_change = buttons[$currentPageImageCatalog.current_index];
+            if (invert) {
+                button_to_change.style.background = "var(--main-text-brown-color)";
+                button_to_change.style.borderColor = "var(--argentinian-blue)";
+            } else {
+                button_to_change.style.background = "var(--argentinian-blue)";
+                button_to_change.style.borderColor = "var(--main-text-brown-color)";
+            }
+        }
+    }
+
     let ready = false;
     onMount(() => {
         // This makes the h1 transition work
@@ -104,6 +123,7 @@
             images = images_desktop;
         }
         $currentPageImageCatalog = new imageCatalog(images[0], images);
+        setTimeout(slideshow, 6000);
     })
 </script>
 
@@ -129,7 +149,7 @@
         <h1 transition:fade={{duration:500}}>{@html page_text[$locale]["top.message"]}</h1>
     {/if}
     <div class="swapImageCardButtonsContainer">
-        <button class="swapImageCardButton" on:click={previous_image}>
+        <button class="swapImageCardButton" on:click={click_previous_image}>
             <Fa icon={faChevronLeft} size="14pt" color="var(--main-text-brown-color)" />
         </button>
 
@@ -138,7 +158,7 @@
             </button>
         {/each}
 
-        <button class="swapImageCardButton" on:click={next_image}>
+        <button class="swapImageCardButton" on:click={click_next_image}>
             <Fa icon={faChevronRight} size="14pt" color="var(--main-text-brown-color)" />
         </button>
     </div>
