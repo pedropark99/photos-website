@@ -65,49 +65,50 @@
 
 
 
-<div class="mainMenu">
-    <div class="logoContainer">
-		<enhanced:img class="logoImage" alt="logo" src={Logo} />
-	</div>
-
-
-	<div class="menuOptionsList">
-		<div class="languageDropdownContainer">
-			<button
-				class="mobileLanguageButtonDropdown"
-				on:click={handleLanguageDropdownClick}
-			><Fa
-					icon={faGlobe}
-					color="var(--main-text-brown-color)"
-					size="18pt"
-					alt=""
-			/></button>
-
-			{#if $isLanguageDropdownOpen}
-				<div class="dropdownContent">
-					<button on:click={changeLanguage}>Português</button>
-					<button on:click={changeLanguage}>English</button>
-				</div>
-			{/if}
+<header class="desktopHeader">
+	<div class="mainMenu">
+		<div class="logoContainer">
+			<enhanced:img class="logoImage" alt="logo" src={Logo} />
 		</div>
 
 
-		<div class="menuOption" id="home-button" ><a href=".">{menu_options[local_locale]["home.label"]}</a></div>
-		<div class="menuOption" id="about-button" ><a href="/about">{menu_options[local_locale]["about.label"]}</a></div>
-		<div class="menuOption" id="street-button" ><a href="/street">{menu_options[local_locale]["street.label"]}</a></div>
-		<div class="menuOption" id="portrait-button" ><a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a></div>
-		<div class="menuOption" id="events-button" ><a href="/events">{menu_options[local_locale]["events.label"]}</a></div>
+		<div class="menuOptionsList">
+			<nav class="mainMenuNavButtons">
+				<div class="menuOption" id="home-button" ><a href=".">{menu_options[local_locale]["home.label"]}</a></div>
+				<div class="menuOption" id="about-button" ><a href="/about">{menu_options[local_locale]["about.label"]}</a></div>
+				<div class="menuOption" id="street-button" ><a href="/street">{menu_options[local_locale]["street.label"]}</a></div>
+				<div class="menuOption" id="portrait-button" ><a href="/portrait">{menu_options[local_locale]["portrait.label"]}</a></div>
+				<div class="menuOption" id="events-button" ><a href="/events">{menu_options[local_locale]["events.label"]}</a></div>
+			</nav>
+
+			<div class="languageDropdownContainer">
+				<button
+					class="languageButtonDropdown"
+					on:click={handleLanguageDropdownClick}
+				><Fa
+						icon={faGlobe}
+						color="var(--main-text-brown-color)"
+						size="18pt"
+						alt=""
+				/></button>
+	
+				{#if $isLanguageDropdownOpen}
+					<div class="dropdownContent">
+						<button on:click={changeLanguage}>Português</button>
+						<button on:click={changeLanguage}>English</button>
+					</div>
+				{/if}
+			</div>
+
+
+			<div class="socialMediaContact">
+				<a href="https://www.instagram.com/mineiro.pelasruas/"> <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="20pt"/> </a>
+				<a href="https://wa.me/5531985124294"> <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="20pt"/> </a>
+				<a href="mailto:pedropark99@gmail.com"> <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="20pt"/> </a>
+			</div>
+		</div>
 	</div>
-
-
-	<div class="socialMediaContact">
-		<a href="https://www.instagram.com/mineiro.pelasruas/"> <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="20pt"/> </a>
-		<a href="https://wa.me/5531985124294"> <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="20pt"/> </a>
-		<a href="mailto:pedropark99@gmail.com"> <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="20pt"/> </a>
-	</div>
-
-
-</div>
+</header>
 
 
 
@@ -116,8 +117,8 @@
 
 
 
-<div class="mainMenuMobile">
-	<div class="mobileMenuOptionsContainer">
+<header class="mainMenuMobile">
+	<nav class="mobileMenuOptionsContainer">
 		<div class="logoContainer">
 			<enhanced:img class="logoImage" alt="logo" src={Logo} />
 		</div>
@@ -166,17 +167,32 @@
 				{/if}
 			</div>
 		</div>
-	</div>
+	</nav>
 
-</div>
+</header>
 
 
 
 <style>
+
+	header {
+		width: 100%;
+	}
+
 	.mainMenu {
-		display: grid;
-		grid-template-columns: 3fr 10fr 3fr;
-		column-gap: 20px;
+		display: flex;
+		flex-direction: row;
+		flex-flow: row wrap;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.mainMenuNavButtons {
+		display: flex;
+		gap: 30px;
+		padding-left: 30px;
+		padding-right: 30px;
 	}
 
 	.logoImage {
@@ -187,6 +203,15 @@
 
 	.languageDropdownContainer {
 		position: relative;
+	}
+
+	.languageButtonDropdown {
+		background: none;
+		border: none;
+	}
+
+	.languageButtonDropdown:hover {
+		cursor: pointer;
 	}
 
 	.logoContainer {
@@ -286,16 +311,17 @@
 
 
 	/* --------------------- Styles for mobile ---------------------- */
-	@media (max-width: 767px) {
+	@media (max-width: 1119px) {
 
+		.desktopHeader { display: none; }
 		.mainMenu {
 			display: none;
 			margin-left: 0px;
 		}
 
 		.mainMenuMobile {
-			display: grid;
-			grid-template-rows: 100px;
+			display: block;
+			height: 100px;
 		}
 
 		.mobileMenuOptionsContainer {
