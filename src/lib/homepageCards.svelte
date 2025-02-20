@@ -6,26 +6,41 @@
     import {Fa} from "svelte-fa";
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
+    import sImg1 from './street/img1.webp';
+    import sImg2 from './street/img2.webp';
+    import sImg3 from './street/img3.webp';
+    import sImg5 from './street/img5.webp';
+    import sImg7 from './street/img7.webp';
+    import sImg8 from './street/img8.webp';
+    import sImg9 from './street/img9.webp';
+    import sImg16 from './street/img16.webp';
+    import sImg18 from './street/img18.webp';
+    import sImg23 from './street/img23.webp';
+    import pImg2 from './portraits/img2.webp';
+    import pImg4 from './portraits/img4.webp';
+    import pImg5 from './portraits/img5.webp';
+    import pImg3 from './portraits/img3.webp';
+
     const images_desktop = [
-        'street/img1.webp',
-        'street/img2.webp',
-        'street/img3.webp',
-        'street/img5.webp',
-        'street/img7.webp',
-        'street/img8.webp',
-        'portraits/img2.webp',
-        'portraits/img5.webp',
-        'portraits/img4.webp',
+        sImg1,
+        sImg2,
+        sImg3,
+        sImg5,
+        sImg7,
+        sImg8,
+        pImg2,
+        pImg5,
+        pImg4,
     ]
     const images_mobile = [
-        'portraits/img2.webp',
-        'street/img9.webp',
-        'portraits/img3.webp',
-        'street/img18.webp',
-        'street/img23.webp',
-        'portraits/img4.webp',
-        'portraits/img5.webp',
-        'street/img16.webp',
+        pImg2,
+        sImg9,
+        pImg3,
+        sImg18,
+        sImg23,
+        pImg4,
+        pImg5,
+        sImg16,
     ]
     var images = images_desktop;
     $currentPageImageCatalog = new imageCatalog(images[0], images);
@@ -111,7 +126,7 @@
 
     {#key image_to_display}
         <div class="currentImageInCard" in:fade={{delay:50, duration:700}}>
-            <img class="imageInCard" alt="" src="{image_to_display}">
+            <enhanced:img class="imageInCard" alt="" src="{image_to_display}">
         </div>
     {/key}
 
