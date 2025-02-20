@@ -67,7 +67,7 @@
 
 <div class="mainMenu">
     <div class="logoContainer">
-		<enhanced:img class="logoImage" alt="" src={Logo} />
+		<enhanced:img class="logoImage" alt="logo" src={Logo} />
 	</div>
 
 
@@ -119,7 +119,7 @@
 <div class="mainMenuMobile">
 	<div class="mobileMenuOptionsContainer">
 		<div class="logoContainer">
-			<enhanced:img class="logoImage" src={Logo} />
+			<enhanced:img class="logoImage" alt="logo" src={Logo} />
 		</div>
 
 		<div class="mobileMenusContainer" >

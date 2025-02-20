@@ -9,12 +9,12 @@
     const page_text = {
 		English: {
 			"title": "About me",
-			"body.p1": " I'm Pedro, a photographer based in Belo Horizonte, Brazil. I work a lot with technology, data, AI and programming. But I also love photography, and when I have time, I take my camera and shoot on the streets, documenting life as it happens.",
+			"body.p1": "Hello! My name is Pedro. I'm a photographer from Belo Horizonte, Brazil. I work mainly with portrait, event, and landscape photography. But I also have a strong interest in street photography, and whenever I have some free time, I grab my camera and shoot on the streets, documenting life as it happens.",
 			"body.p2": "If you are interested in booking an event coverage, or, a photo shoot with me 😉, send me a message through Instagram, or WhatsApp, or via Email:",
 		},
 		Português: {
 			"title": "Sobre mim",
-			"body.p1": "Meu nome é Pedro! Sou um fotógrafo de Belo Horizonte, Brasil. Eu trabalho bastante com tecnologia, dados, IA e programação. Mas eu também amo a fotografia, e quando tenho um tempo livre, eu pego minha câmera e fotografo nas ruas, documentando a vida a medida que ela acontece.",
+			"body.p1": "Olá! Meu nome é Pedro. Sou um fotógrafo de Belo Horizonte, Brasil. Trabalho especialmente com fotografia de retratos, eventos, e de paisagens. Mas também tenho um forte interesse em fotografia de rua, e sempre quando tenho um tempo livre, eu pego minha câmera e fotografo nas ruas, documentando a vida a medida que ela acontece.",
 			"body.p2": "Se você estiver interessado em marcar uma cobertura de algum evento, ou um ensaio fotográfico comigo 😉, me mande uma mensagem pelo Instagram, ou WhatsApp, ou por Email.",
 		},
 	};
@@ -61,7 +61,7 @@
 		<div class="actualPageContent">
 
 			<div class="myPersonalPhoto">
-				<img src="HTZ_0219-2.jpg" alt="My photo" width="90%" />
+				<img src="IMG_3378.jpg" alt="My photo" width="90%" />
 			</div>
 
 			<h2>{@html page_text[local_locale]["title"]}</h2>
