@@ -46,9 +46,16 @@
 		$isDropdownOpen = false;
 		$isLanguageDropdownOpen = false;
 	}
-
-
 </script>
+
+
+
+<svelte:head>
+  {#each images as image}
+    <link rel="preload" as="image" href={image} />
+  {/each}
+</svelte:head>
+
 
 
 

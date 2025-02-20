@@ -85,6 +85,15 @@
 
 
 
+<svelte:head>
+  {#each images as image}
+    <link rel="preload" as="image" href={image} />
+  {/each}
+</svelte:head>
+
+
+
+
 <div class="app"  on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
 

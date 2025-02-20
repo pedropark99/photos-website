@@ -72,7 +72,7 @@
                 size="35pt" />
             </button>
         </div>
-        <div><img src="{image_to_display}" /></div>
+        <div><img alt="" src="{image_to_display}" /></div>
         <div>
             <button class="swapImageButton" on:click={next_image}>
             <Fa icon={faChevronRight}
