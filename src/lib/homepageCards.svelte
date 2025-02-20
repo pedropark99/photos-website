@@ -27,6 +27,7 @@
         'portraits/img5.webp',
         'street/img16.webp',
     ]
+    const images_to_preload = [...new Set(images_desktop.concat(images_mobile))]
     var images = images_desktop;
     $currentPageImageCatalog = new imageCatalog(images[0], images);
 
@@ -88,6 +89,12 @@
         $currentPageImageCatalog = new imageCatalog(images[0], images);
     })
 </script>
+
+<svelte:head>
+  {#each images_to_preload as image}
+    <link rel="preload" as="image" href={image} />
+  {/each}
+</svelte:head>
 
 
 <div class="homepageImageCardsContainer">
