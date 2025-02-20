@@ -51,27 +51,44 @@
 
     function set_image_focus(invert) {
         const buttons = document.getElementsByClassName("indexImageCardButton");
-        let button_to_change = buttons[$currentPageImageCatalog.current_index];
-        if (invert) {
-            button_to_change.style.background = "var(--main-text-brown-color)";
-            button_to_change.style.borderColor = "var(--argentinian-blue)";
-        } else {
-            button_to_change.style.background = "var(--argentinian-blue)";
-            button_to_change.style.borderColor = "var(--main-text-brown-color)";
+        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
+            let button_to_change = buttons[$currentPageImageCatalog.current_index];
+            if (invert) {
+                button_to_change.style.background = "var(--main-text-brown-color)";
+                button_to_change.style.borderColor = "var(--argentinian-blue)";
+            } else {
+                button_to_change.style.background = "var(--argentinian-blue)";
+                button_to_change.style.borderColor = "var(--main-text-brown-color)";
+            }
         }
     }
 
     function next_image() {
         set_image_focus(false);
-        $currentPageImageCatalog.next_image();
-        image_to_display = $currentPageImageCatalog.get_image();
+        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
+            const img_index = $currentPageImageCatalog.current_index;
+            if ((img_index + 1) >= $currentPageImageCatalog.image_paths.length) {
+                $currentPageImageCatalog.set_current_image_with_index(0);
+            } else {
+                $currentPageImageCatalog.next_image();
+            }
+            image_to_display = $currentPageImageCatalog.get_image();
+        }
         set_image_focus(true);
     }
 
     function previous_image() {
         set_image_focus(false);
-        $currentPageImageCatalog.previous_image();
-        image_to_display = $currentPageImageCatalog.get_image();
+        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
+            const img_index = $currentPageImageCatalog.current_index;
+            const len = $currentPageImageCatalog.image_paths.length;
+            if ((img_index -1) < 0) {
+                $currentPageImageCatalog.set_current_image_with_index(len - 1);
+            } else {
+                $currentPageImageCatalog.previous_image();
+            }
+            image_to_display = $currentPageImageCatalog.get_image();
+        }
         set_image_focus(true);
     }
 
@@ -90,11 +107,21 @@
     })
 </script>
 
+
+
+
+
+
 <svelte:head>
   {#each images_to_preload as image}
     <link rel="preload" as="image" href={image} />
   {/each}
 </svelte:head>
+
+
+
+
+
 
 
 <div class="homepageImageCardsContainer">

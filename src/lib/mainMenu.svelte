@@ -32,7 +32,7 @@
 		},
 	};
 
-
+	
 
 	const handleDropdownClick = () => {
 		if ($isLanguageDropdownOpen) {
