@@ -13,9 +13,9 @@
     <div id="banner1" class="textInBanner">
         <h1>Retratos</h1>
         <p>
-            Guarde recordações sobre grandes momentos de sua vida
-            (casamento, festa de 15 anos, formaturas) com um
-            ensaio pessoal e personalizado.
+            Faça um ensaio pessoal e personalizado que captura
+            a sua essência. Seja para melhorar a sua auto-estima sobre você mesmo,
+            ou, para criar recordações do seu "eu" atual.
         </p>
     </div>
 </div>
@@ -24,8 +24,9 @@
     <div id="banner2" class="textInBanner">
         <h1>Cobertura de eventos</h1>
         <p>
-            Uma boa forma de se posicionar no mercado é ter uma fotografia
-            que comunique quem você é para os seus clientes.
+            Registro grandes momentos nos mais diversos
+            tipos de eventos, como aniversários, palestras,
+            formaturas, casamentos e mais.
         </p>
     </div>
 
