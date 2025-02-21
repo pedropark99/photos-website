@@ -32,6 +32,7 @@ export function imageCatalog(index, image_paths) {
     }
     this.get_image = () => {return this.current_image};
     this.next_image = () => {
+        console.log(`Entering next image at ${this.current_index} with ${this.current_image}`)
         if ((this.current_index + 1) < this.image_paths.length) {
             this.current_index = this.current_index + 1;
         }

@@ -14,6 +14,16 @@
     let desktop_catalog = new imageCatalog(0, images_desktop);
     let mobile_catalog = new imageCatalog(0, images_mobile);
 
+    function remove_desktop_catalog() {
+        const elem = document.getElementsByClassName("desktopCarouselContainer");
+        elem[0].remove();
+    }
+
+    onMount(() => {
+        if (window.innerWidth < 767) {
+            remove_desktop_catalog();
+        }
+    })
 </script>
 
 

@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
     import {Fa} from "svelte-fa";
+    import { automatic_carousel } from './../stores.js';
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
     
@@ -11,12 +12,12 @@
     $: image_to_display = image_catalog.get_image();
 
     
-    let automatic_slideshow = true;
+    let interval_id;
     const index_button_class = "indexImageButton" + " " + id;
 
     function goto_image_index(click_event) {
         const index_as_int = parseInt(click_event.target.id);
-        automatic_slideshow = false;
+        $automatic_carousel = false;
         image_catalog.set_current_image_with_index(index_as_int);
         image_to_display = image_catalog.get_image();
 
@@ -55,16 +56,17 @@
     }
 
     function click_previous_image() {
-        automatic_slideshow = false;
+        $automatic_carousel = false;
         previous_image();
     }
 
     function click_next_image() {
-        automatic_slideshow = false;
+        $automatic_carousel = false;
         next_image();
     }
 
     function set_button_focus() {
+        console.log("Entering focus " + id)
         const buttons = document.getElementsByClassName(index_button_class);
         const index = image_catalog.current_index;
         const length = image_catalog.image_paths.length;
@@ -83,14 +85,18 @@
     }
 
     function slideshow() {
-        if (automatic_slideshow) {
+        console.log("Entering slideshow " + id)
+        if ($automatic_carousel) {
             next_image();
+        } else {
+            console.log("Hora de parar " + id)
+            clearInterval(interval_id);
         }
     }
 
     onMount(() => {
         set_button_focus();
-        setInterval(slideshow, 6000);
+        interval_id = setInterval(slideshow, 6000);
     })
 </script>
 
@@ -113,8 +119,8 @@
     </div>
 
     {#key image_to_display}
-        <div class="currentImageInCarousel {id}" in:fade={{delay:50, duration:700}}>
-            <img class="imageInCarousel {id}" alt="" src="{image_to_display}">
+        <div class="currentImageInCarousel {id}" in:fade={{delay:0, duration:300}}>
+            <img class="imageInCarousel {id}" alt="" src={image_to_display}>
         </div>
     {/key}
 </div>
@@ -133,7 +139,7 @@
     .carouselContainer img {
         max-width: 100%;
         display: flex;
-        align-items: center;
+        object-fit: contain;
     }
 
     img {
@@ -197,7 +203,6 @@
 
 
     @media (max-width: 767px) {
-
         .swapImageButtonsContainer {
             margin-bottom: 10px;
         }
