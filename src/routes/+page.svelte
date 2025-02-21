@@ -1,8 +1,9 @@
 <script>
-	import MainMenu from "../lib/mainMenu.svelte";
+	import MainMenu from "$lib/mainMenu.svelte";
 	import { onMount } from 'svelte';
 	import is_string from "$lib/utils";
 	import HomepageCards from "$lib/homepageCards.svelte";
+	import Banners from "$lib/banners.svelte";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
     import Footer from "$lib/footer.svelte";
@@ -68,14 +69,10 @@
 	<MainMenu/>
 
 	<div class="pageContent">
-		<div class="leftEmptySpace"></div>
 
+		<HomepageCards />
 
-		<div class="actualPageContent">
-
-			<HomepageCards />
-
-
+		<div class="textContainer" >
 			<h2>{page_text[local_locale]["welcome"]}</h2>
 			<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
 
@@ -85,16 +82,13 @@
 				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
-
-			<CopyrightMessage />
-
-
 		</div>
 
+		<Banners />
 
-		<div class="rightEmptySpace"></div>
+		<CopyrightMessage />
+
 	</div>
-
 
 	<Footer />
 

@@ -7,8 +7,11 @@
 </script>
 
 
-<div class="copyrightMessage">&copy Copyright Pedro Duarte Faria. {@html page_text[$locale]}</div>
-
+<div class="textContainer">
+    <div class="copyrightMessage">
+        &copy Copyright Pedro Duarte Faria. {@html page_text[$locale]}
+    </div>
+</div>
 
 <style>
     .copyrightMessage {

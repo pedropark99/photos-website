@@ -89,7 +89,6 @@
 						icon={faGlobe}
 						color="var(--main-text-brown-color)"
 						size="18pt"
-						alt=""
 				/></button>
 	
 				{#if $isLanguageDropdownOpen}
@@ -133,7 +132,6 @@
 						icon={faGlobe}
 						color="var(--main-text-brown-color)"
 						size="18pt"
-						alt=""
 					/>
 				</button>
 

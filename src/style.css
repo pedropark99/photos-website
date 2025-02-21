@@ -18,6 +18,11 @@
     --orange-coral-color: #FF8A5B;
 }
 
+body {
+    margin: 0 0;
+    padding: 0 0;
+}
+
 
 .app {
     display: grid;
@@ -25,18 +30,26 @@
     justify-items: center;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
 }
 
+.pageContent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
 
 p {
     text-align: justify;
     word-wrap: break-word;
 }
 
-
-.pageContent {
-    display: grid;
-    grid-template-columns: 18% 64% 18%;
+.textContainer {
+    width: 90%;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -46,9 +59,8 @@ p {
         grid-template-rows: 120px 1fr;
     }
 
-    .pageContent {
-        display: grid;
-        grid-template-columns: 2vw 94vw 2vw;
+    .textContainer {
+        width: 90%;
     }
 }
 

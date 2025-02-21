@@ -56,31 +56,25 @@
 <div class="app"  on:click={ (event) => {closeMenuWithClickOutside(event)} }>
 	<MainMenu/>
     <div class="pageContent">
-		<div class="leftEmptySpace"></div>
 
-		<div class="actualPageContent">
+		<div class="myPersonalPhoto">
+			<img src="IMG_3378.webp" alt="Me" width="90%" />
+		</div>
 
-			<div class="myPersonalPhoto">
-				<img src="IMG_3378.webp" alt="Me" width="90%" />
-			</div>
-
+		<div class="textContainer">
 			<h2>{@html page_text[local_locale]["title"]}</h2>
 			<p>{@html page_text[local_locale]["body.p1"]}</p>
 			<p>{@html page_text[local_locale]["body.p2"]}</p>
-
-
+		
 			<div class="merchButtons">
 				<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
 				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
 				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
 			</div>
-
-			
-			<CopyrightMessage />
-
 		</div>
 
-		<div class="rightEmptySpace"></div>
+			
+		<CopyrightMessage />
 
 	</div>
 
@@ -100,10 +94,11 @@
 	}
 
 	.myPersonalPhoto {
-		display: block;
-		text-align: center;
-		justify-content: center;
+		display: flex;
+		justify-items: center;
 		align-items: center;
+		margin: 0 auto;
+		width: 60%;
 	}
 
 	button a {
