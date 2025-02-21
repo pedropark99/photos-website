@@ -8,7 +8,7 @@ export let isLanguageDropdownOpen = writable(false);
 export let eventViewId = writable(0);
 export let displayImageZoom = writable(false);
 export let imageSelected = writable("");
-export let currentPageImageCatalog = writable(new imageCatalog("", []));
+export let currentPageImageCatalog = writable(new imageCatalog(0, []));
 
 
 

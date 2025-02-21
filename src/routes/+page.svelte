@@ -73,14 +73,15 @@
 		<HomepageCards />
 
 		<div class="textContainer" >
-			<h2>{page_text[local_locale]["welcome"]}</h2>
-			<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
+			<div class="homepageText">
+				<p>{@html page_text[local_locale]["body.p1"] + page_text[local_locale]["body.p2"]}</p>
 
-			<p>{@html page_text[local_locale]["merch"]}</p>
-			<div class="merchButtons">
-				<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
-				<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
-				<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
+				<p>{@html page_text[local_locale]["merch"]}</p>
+				<div class="merchButtons">
+					<button><a href="https://www.instagram.com/mineiro.pelasruas/">Instagram</a></button>
+					<button><a href="https://wa.me/5531985124294">WhatsApp</a></button>
+					<button><a href="mailto:pedropark99@gmail.com">Email</a></button>
+				</div>
 			</div>
 		</div>
 
@@ -107,6 +108,9 @@
 		margin-bottom: 10px;
 	}
 
+	.homepageText {
+		margin-top: 50px;
+	}
 
 	button a {
 		font-family: Outfit, serif;

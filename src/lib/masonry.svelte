@@ -3,7 +3,7 @@
 	import { imageCatalog } from "$lib/image_catalog";
     import { currentPageImageCatalog } from './../stores.js';
     export let images = [];
-    $currentPageImageCatalog = new imageCatalog(images[0], images);
+    $currentPageImageCatalog = new imageCatalog(0, images);
 
     function get_screen_width() {
         return (window.innerWidth > 0) ? window.innerWidth : screen.width;

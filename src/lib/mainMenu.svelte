@@ -1,13 +1,11 @@
 <script>
 	import Fa from "svelte-fa";
-	import {
-		faInstagram,
-		faWhatsapp,
-	} from "@fortawesome/free-brands-svg-icons";
-	import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 	import { faGlobe, faBars } from "@fortawesome/free-solid-svg-icons";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
 	import Logo from "./../../static/logov2.png?enhanced";
+	import InstagramContact from '$lib/instagramContact.svelte';
+	import WhatsappContact from '$lib/whatsappContact.svelte';
+	import EmailContact from '$lib/emailContact.svelte';
 
 	let local_locale = "Português";
 	const locale_callback = locale.subscribe((value) => {
@@ -101,9 +99,9 @@
 
 
 			<div class="socialMediaContact">
-				<a href="https://www.instagram.com/mineiro.pelasruas/"> <Fa icon={faInstagram} color="var(--main-text-brown-color)" size="20pt"/> </a>
-				<a href="https://wa.me/5531985124294"> <Fa icon={faWhatsapp} color="var(--main-text-brown-color)" size="20pt"/> </a>
-				<a href="mailto:pedropark99@gmail.com"> <Fa icon={faEnvelope} color="var(--main-text-brown-color)" size="20pt"/> </a>
+				<InstagramContact />
+				<WhatsappContact />
+				<EmailContact />
 			</div>
 		</div>
 	</div>
@@ -142,7 +140,6 @@
 					<Fa
 						icon={faBars}
 						color="white"
-						alt=""
 					/>
 				</button>
 				
@@ -168,6 +165,8 @@
 	</nav>
 
 </header>
+
+
 
 
 

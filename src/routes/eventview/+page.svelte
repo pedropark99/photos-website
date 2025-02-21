@@ -35,7 +35,7 @@
 		images.push(image_path_fixed)
 	}
 
-	$currentPageImageCatalog = new imageCatalog(images[0], images);
+	$currentPageImageCatalog = new imageCatalog(0, images);
 
 	let formatted_event_date;
 	const event_date = new Date(event.event_date);

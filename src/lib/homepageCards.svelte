@@ -5,32 +5,15 @@
     import { fade } from 'svelte/transition';
     import {Fa} from "svelte-fa";
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-
-    const images_desktop = [
-        'street/img1.webp',
-        'street/img2.webp',
-        'street/img3.webp',
-        'street/img5.webp',
-        'street/img7.webp',
-        'street/img8.webp',
-        'portraits/img2.webp',
-        'portraits/img5.webp',
-        'portraits/img4.webp',
-    ]
-    const images_mobile = [
-        'portraits/img2.webp',
-        'street/img9.webp',
-        'portraits/img3.webp',
-        'street/img18.webp',
-        'street/img23.webp',
-        'portraits/img4.webp',
-        'portraits/img5.webp',
-        'street/img16.webp',
-    ]
-    const images_to_preload = [...new Set(images_desktop.concat(images_mobile))]
+    import {
+        images_desktop,
+        images_mobile,
+        images_to_preload
+    } from '../data/homepage_cards_data.js';
+    
     var images = images_desktop;
     let automatic_slideshow = true;
-    $currentPageImageCatalog = new imageCatalog(images[0], images);
+    $currentPageImageCatalog = new imageCatalog(0, images);
 
     const page_text = {
         "English": {
@@ -45,21 +28,19 @@
     function change_to_image_index(click_event) {
         const index_as_int = parseInt(click_event.target.id);
         automatic_slideshow = false;
-        set_image_focus(false);
         $currentPageImageCatalog.set_current_image_with_index(index_as_int);
         image_to_display = $currentPageImageCatalog.get_image();
-        set_image_focus(true);
+    
+        set_button_focus();
     }
 
     function slideshow() {
         if (automatic_slideshow) {
             next_image();
-            setTimeout(slideshow, 6000);
         }
     }
 
     function next_image() {
-        set_image_focus(false);
         if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
             const img_index = $currentPageImageCatalog.current_index;
             if ((img_index + 1) >= $currentPageImageCatalog.image_paths.length) {
@@ -68,12 +49,12 @@
                 $currentPageImageCatalog.next_image();
             }
             image_to_display = $currentPageImageCatalog.get_image();
+
+            set_button_focus();
         }
-        set_image_focus(true);
     }
 
     function previous_image() {
-        set_image_focus(false);
         if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
             const img_index = $currentPageImageCatalog.current_index;
             const len = $currentPageImageCatalog.image_paths.length;
@@ -83,8 +64,9 @@
                 $currentPageImageCatalog.previous_image();
             }
             image_to_display = $currentPageImageCatalog.get_image();
+
+            set_button_focus();
         }
-        set_image_focus(true);
     }
 
     function click_previous_image() {
@@ -97,17 +79,21 @@
         next_image();
     }
 
-    function set_image_focus(invert) {
+    function set_button_focus() {
         const buttons = document.getElementsByClassName("indexImageCardButton");
-        if (typeof $currentPageImageCatalog.current_index !== 'undefined') {
-            let button_to_change = buttons[$currentPageImageCatalog.current_index];
-            if (invert) {
-                button_to_change.style.background = "var(--main-text-brown-color)";
-                button_to_change.style.borderColor = "var(--argentinian-blue)";
-            } else {
-                button_to_change.style.background = "var(--argentinian-blue)";
-                button_to_change.style.borderColor = "var(--main-text-brown-color)";
-            }
+        const index = $currentPageImageCatalog.current_index;
+        const length = $currentPageImageCatalog.image_paths.length;
+        if (length === 0) {
+            return;
+        }
+
+        for (let i = 0; i < length; i++) {
+            buttons[i].classList.remove("active");
+        }
+    
+        if (typeof index !== 'undefined' && buttons.length > 0) {
+            let button_to_change = buttons[index];
+            button_to_change.classList.add("active");
         }
     }
 
@@ -115,14 +101,14 @@
     onMount(() => {
         // This makes the h1 transition work
         ready = true;
-        set_image_focus(true);
-    
         if (window.innerWidth < 767) {
             images = images_mobile;
         } else {
             images = images_desktop;
         }
-        $currentPageImageCatalog = new imageCatalog(images[0], images);
+        $currentPageImageCatalog = new imageCatalog(0, images);
+
+        set_button_focus();
         setTimeout(slideshow, 6000);
     })
 </script>
@@ -172,6 +158,8 @@
 </div>
 
 
+
+
 <style>
     .homepageImageCardsContainer img {
         max-width: 100%;
@@ -200,7 +188,7 @@
         margin-bottom: 15px;
     }
 
-    .swapImageCardButtonsContainer button {
+    .swapImageCardButtonsContainer button.swapImageCardButton {
         background: none;
         border: none;
     }
@@ -217,12 +205,13 @@
         border-radius: 5px;
     }
 
-    .swapImageCardButtonsContainer .indexImageCardButton:hover {
+    .indexImageCardButton:hover {
         cursor: pointer;
         box-shadow: 2px 2px 6px #000000;
     }
 
-    .swapImageCardButtonsContainer .indexImageCardButton {
+
+    .indexImageCardButton {
         width: 15px;
         height: 15px;
         border-radius: 10px;
@@ -231,6 +220,11 @@
         background: var(--argentinian-blue);
         border-style: solid;
         border-color: var(--main-text-brown-color);
+    }
+
+    :global(.indexImageCardButton.active) {
+        background: var(--main-text-brown-color) !important;
+        border-color: var(--argentinian-blue) !important;
     }
 
 
