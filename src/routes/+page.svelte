@@ -2,7 +2,7 @@
 	import MainMenu from "$lib/mainMenu.svelte";
 	import { onMount } from 'svelte';
 	import is_string from "$lib/utils";
-	import HomepageCards from "$lib/homepageCards.svelte";
+	import HomepageCarousel from "$lib/homepageCarousel.svelte";
 	import Banners from "$lib/banners.svelte";
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
@@ -70,7 +70,7 @@
 
 	<div class="pageContent">
 
-		<HomepageCards />
+		<HomepageCarousel />
 
 		<div class="textContainer" >
 			<div class="homepageText">
