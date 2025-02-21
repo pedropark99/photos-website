@@ -1,108 +1,65 @@
 <script>
-    const banner_img1 = "events/ensaio-rojo-2025/IMG_2770.webp";
-    const banner_img2 = "events/galinheiro-rep-14anos/IMG_0479.webp";
-    const banner_img3 = "IMG_3378.webp";
+    import Banner from '$lib/banner.svelte';
+    import { locale } from "../stores";
+
+    let local_locale = "Português";
+	const translate_call = locale.subscribe((value) => local_locale = value);
+
+    const banners = [
+        {
+            img_src: "events/ensaio-rojo-2025/IMG_2770.webp",
+            Português: {
+                h_text: "Retratos",
+                p_text: 'Faça um ensaio pessoal e personalizado que captura a sua essência. Seja para melhorar a sua auto-estima sobre você mesmo, ou, para criar recordações do seu "eu" atual.'
+            },
+            English: {
+                h_text: "Portraits",
+                p_text: "Create a personal and personalized photo shoot that captures your essence. Whether it's to improve your self-esteem, or, to create memories of your current self."
+            }
+        },
+        {
+            img_src: "events/galinheiro-rep-14anos/IMG_0479.webp",
+            Português: {
+                h_text: "Cobertura de eventos",
+                p_text: "Registro grandes momentos nos mais diversos tipos de eventos, como aniversários, palestras, formaturas, casamentos e mais."
+            },
+            English: {
+                h_text: "Event coverage",
+                p_text: "I record great moments at the most diverse types of events, such as birthdays, lectures, graduations, weddings and more."
+            }
+        },
+        {
+            img_src: "IMG_3378.webp",
+            Português: {
+                h_text: "Ensaios corporativos",
+                p_text: "Uma boa forma de se posicionar no mercado é ter uma fotografia que comunique quem você é para os seus clientes."
+            },
+            English: {
+                h_text: "Corporate",
+                p_text: "A good way to position yourself in the market is to have a photograph that communicates who you are to your customers."
+            }
+        }
+    ];
 </script>
 
-<div class="bannerMargin"/>
-<div id="banner1" class="homepageBanner">
-    <div class="bannerImageContainer">
-        <img alt="" src="{banner_img1}" />
-    </div>
-
-    <div id="banner1" class="textInBanner">
-        <h1>Retratos</h1>
-        <p>
-            Faça um ensaio pessoal e personalizado que captura
-            a sua essência. Seja para melhorar a sua auto-estima sobre você mesmo,
-            ou, para criar recordações do seu "eu" atual.
-        </p>
-    </div>
-</div>
-
-<div id="banner2" class="homepageBanner">
-    <div id="banner2" class="textInBanner">
-        <h1>Cobertura de eventos</h1>
-        <p>
-            Registro grandes momentos nos mais diversos
-            tipos de eventos, como aniversários, palestras,
-            formaturas, casamentos e mais.
-        </p>
-    </div>
-
-    <div id="banner2" class="bannerImageContainer">
-        <img alt="" src="{banner_img2}" />
-    </div>
-</div>
-
-<div id="banner1" class="homepageBanner">
-    <div id="banner1" class="bannerImageContainer">
-        <img alt="" src="{banner_img3}" />
-    </div>
-
-    <div id="banner1" class="textInBanner">
-        <h1>Ensaios corporativos</h1>
-        <p>
-            Uma boa forma de se posicionar no mercado é ter uma fotografia
-            que comunique quem você é para os seus clientes.
-        </p>
-    </div>
-</div>
 
 <div class="bannerMargin"/>
+
+    {#each banners as banner, index}
+        <Banner
+            index={index}
+            img_src={banner.img_src}
+            h_text={banner[local_locale].h_text}
+            p_text={banner[local_locale].p_text}
+        />
+    {/each}
+
+<div class="bannerMargin"/>
+
 
 
 <style>
-    .homepageBanner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 500px;
-        width: 100vw;
-    }
-
-    #banner1 {
-        background-color: var(--main-text-brown-color);
-    }
-
-    .bannerImageContainer {
-        height: 80%;
-        padding: 40px;
-    }
-
-    .homepageBanner h1 {
-        font-family: Outfit, serif;
-		font-size: 40pt;
-		font-weight: bold;
-    }
-
-    #banner1.textInBanner h1 {
-        color: var(--moonstone-blue);
-    }
-
-    #banner1.textInBanner p {
-        color: white;
-    }
-
-    #banner2.textInBanner h1 {
-        color: var(--main-text-brown-color);
-    }
-
-    #banner2.textInBanner p {
-        color: black;
-    }
-
-    .textInBanner {
-        max-width: 25rem;
-    }
-
     .bannerMargin {
         height: 40px;
-    }
-
-    img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 10px;
     }
 </style>
