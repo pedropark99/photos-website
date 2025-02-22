@@ -129,11 +129,13 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: auto;
+            height: 700px;
             width: auto;
         }
 
         .bannerImageContainer {
+            width: 92%;
+            height: auto;
             padding: 20px;
         }
 
