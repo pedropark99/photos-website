@@ -47,7 +47,26 @@
 
 
 
+
+<div id="{id}" class="homepageMobileBanner">
+    <div id="{id}" class="bannerImageContainer">
+        <img alt="" src="{img_src}" />
+    </div>
+
+    <div id="{id}" class="textInBanner">
+        <h1>{h_text}</h1>
+        <p>
+            {p_text}
+        </p>
+    </div>
+</div>
+
+
+
+
+
 <style>
+    .homepageMobileBanner {display: none}
     .homepageBanner {
         display: flex;
         justify-content: center;
@@ -65,7 +84,7 @@
         padding: 40px;
     }
 
-    .homepageBanner h1 {
+    h1 {
         font-family: Outfit, serif;
 		font-size: 40pt;
 		font-weight: bold;
@@ -99,5 +118,32 @@
         max-width: 100%;
         max-height: 100%;
         border-radius: 10px;
+    }
+
+
+    @media (max-width: 767px) {
+        .homepageBanner {display: none}
+
+        .homepageMobileBanner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            width: auto;
+        }
+
+        .bannerImageContainer {
+            padding: 20px;
+        }
+
+        .textInBanner {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        h1 {
+            font-size: 25pt;
+        }
     }
 </style>
