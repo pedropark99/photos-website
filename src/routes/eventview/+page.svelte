@@ -25,6 +25,7 @@
 		import.meta.glob("./../../../static/events/galinheiro-rep-14anos/*.webp"),
 		import.meta.glob("./../../../static/events/aniversario-ana-2024/*.webp"),
 		import.meta.glob("./../../../static/events/ensaio-rojo-2025/*.webp"),
+		import.meta.glob("./../../../static/events/ensaio-julia-2025/*.webp"),
 	]
 
 	let event = eventsJson.events_list[$eventViewId];
