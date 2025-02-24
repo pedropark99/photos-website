@@ -19,6 +19,8 @@
     ]
     const images_mobile = [
         'portraits/img2.webp',
+        'portraits/img01.webp',
+        'portraits/img02.webp',
         'street/img9.webp',
         'portraits/img3.webp',
         'street/img18.webp',
