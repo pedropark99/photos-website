@@ -7,9 +7,7 @@
 	import { locale, isDropdownOpen, isLanguageDropdownOpen } from "../stores";
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
     import Footer from "$lib/footer.svelte";
-	import InstagramContact from "$lib/instagramContact.svelte";
-	import WhatsappContact from "$lib/whatsappContact.svelte";
-	import EmailContact from "$lib/emailContact.svelte";
+	import ContactButtons from "$lib/contactButtons.svelte";
 	import { page_text } from "../data/homepage_text";
 
 	
@@ -68,17 +66,8 @@
 					{@html page_text[local_locale]["merch"]}
 				</p>
 
-				<div class="contactHeader">
-					<p>
-						<strong>{@html page_text[local_locale]["contact.header"]}</strong>
-					</p>
-				</div>
-
-				<div class="contactButtons">
-					<InstagramContact />
-					<WhatsappContact />
-					<EmailContact />
-				</div>
+				<ContactButtons />
+				
 			</div>
 		</div>
 
@@ -109,22 +98,6 @@
 		margin-top: 50px;
 	}
 
-	.contactButtons {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 15px;
-	}
-
-	.contactHeader {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-family: 'Hanken Grotesk', sans-serif;
-		font-weight:normal;
-		font-size: 13pt;
-		color: var(--main-text-brown-color);
-	}
 
 	@media (max-width: 767px) {
 
