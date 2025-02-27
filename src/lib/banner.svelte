@@ -88,6 +88,7 @@
         font-family: Outfit, serif;
 		font-size: 40pt;
 		font-weight: bold;
+        line-height: 1;
     }
 
     #banner1.textInBanner h1 {
