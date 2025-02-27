@@ -3,17 +3,10 @@
     import InstagramContact from "./instagramContact.svelte";
     import WhatsappContact from "./whatsappContact.svelte";
     import EmailContact from "./emailContact.svelte";
+    import {page_text} from "../data/contact_buttons";
 
     let local_locale = "Português";
     const translate_call = locale.subscribe((value) => local_locale = value);
-    const page_text = {
-        English: {
-            "contact.header": "CONTACT ME:",
-        },
-        Português: {
-            "contact.header": "ENTRE EM CONTATO:",
-        }
-    }
 </script>
 
 
