@@ -79,11 +79,11 @@
         -ms-animation: banner-scroll-fade linear;
         -o-animation: banner-scroll-fade linear;
         animation: banner-scroll-fade linear;
-        animation-timeline: view(700px 0px);
+        animation-timeline: view(800px 0px);
     }
 
     @keyframes banner-scroll-fade {
-        from { scale: 0.8; opacity: 0; }
+        from { scale: 0.9; opacity: 0; }
         to   { scale: 1; opacity: 1; }
     }
 
