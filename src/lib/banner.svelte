@@ -1,7 +1,9 @@
 <script lang="ts">
     import { fade, slide, fly } from "svelte/transition";
+    import { onMount } from "svelte";
 
     let y = 0;
+    let viewport_height = 400;
     let id = "banner1";
     export let img_src;
     export let index = 0;
@@ -12,14 +14,18 @@
         id = "banner2";
     }
 
+    onMount(() => {
+        viewport_height = (window.innerHeight / 2.5);
+    })
+
 </script>
 
 <svelte:window bind:scrollY={y} />
 
 
-{#if y >= ((index + 1) * 400)}
-    <span transition:fade={{ duration: 500 }}>
-    <div id="{id}" class="homepageBanner" transition:slide={{ duration: 1000, axis: 'x' }}>
+{#if y >= ((index + 1) * viewport_height)}
+    <span transition:fade={{ duration: 300 }}>
+    <div id="{id}" class="homepageBanner" transition:slide={{ duration: 350, axis: 'x' }}>
         {#if id === "banner1"}
 
             <div id="{id}" class="bannerImageContainer">
@@ -51,7 +57,7 @@
 
 
 
-{#if y >= ((index + 1) * 500)}
+{#if y >= ((index + 1) * viewport_height)}
     <div id="{id}" class="homepageMobileBanner" in:fly={{ duration: 1000, x: -40 }} out:fade>
         <div id="{id}" class="bannerImageContainer">
             <img alt="" src="{img_src}" />
