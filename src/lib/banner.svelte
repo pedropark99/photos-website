@@ -18,7 +18,7 @@
 
 
 {#if y >= ((index + 1) * 400)}
-    <span transition:fade>
+    <span transition:fade={{ duration: 500 }}>
     <div id="{id}" class="homepageBanner" transition:slide={{ duration: 1000, axis: 'x' }}>
         {#if id === "banner1"}
 
