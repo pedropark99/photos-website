@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fade, slide } from "svelte/transition";
+    import { fade, slide, fly } from "svelte/transition";
 
     let y = 0;
     let id = "banner1";
@@ -51,19 +51,20 @@
 
 
 
+{#if y >= ((index + 1) * 500)}
+    <div id="{id}" class="homepageMobileBanner" in:fly={{ duration: 1000, x: -40 }} out:fade>
+        <div id="{id}" class="bannerImageContainer">
+            <img alt="" src="{img_src}" />
+        </div>
 
-<div id="{id}" class="homepageMobileBanner">
-    <div id="{id}" class="bannerImageContainer">
-        <img alt="" src="{img_src}" />
+        <div id="{id}" class="textInBanner">
+            <h1>{h_text}</h1>
+            <p>
+                {p_text}
+            </p>
+        </div>
     </div>
-
-    <div id="{id}" class="textInBanner">
-        <h1>{h_text}</h1>
-        <p>
-            {p_text}
-        </p>
-    </div>
-</div>
+{/if}
 
 
 
