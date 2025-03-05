@@ -73,6 +73,18 @@
         align-items: center;
         height: 500px;
         width: 100vw;
+
+        -webkit-animation: banner-scroll-fade linear;
+        -moz-animation: banner-scroll-fade linear;
+        -ms-animation: banner-scroll-fade linear;
+        -o-animation: banner-scroll-fade linear;
+        animation: banner-scroll-fade linear;
+        animation-timeline: view(700px 0px);
+    }
+
+    @keyframes banner-scroll-fade {
+        from { scale: 0.8; opacity: 0; }
+        to   { scale: 1; opacity: 1; }
     }
 
     #banner1 {
