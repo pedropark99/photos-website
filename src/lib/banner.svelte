@@ -2,7 +2,6 @@
     import { fade, slide } from "svelte/transition";
 
     let y = 0;
-    $: console.log(y);
     let id = "banner1";
     export let img_src;
     export let index = 0;
