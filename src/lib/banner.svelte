@@ -15,7 +15,11 @@
     }
 
     onMount(() => {
-        viewport_height = (window.innerHeight / 2.5);
+        if (window.innerWidth < 767) {
+            viewport_height = window.innerHeight / 1.5;
+        } else {
+            viewport_height = (window.innerHeight / 2.5);
+        }
     })
 
 </script>
@@ -58,7 +62,7 @@
 
 
 {#if y >= ((index + 1) * viewport_height)}
-    <div id="{id}" class="homepageMobileBanner" in:fly={{ duration: 1000, x: -40 }} out:fade>
+    <div id="{id}" class="homepageMobileBanner" in:fly={{ duration: 350, x: -40 }} out:fade>
         <div id="{id}" class="bannerImageContainer">
             <img alt="" src="{img_src}" />
         </div>
