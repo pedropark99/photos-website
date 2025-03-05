@@ -66,7 +66,6 @@
     }
 
     function set_button_focus() {
-        console.log("Entering focus " + id)
         const buttons = document.getElementsByClassName(index_button_class);
         const index = image_catalog.current_index;
         const length = image_catalog.image_paths.length;
@@ -85,11 +84,9 @@
     }
 
     function slideshow() {
-        console.log("Entering slideshow " + id)
         if ($automatic_carousel) {
             next_image();
         } else {
-            console.log("Hora de parar " + id)
             clearInterval(interval_id);
         }
     }
