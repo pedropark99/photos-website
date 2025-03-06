@@ -86,18 +86,9 @@
 
 
 <style>
-	h2 {
-		font-family: Outfit, serif;
-		font-size: 25pt;
-		font-weight: bold;
-		color: #3c190b;
-		margin-bottom: 10px;
-	}
-
 	.homepageText {
 		margin-top: 50px;
 	}
-
 
 	@media (max-width: 767px) {
 
