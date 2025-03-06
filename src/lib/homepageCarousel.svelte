@@ -41,12 +41,12 @@
 
 
 <div class="desktopCarouselContainer">
-    <Carousel image_catalog={desktop_catalog} id="desktop"/>
+    <Carousel image_catalog={desktop_catalog} />
 </div>
 
 
 <div class="mobileCarouselContainer">
-    <Carousel image_catalog={mobile_catalog} id="mobile"/>
+    <Carousel image_catalog={mobile_catalog} />
 </div>
 
 
