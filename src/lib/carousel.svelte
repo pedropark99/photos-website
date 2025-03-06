@@ -9,6 +9,10 @@
     
     export let id;
     export let image_catalog = new imageCatalog(0, []);
+    // let local_automatic_carousel = true;
+    // const local_automatic_carousel_callback = automatic_carousel.subscribe((value) => {
+    //     local_automatic_carousel = value;
+    // })
     $: image_to_display = image_catalog.get_image();
 
     
