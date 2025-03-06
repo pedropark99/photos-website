@@ -43,6 +43,13 @@
 </script>
 
 
+<svelte:head>
+    {#each banners as banner}
+        <link rel="preload" as="image" href={banner.img_src} />
+    {/each}
+</svelte:head>
+
+
 <div class="bannerMargin"/>
 
     {#each banners as banner, index}
