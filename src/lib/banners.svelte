@@ -7,7 +7,7 @@
 
     const banners = [
         {
-            img_src: "events/ensaio-rojo-2025/IMG_2770.webp",
+            img_src: "events/ensaio-rojo-2025/IMG_2770_small_1000.webp",
             Português: {
                 h_text: "Retratos",
                 p_text: 'Faça um ensaio pessoal e personalizado que captura a sua essência. Seja para melhorar a sua auto-estima sobre você mesmo, ou, para criar recordações do seu "eu" atual.'
@@ -18,7 +18,7 @@
             }
         },
         {
-            img_src: "events/galinheiro-rep-14anos/IMG_0479.webp",
+            img_src: "events/galinheiro-rep-14anos/IMG_0479_small_1000.webp",
             Português: {
                 h_text: "Cobertura de eventos",
                 p_text: "Registro grandes momentos nos mais diversos tipos de eventos, como aniversários, palestras, formaturas, casamentos e mais."
@@ -29,7 +29,7 @@
             }
         },
         {
-            img_src: "IMG_3378.webp",
+            img_src: "IMG_3378_small_1000.webp",
             Português: {
                 h_text: "Ensaios corporativos",
                 p_text: "Uma boa forma de se posicionar no mercado é ter uma fotografia que comunique quem você é para os seus clientes."
