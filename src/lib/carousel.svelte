@@ -180,14 +180,14 @@
         }
 
         .siemaController {
-            height: 50vh;
+            height: 45vh;
             width: 90vw;
         }
 
         .siemaController img {
             width: auto;
             height: auto;
-            max-height: 90vh;
+            max-height: 45vh;
             max-width: 90vw;
         }
 

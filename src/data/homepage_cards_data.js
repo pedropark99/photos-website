@@ -11,16 +11,16 @@ export const images_desktop = [
 ];
 
 export const images_mobile = [
-    'portraits/img2.webp',
-    'portraits/img01.webp',
-    'portraits/img02.webp',
-    'street/img9.webp',
-    'portraits/img8.webp',
-    'street/img18.webp',
-    'street/img23.webp',
-    'portraits/img4.webp',
-    'portraits/img5.webp',
-    'street/img16.webp',
+    'portraits/img2_mobile_915.webp',
+    'portraits/img01_mobile_915.webp',
+    'portraits/img02_mobile_915.webp',
+    'street/img9_mobile_915.webp',
+    'portraits/img8_mobile_915.webp',
+    'street/img18_mobile_915.webp',
+    'street/img23_mobile_915.webp',
+    'portraits/img4_mobile_915.webp',
+    'portraits/img5_mobile_915.webp',
+    'street/img16_mobile_915.webp',
 ];
 
 export const page_text = {
