@@ -80,8 +80,7 @@
         </button>
 
         {#each image_catalog.image_paths as image, index }
-            <button id="{index}" class="indexImageButton {id}" on:click={(click_event) => goto_image_index(click_event)}>
-            </button>
+            <button id="{index}" class="indexImageButton {id}" on:click={(click_event) => goto_image_index(click_event)} />
         {/each}
 
         <button class="swapImageButton {id}" on:click={click_next_image}>
