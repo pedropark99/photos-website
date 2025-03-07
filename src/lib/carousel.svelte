@@ -29,8 +29,7 @@
             } else {
                 image_catalog.next_image();
             }
-            local_image_to_display = image_catalog.get_image();
-            local_image_index = image_catalog.current_index;
+            image_to_display = image_catalog.get_image();
         }
     }
 
@@ -44,8 +43,7 @@
             } else {
                 image_catalog.previous_image();
             }
-            local_image_to_display = image_catalog.get_image();
-            local_image_index = image_catalog.current_index;
+            image_to_display = image_catalog.get_image();
         }
     }
 
@@ -90,9 +88,9 @@
         </button>
     </div>
 
-    {#key local_image_to_display}
+    {#key image_to_display}
         <div class="currentImageInCarousel" in:fade={{delay:0, duration:300}}>
-            <img class="imageInCarousel" alt="" src={local_image_to_display}>
+            <img class="imageInCarousel" alt="" src={image_to_display}>
         </div>
     {/key}
 </div>
