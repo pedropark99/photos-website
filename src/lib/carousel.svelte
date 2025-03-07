@@ -1,73 +1,31 @@
 <script>
-    import { imageCatalog } from './image_catalog.js';
+    import Siema from 'siema';
     import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';
     import {Fa} from "svelte-fa";
-    import { automatic_carousel } from './../stores.js';
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
-    let interval_id;
-    export let image_catalog = new imageCatalog(0, []);
-    let local_image_to_display = image_catalog.get_image();
-    let local_image_index = image_catalog.current_index;
+    
+    export let id;
+    export let image_catalog;
+    let siema_obj;
+    let siema_controller;
 
+    function next_slide() {
+        siema_controller.next();
+    }
+
+    function prev_slide() {
+        siema_controller.prev();
+    }
 
     function goto_image_index(click_event) {
         const index_as_int = parseInt(click_event.target.id);
-        $automatic_carousel = false;
-        image_catalog.set_current_image_with_index(index_as_int);
-        local_image_to_display = image_catalog.get_image();
-        local_image_index = image_catalog.current_index;
-
-        set_button_focus();
-    }
-
-    function next_image() {
-        if (typeof image_catalog.current_index !== 'undefined') {
-            const img_index = image_catalog.current_index;
-            const len = image_catalog.image_paths.length;
-            if ((img_index + 1) >= len) {
-                image_catalog.set_current_image_with_index(0);
-            } else {
-                image_catalog.next_image();
-            }
-            local_image_to_display = image_catalog.get_image();
-            local_image_index = image_catalog.current_index;
-        }
-
-        set_button_focus();
-    }
-
-
-    function previous_image() {
-        if (typeof image_catalog.current_index !== 'undefined') {
-            const img_index = image_catalog.current_index;
-            const len = image_catalog.image_paths.length;
-            if ((img_index -1) < 0) {
-                image_catalog.set_current_image_with_index(len - 1);
-            } else {
-                image_catalog.previous_image();
-            }
-            local_image_to_display = image_catalog.get_image();
-            local_image_index = image_catalog.current_index;
-        }
-
-        set_button_focus();
-    }
-
-    function click_previous_image() {
-        $automatic_carousel = false;
-        previous_image();
-    }
-
-    function click_next_image() {
-        $automatic_carousel = false;
-        next_image();
+        siema_controller.goTo(index_as_int);
     }
 
     function set_button_focus() {
         const buttons = document.getElementsByClassName("indexImageButton");
-        const index = local_image_index;
+        const index = siema_controller.currentSlide;
         const length = image_catalog.image_paths.length;
         if (length === 0 || buttons.length === 0) {
             return;
@@ -83,76 +41,59 @@
         }
     }
 
-    function slideshow() {
-        if ($automatic_carousel) {
-            next_image();
-        } else {
-            clearInterval(interval_id);
-        }
-    }
 
     onMount(() => {
-        local_image_index = 0;
-        local_image_to_display = image_catalog.get_image();
-        set_button_focus();
-        interval_id = setInterval(slideshow, 6000);
+        siema_obj = document.getElementById(id);
+		siema_controller = new Siema({
+			selector: siema_obj,
+            duration: 200,
+            easing: 'ease-out',
+            perPage: 1,
+            startIndex: 0,
+            draggable: true,
+            multipleDrag: true,
+            threshold: 20,
+            loop: true,
+            rtl: false,
+            onInit: () => {set_button_focus},
+            onChange: () => {set_button_focus},
+		})
     })
 </script>
 
 
 
+<div class="swapImageButtonsContainer">
+    <button class="swapImageButton" on:click={prev_slide}>
+        <Fa icon={faChevronLeft} size="14pt" color="var(--main-text-brown-color)" />
+    </button>
+
+    {#each image_catalog.image_paths as image, index }
+        <button id="{index}" class="indexImageButton" on:click={(event) => goto_image_index(event)}/>
+    {/each}
+
+    <button class="swapImageButton" on:click={next_slide}>
+        <Fa icon={faChevronRight} size="14pt" color="var(--main-text-brown-color)" />
+    </button>
+</div>
+
+
 <div class="carouselContainer">
-    <div class="swapImageButtonsContainer">
-        <button class="swapImageButton" on:click={click_previous_image}>
-            <Fa icon={faChevronLeft} size="14pt" color="var(--main-text-brown-color)" />
-        </button>
-
-        {#each image_catalog.image_paths as image, index }
-            <button id="{index}" class="indexImageButton" on:click={(click_event) => goto_image_index(click_event)} />
+    <div id={id} class="siemaController">
+        {#each image_catalog.image_paths as image}
+            <div class="carouselSlideContainer">
+                <img alt="" src={image}/>
+            </div>
         {/each}
-
-        <button class="swapImageButton" on:click={click_next_image}>
-            <Fa icon={faChevronRight} size="14pt" color="var(--main-text-brown-color)" />
-        </button>
     </div>
-
-    {#key local_image_to_display}
-        <div class="currentImageInCarousel" in:fade={{delay:0, duration:300}}>
-            <img class="imageInCarousel" alt="" src={local_image_to_display}>
-        </div>
-    {/key}
 </div>
 
 
 
 
+
+
 <style>
-    .carouselContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .carouselContainer img {
-        max-width: 100%;
-        display: flex;
-        object-fit: contain;
-    }
-
-    img {
-        border-radius: 10px;
-        max-height: 900px;
-    }
-
-    .currentImageInCarousel {
-        display: flex;
-        object-fit: contain;
-        align-items: top;
-        justify-content: center;
-        width: 100%;
-        height: 65vh;
-    }
 
     .swapImageButtonsContainer {
         display: flex;
@@ -194,9 +135,27 @@
         border-color: var(--main-text-brown-color);
     }
 
-    :global(.indexImageButton.active) {
-        background: var(--main-text-brown-color) !important;
-        border-color: var(--argentinian-blue) !important;
+    .siemaController {
+        margin: 1rem 0;
+        height: 70vh;
+        width: 60vw;
+    }
+
+    .carouselSlideContainer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .siemaController img {
+        width: auto;
+        height: auto;
+        max-width: 60vw;
+        max-height: 70vh;
+        object-fit: contain;
+        border-radius: 10px;
     }
 
 
@@ -220,32 +179,23 @@
             margin-right: 5px;
         }
 
-        .currentImageInCarousel {
+        .siemaController {
+            height: 45vh;
+            width: 90vw;
+        }
+
+        .siemaController img {
+            width: auto;
+            height: auto;
+            max-height: 45vh;
+            max-width: 90vw;
+        }
+
+        .carouselSlideContainer {
             display: flex;
             object-fit: contain;
             align-items: top;
             justify-content: center;
-            width: auto;
-            height: 60vh;
-            padding: 5px;
-        }
-
-        .currentImageInCarousel img {
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            max-width:100%;
-            max-height:100%;
-        }
-
-        :global(.indexImageButton.active) {
-            background: var(--main-text-brown-color) !important;
-            border-color: var(--argentinian-blue) !important;
-        }
-
-        .swapImageButton:hover, .swapImageButton:active {
-            background-color: var(--argentinian-blue) !important;
-            border-radius: 5px !important;
         }
     }
 </style>

@@ -247,15 +247,6 @@
 		align-items: center;
 	}
 
-	h1 {
-		font-family: Cormorant, serif;
-		font-size: 38pt;
-		font-style: italic;
-		color: var(--main-text-brown-color);
-		margin: 0px;
-		padding: 0px;
-	}
-
 	.mobileLanguageButtonDropdown {
 		background: none;
 		border: none;
@@ -402,13 +393,6 @@
 			background: var(--main-text-brown-color);
 			border: none;
 			border-radius: 5px;
-		}
-
-
-		h1 {
-			font-family: Cormorant, serif;
-			font-size: 32pt;
-			margin: 0;
 		}
 
 	}

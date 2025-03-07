@@ -62,7 +62,7 @@
 
 
 
-{#if y >= ((index + 1) * viewport_height)}
+{#if y >= ((index + 0.7) * viewport_height)}
     <div id="{id}" class="homepageMobileBanner" in:fly={{ delay: 50, duration: 1000, x: -40, easing: cubicOut }} out:fade>
         <div id="{id}" class="bannerImageContainer">
             <img alt="" src="{img_src}" />
