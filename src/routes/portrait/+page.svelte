@@ -15,6 +15,10 @@
 	var images = [];
 	for (const image_path in images_paths_webp) {
 		let image_path_fixed = String(image_path).replace('../../../static/', '')
+		const mobile_re = new RegExp("_mobile_");
+		if (mobile_re.test(image_path_fixed)) {
+			continue;
+		}
 		images.push(image_path_fixed)
 	}
 
