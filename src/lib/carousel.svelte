@@ -7,25 +7,17 @@
     import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
     
+    let interval_id;
     export let id;
     export let image_catalog = new imageCatalog(0, []);
-    // let local_automatic_carousel = true;
-    // const local_automatic_carousel_callback = automatic_carousel.subscribe((value) => {
-    //     local_automatic_carousel = value;
-    // })
     $: image_to_display = image_catalog.get_image();
 
-    
-    let interval_id;
-    const index_button_class = "indexImageButton" + " " + id;
 
     function goto_image_index(click_event) {
         const index_as_int = parseInt(click_event.target.id);
         $automatic_carousel = false;
         image_catalog.set_current_image_with_index(index_as_int);
         image_to_display = image_catalog.get_image();
-
-        set_button_focus();
     }
 
     function next_image() {
@@ -39,8 +31,6 @@
             }
             image_to_display = image_catalog.get_image();
         }
-
-        set_button_focus();
     }
 
 
@@ -55,8 +45,6 @@
             }
             image_to_display = image_catalog.get_image();
         }
-
-        set_button_focus();
     }
 
     function click_previous_image() {
@@ -69,23 +57,6 @@
         next_image();
     }
 
-    function set_button_focus() {
-        const buttons = document.getElementsByClassName(index_button_class);
-        const index = image_catalog.current_index;
-        const length = image_catalog.image_paths.length;
-        if (length === 0 || buttons.length === 0) {
-            return;
-        }
-
-        for (let i = 0; i < length; i++) {
-            buttons[i].classList.remove("active");
-        }
-    
-        if (typeof index !== 'undefined' && buttons.length > 0) {
-            let button_to_change = buttons[index];
-            button_to_change.classList.add("active");
-        }
-    }
 
     function slideshow() {
         if ($automatic_carousel) {
@@ -96,7 +67,6 @@
     }
 
     onMount(() => {
-        set_button_focus();
         interval_id = setInterval(slideshow, 6000);
     })
 </script>
