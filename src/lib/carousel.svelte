@@ -29,7 +29,8 @@
             } else {
                 image_catalog.next_image();
             }
-            image_to_display = image_catalog.get_image();
+            local_image_to_display = image_catalog.get_image();
+            local_image_index = image_catalog.current_index;
         }
     }
 
@@ -43,7 +44,8 @@
             } else {
                 image_catalog.previous_image();
             }
-            image_to_display = image_catalog.get_image();
+            local_image_to_display = image_catalog.get_image();
+            local_image_index = image_catalog.current_index;
         }
     }
 
@@ -75,7 +77,7 @@
 
 <div class="carouselContainer">
     <div class="swapImageButtonsContainer">
-        <button class="swapImageButton {id}" on:click={click_previous_image}>
+        <button class="swapImageButton" on:click={click_previous_image}>
             <Fa icon={faChevronLeft} size="14pt" color="var(--main-text-brown-color)" />
         </button>
 
@@ -83,14 +85,14 @@
             <button id="{index}" class="indexImageButton {id}" on:click={(click_event) => goto_image_index(click_event)} />
         {/each}
 
-        <button class="swapImageButton {id}" on:click={click_next_image}>
+        <button class="swapImageButton" on:click={click_next_image}>
             <Fa icon={faChevronRight} size="14pt" color="var(--main-text-brown-color)" />
         </button>
     </div>
 
-    {#key image_to_display}
-        <div class="currentImageInCarousel {id}" in:fade={{delay:0, duration:300}}>
-            <img class="imageInCarousel {id}" alt="" src={image_to_display}>
+    {#key local_image_to_display}
+        <div class="currentImageInCarousel" in:fade={{delay:0, duration:300}}>
+            <img class="imageInCarousel" alt="" src={local_image_to_display}>
         </div>
     {/key}
 </div>
