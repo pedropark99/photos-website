@@ -2,7 +2,7 @@
     import MainMenu from "../../lib/mainMenu.svelte";
 	import Masonry from "../../lib/masonry.svelte";
 	import { onMount } from "svelte";
-    import * as eventsJson from '../events/events.json';
+    import * as eventsJson from '../../data/events.json';
 	import is_string from "$lib/utils.js";
 	import {get_month_name} from "$lib/utils.js";
     import { imageCatalog } from "$lib/image_catalog";

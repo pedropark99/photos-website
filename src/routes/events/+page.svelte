@@ -3,7 +3,7 @@
     import EventThumb from "../../lib/eventThumb.svelte";
 	import is_string from "$lib/utils";
 	import { onMount } from "svelte";
-    import * as eventsJson from './events.json';
+    import * as eventsJson from '../../data/events.json';
 	import { isLanguageDropdownOpen, isDropdownOpen, locale } from './../../stores.js'
     import CopyrightMessage from "$lib/copyrightMessage.svelte";
     import Footer from "$lib/footer.svelte";
