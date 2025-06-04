@@ -59,6 +59,21 @@
                 "English": "This was a portrait session done in the Liberty Square, Belo Horizonte - MG. The main objective of this shoot was to use the backlighting technique.",
                 "Português": "Este foi um ensaio realizado na praça da Liberdade em Belo Horizonte - MG. O objetivo principal deste ensaio foi utilizar a técnica de <i>backlighting</i>."
             }
+        },
+        {
+            "id": 4,
+            "event_name": {
+                "English": "Portrait Session Ana 2025 - BH",
+                "Português": "Ensaio Ana 2025 - BH"
+            },
+            "thumb_image": "events/ensaio-ana-2025/IMG_3498.webp",
+            "event_folder": "ensaio-ana-2025/",
+            "event_date": "2025-05-31",
+            "event_location": "Belo Horizonte - MG",
+            "event_description": {
+                "English": "This was a portrait session done in the Belo Horizonte Municipal Park - MG. The main objective of this shoot was to use the backlighting technique.",
+                "Português": "Este foi um ensaio realizado no Parque Municipal de Belo Horizonte - MG. O objetivo principal deste ensaio foi utilizar a técnica de <i>backlighting</i>."
+            }
         }
     ]
 }
