@@ -11,9 +11,9 @@ export const images_desktop = [
 ];
 
 export const images_mobile = [
-    'portraits/img2_mobile_915.webp',
     'portraits/img01_mobile_915.webp',
-    'portraits/img02_mobile_915.webp',
+    'portraits/img43_mobile_915.webp',
+    'portraits/img2_mobile_915.webp',
     'street/img9_mobile_915.webp',
     'portraits/img8_mobile_915.webp',
     'street/img18_mobile_915.webp',
